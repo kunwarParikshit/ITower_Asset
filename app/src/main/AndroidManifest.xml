@@ -102,6 +102,11 @@
             android:enabled="true"
             android:exported="true" />
 
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBgWsq3urZMqeXenkij1YARBtLVtuO0uEk" />
+
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
@@ -114,6 +119,17 @@
             android:theme="@style/AppTheme.LoginPageTheme"
             android:windowSoftInputMode="adjustPan">
 
+        </activity>
+        <activity
+            android:name="com.isl.assetManagement.map.TestingMapActivity"
+            android:exported="true"
+            android:theme="@style/LightTheme"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.isl.app.auth.TokenActivity"
@@ -250,11 +266,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginPageTheme"
             android:windowSoftInputMode="stateHidden|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.isl.asset.SiteDetails"
