@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_color_white" >
+
+    <LinearLayout
+        android:id="@+id/ll_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/bg_color_white" >
+
+        <TextView
+            android:id="@+id/tv_update_time"
+            style="@style/defaultText"
+            android:text="Updated on"
+            />
+
+        <TextView
+            android:id="@+id/et_update_time"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_alarm_detail"
+            style="@style/defaultText"
+            android:text="Alarm Detail"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_alarm_detail"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_update_by"
+            style="@style/defaultText"
+            android:text="Updated By"
+            />
+
+        <TextView
+            android:id="@+id/et_update_by"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_update_field"
+            style="@style/defaultText"
+            android:text="Updated"
+            />
+
+        <TextView
+            android:id="@+id/et_update_field"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_update_doc"
+            style="@style/defaultText"
+            android:text="Uploaded Document"
+            />
+
+        <TextView
+            android:id="@+id/et_update_doc"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_alarm_telly"
+            style="@style/defaultText"
+            android:text="Alarm Tally"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_alarm_telly"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+    </LinearLayout>
+</RelativeLayout>

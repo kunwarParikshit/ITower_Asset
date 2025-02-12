@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+     >
+
+    <LinearLayout
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/column_bg"
+        android:layout_gravity="right"
+        android:orientation="vertical" 
+        android:paddingLeft="5dp"
+        android:layout_marginRight="2sp"
+        android:layout_marginTop="2sp">
+        
+         <CheckBox
+            android:id="@+id/cb_sitedw_col"
+            android:layout_width="120sp"
+            android:layout_height="40sp"
+            android:text="Site Down"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+             android:button="@drawable/check_box_selecter"
+             android:padding="10dp"/>
+
+        <CheckBox
+            android:id="@+id/cb_critical_col"
+            android:layout_width="120sp"
+            android:layout_height="40sp"
+            android:text="Critical"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:button="@drawable/check_box_selecter"
+            android:padding="10dp"/>
+
+        <CheckBox
+            android:id="@+id/cb_major_col"
+            android:layout_width="120sp"
+            android:layout_height="40sp"
+            android:text="Major"
+            android:textColor="@color/white"
+            android:gravity="center_vertical" 
+            android:textSize="15sp"
+            android:button="@drawable/check_box_selecter"
+            android:padding="10dp"/>
+
+        <CheckBox
+             android:id="@+id/cb_minor_col"
+            android:layout_width="120sp"
+            android:layout_height="40sp"
+            android:text="Minor"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:button="@drawable/check_box_selecter"
+            android:padding="10dp"/>
+        
+        <CheckBox
+             android:id="@+id/cb_info_col"
+            android:layout_width="120sp"
+            android:layout_height="40sp"
+            android:text="Info"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:button="@drawable/check_box_selecter"
+            android:padding="10dp"/>
+        
+       
+    </LinearLayout>
+
+</LinearLayout>

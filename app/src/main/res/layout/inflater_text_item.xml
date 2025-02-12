@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_10sdp"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:id="@+id/tv_attribute_name"
+        android:textSize="@dimen/_13ssp"
+        android:background="@drawable/bg_attribute_name"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:background="@drawable/input_box"
+        android:layout_below="@+id/tv_attribute_name"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:singleLine="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:padding="@dimen/_5sdp"
+        android:id="@+id/edt_text"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@+id/edt_text"
+        android:layout_height="1dp"/>
+
+</RelativeLayout>

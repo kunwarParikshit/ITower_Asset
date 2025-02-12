@@ -1,0 +1,212 @@
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#E1E1E2"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+          <TextView
+            android:id="@+id/tv_home"
+            android:layout_width="match_parent"
+            android:layout_height="55sp"
+              android:background="#E1E1E2"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="5sp"
+            android:text="Home"
+            android:textColor="#00000F"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height=".2sp"
+            android:background="#A0A0A0" />
+
+        <TextView
+            android:id="@+id/tv_site_ava_summary"
+            android:layout_width="match_parent"
+            android:layout_height="55sp"
+            android:background="#E1E1E2"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="5sp"
+            android:text="Site Availability Summary"
+            android:textColor="#00000F"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height=".2sp"
+            android:background="#A0A0A0" />
+
+        <TextView
+            android:id="@+id/tv_equip_summary"
+            android:layout_width="match_parent"
+            android:layout_height="55sp"
+            android:background="#E1E1E2"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="5sp"
+            android:text="Equipment Wise Alarm Summary"
+            android:textColor="#00000F"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height=".2sp"
+            android:background="#A0A0A0" />
+
+        <TextView
+            android:id="@+id/tv_fre_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="55sp"
+            android:background="#E1E1E2"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="5sp"
+            android:text="Most Frequently Alarm"
+            android:textColor="#00000F"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height=".2sp"
+            android:background="#A0A0A0" />
+
+        <TextView
+            android:id="@+id/tv_open_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="55sp"
+            android:background="#E1E1E2"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="5sp"
+            android:text="Open Alarm Summary"
+            android:textColor="#00000F"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height=".2sp"
+            android:background="#A0A0A0" />
+
+        <TextView
+            android:id="@+id/tv_problematic"
+            android:layout_width="match_parent"
+            android:layout_height="55sp"
+            android:background="#E1E1E2"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="5sp"
+            android:text="Critical Alarm Site"
+            android:textColor="#00000F"
+            android:textSize="16sp" />
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height=".2sp"
+            android:background="#A0A0A0" />
+
+        </LinearLayout>
+</LinearLayout>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        style="@style/sliderItemlayout" >
+
+        <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_epa_capacity"
+            android:text="EPA Capacity"
+
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_incident_management_analysis"
+            android:text="Incident Management Analysis"
+
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+
+        <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_home"
+            android:text="Home"
+
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_site_ava_summary"
+            android:text="Site Availability Summary"
+
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_equip_summary"
+            android:text="Equipment Wise Alarm Summary"
+            style="@style/sliderTextView"
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_fre_alarm"
+            android:text="Most Frequently Alarm"
+            style="@style/sliderTextView"
+
+            />
+        <!-- <TextView
+            android:id="@+id/tv_select_lang"
+            style="@style/selectlanguageTV"
+            />-->
+
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_open_alarm"
+            android:text="Open Alarm Summary"
+            style="@style/sliderTextView"
+
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_problematic"
+            android:text="Critical Alarm Site"
+            style="@style/sliderTextView"
+
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>

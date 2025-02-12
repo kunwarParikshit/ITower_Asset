@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_color_white" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp">
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/tv_source"
+            style="@style/defaultText"
+            android:visibility="gone"
+            android:text="Energy Source"/>
+
+        <TextView
+            android:id="@+id/et_source"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/tv_consumedpwr"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_consumedpwr"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_gridpwr"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_gridpwr"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_ebvltg"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_ebvltg"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_genpwr"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_genpwr"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_dgruntm"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_dgruntm"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_fuellvl"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_fuellvl"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_batsoc"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_batsoc"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_batvltg"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_batvltg"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_batterychamp"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_batterychamp"
+            style="@style/disableInputText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_batterydischamp"
+            style="@style/defaultText"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/et_batterydischamp"
+            style="@style/disableInputText"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

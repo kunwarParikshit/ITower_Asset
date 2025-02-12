@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:theme="@style/LightTheme">
+
+        <ImageView
+            android:id="@+id/tasksParentIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@string/image"
+            android:padding="@dimen/_12sdp"
+            android:src="@drawable/refresh_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <com.isl.common.utils.CustomTextView
+            android:id="@+id/taskStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="R100037"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/tasksParentIcon"
+            app:layout_constraintTop_toTopOf="@id/tasksParentIcon" />
+
+        <com.isl.common.utils.CustomTextView
+            android:id="@+id/scheduledText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IZ10000017"
+            android:textAlignment="center"
+            android:textColor="@color/color_48484A"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toEndOf="@id/tasksParentIcon"
+            app:layout_constraintTop_toBottomOf="@id/taskStatus" />
+
+        <com.isl.common.utils.CustomTextView
+            android:id="@+id/scheduledValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:textAlignment="center"
+            android:textColor="@color/color_48484A"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toEndOf="@id/scheduledText"
+            app:layout_constraintTop_toTopOf="@id/scheduledText"
+            tools:text="17" />
+
+        <com.isl.common.utils.CustomTextView
+            android:id="@+id/addedTodayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waiting"
+            android:textAlignment="center"
+            android:textColor="@color/color_48484A"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toEndOf="@id/tasksParentIcon"
+            app:layout_constraintTop_toBottomOf="@id/scheduledText" />
+
+        <com.isl.common.utils.CustomTextView
+            android:id="@+id/addedTodayValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:textAlignment="center"
+            android:textColor="@color/color_48484A"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toEndOf="@id/addedTodayText"
+            app:layout_constraintTop_toTopOf="@id/addedTodayText"
+            tools:text="Assets:07" />
+
+        <ImageView
+            android:id="@+id/clickTasksiconIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:contentDescription="@string/image"
+            android:padding="@dimen/_12sdp"
+            android:src="@drawable/search_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

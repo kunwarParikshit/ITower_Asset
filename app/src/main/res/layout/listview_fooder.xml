@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E1E1E1" 
+    android:padding="5dp" >
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LinearLayout_login"
+            android:gravity="center"
+            android:background="#E1E1E1" >
+
+            <Button
+                android:id="@+id/Button_submit1"
+                android:layout_width="150sp"
+                android:layout_height="50sp"
+                android:layout_margin="2dp"
+                android:background="#59ae8d"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="OK"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+   
+
+</RelativeLayout>

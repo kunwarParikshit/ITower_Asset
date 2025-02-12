@@ -1,0 +1,12 @@
+{
+  "client_id": "mast-prod-mob",
+  "redirect_uri": "msauth://tawal.com.sa/2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D",
+  "authorization_scope": "openid email profile",
+  "discovery_uri": "",
+  "authorization_endpoint_uri": "https://mast-idp.infozech.com:9014/realms/MAST/protocol/openid-connect/auth",
+  "token_endpoint_uri": "https://mast-idp.infozech.com:9014/realms/MAST/protocol/openid-connect/token",
+  "registration_endpoint_uri": "https://mast-idp.infozech.com:9014/realms/MAST/clients-registrations/openid-connect",
+  "user_info_endpoint_uri": "https://mast-idp.infozech.com:9014/realms/MAST/protocol/openid-connect/userinfo",
+  "logout_uri": "https://mast-idp.infozech.com:9014/realms/MAST/protocol/openid-connect/logout?",
+  "https_required": true
+}

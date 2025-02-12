@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/bt_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/ll_textview"
+                style="@style/addViewlayout"/>
+
+
+
+           <!-- <LinearLayout
+                android:id="@+id/rl_submit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/bottom"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:weightSum="2"
+                android:gravity="center"
+                 style="@style/ButtonDefault"
+                >
+
+                <Button
+                    android:id="@+id/bt_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:gravity="center"/>-->
+           <!-- </LinearLayout>-->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

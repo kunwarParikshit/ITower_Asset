@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@android:style/Theme.Dialog"
+    android:padding="5dp"
+    android:background="#000000" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="50sp"
+        android:padding="10sp"
+        android:text="Title"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff"
+         />
+
+    <EditText
+        android:id="@+id/et_visiter_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_title"
+        android:layout_margin="2sp"
+        android:background="@drawable/custom_border"
+        android:minHeight="40sp"
+        android:textColor="#000000"
+        android:paddingLeft="5sp"
+         />
+    
+    <EditText
+        android:id="@+id/et_reviewer_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/et_visiter_remark"
+        android:layout_margin="2sp"
+        android:background="@drawable/custom_border"
+        android:minHeight="40sp"
+        android:paddingLeft="5sp"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:minHeight="40sp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_below="@+id/et_reviewer_remark" >
+        
+         <Button
+            android:id="@+id/bt_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1.5"
+            android:background="#ffffff"
+            android:minHeight="35sp"
+            android:padding="5dp"
+            android:text="OK"
+            android:textColor="@color/black"
+            android:textStyle="bold" /> 
+        
+         
+  </LinearLayout>
+
+</RelativeLayout>

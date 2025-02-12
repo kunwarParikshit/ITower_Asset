@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "613593118144",
+    "firebase_url": "https://itower-ksa.firebaseio.com",
+    "project_id": "itower-ksa",
+    "storage_bucket": "itower-ksa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613593118144:android:5d8adc87b7c0a6f1728425",
+        "android_client_info": {
+          "package_name": "tawal.com.sa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613593118144-bp4i0cgla1cj3idk14f9ppmi63uspdtl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmC_SceMpQ0sxb26p7sRVce-CIhYAXlYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613593118144-bp4i0cgla1cj3idk14f9ppmi63uspdtl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

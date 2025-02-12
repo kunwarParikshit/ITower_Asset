@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:gravity="center"
+            android:text="Whole site General Photos"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:background="@color/grid_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtbiew_status"
+            android:gravity="center"
+            android:text="Before"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:background="@color/orange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_checklist"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_400sdp"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="Works Done"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:background="@color/grid_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtview_wordonestatus"
+            android:gravity="center"
+            android:text="Before"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:background="@color/orange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_workdone"
+            style="@style/defaultText"
+            android:textColor="@color/black"
+            android:text="WorkDone" />
+
+        <Spinner
+            android:layout_marginTop="@dimen/_2sdp"
+            android:id="@+id/sp_workdone"
+            style="@style/defaultSpinner" />
+
+        </LinearLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_workdone"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_reject_remarks"
+            style="@style/defaultText"
+            android:textColor="@color/black"
+            android:text="Reject Remarks*" />
+
+
+        <EditText
+            android:layout_marginTop="@dimen/_2sdp"
+            android:id="@+id/et_reject_remarks"
+            style="@style/defaultInputText"
+            android:inputType="text"
+            android:maxLength="250" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_upload"
+            style="@style/ButtonDefault"
+            android:text="Upload" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_close"
+                style="@style/ButtonDefault"
+                android:text="Close" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

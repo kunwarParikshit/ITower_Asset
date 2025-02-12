@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_page_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_existing_ticket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:background="#456ca4"
+            android:text="Back"
+            android:padding="13dp"
+           
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/back"
+            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_site_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Asset Module"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:paddingLeft="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header_existing_ticket"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_site_general_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/custom_border_state"
+            android:clickable="true"
+            android:drawableEnd="@drawable/next"
+            android:padding="15dp"
+            android:text="Site General Details"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black" />
+        
+         <TextView
+            android:id="@+id/tv_search_filters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#456ca4" 
+            android:layout_marginTop="50sp"
+            android:padding="15dp"
+            android:text="Site Audit"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_active_assets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_border_state"
+            android:drawableEnd="@drawable/next"
+            android:padding="15dp"
+            android:layout_margin="1dp"
+            android:text="Active Assets"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="5sp" />
+
+        <TextView
+            android:id="@+id/tv_passive_assets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/custom_border_state"
+            android:drawableEnd="@drawable/next"
+            android:padding="15dp"
+            android:text="Passive Assets"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black" />
+   </LinearLayout>
+</RelativeLayout>

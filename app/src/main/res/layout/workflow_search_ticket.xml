@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/bt_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_header"
+            style="@style/tabHeaderTextView"
+            android:text="My Search" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_buttons"
+        android:layout_below="@+id/rl_header_ticket_search">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_region"
+                android:text="Region"
+                style="@style/defaultText" />
+
+            <Spinner
+                android:id="@+id/sp_region"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_sub_region"
+                style="@style/defaultText"
+                android:text="Sub Region"
+                />
+
+            <Spinner
+                android:id="@+id/sp_sub_region"
+                style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/tv_mini_cluster"
+                style="@style/defaultText"
+                android:text="Mini Cluster"
+                />
+
+            <Spinner
+                android:id="@+id/sp_mini_cluster"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_domain"
+                style="@style/defaultText"
+                android:text="Domain" />
+
+            <Spinner
+                android:id="@+id/sp_domain"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_change_type"
+                style="@style/defaultText"
+                android:text="Change Type"
+                />
+
+            <Spinner
+                android:id="@+id/sp_change_type"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_product_type"
+                android:text="Product Type"
+                style="@style/defaultText"/>
+
+            <Spinner
+                android:id="@+id/sp_product_type"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_purpose"
+                style="@style/defaultText"
+                android:text="Purpose Reason"
+                />
+
+            <Spinner
+                android:id="@+id/sp_purpose"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_activity_status"
+                android:text="Activity Status"
+                style="@style/defaultText" />
+
+            <Spinner
+                android:id="@+id/sp_activity_status"
+                style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/tv_request_status"
+                style="@style/defaultText"
+                android:text="Request Status"
+                />
+
+            <Spinner
+                android:id="@+id/sp_request_status"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_requester_name"
+                android:text="Requester Name"
+                style="@style/defaultText" />
+
+
+            <EditText
+                android:id="@+id/et_requester_name"
+                style="@style/defaultInputText"
+                android:inputType="text"/>
+
+            <TextView
+                android:id="@+id/tv_change_id"
+                android:text="Change Id"
+                style="@style/defaultText" />
+
+
+            <EditText
+                android:id="@+id/et_change_id"
+                style="@style/defaultInputText" />
+
+
+            <TextView
+                android:id="@+id/tv_site_id"
+                style="@style/defaultText"
+                android:text="Site ID"
+                />
+
+
+            <EditText
+                android:id="@+id/et_site_id"
+                android:digits=">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_@/:-\\"
+                style="@style/defaultInputText"/>
+
+            <TextView
+                android:id="@+id/tv_request_date"
+                style="@style/defaultText"
+                android:text="Request Date"
+                />
+
+            <Spinner
+                android:id="@+id/sp_request_date"
+                style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/from"
+                style="@style/defaultText"
+                android:text="Start Date"
+                />
+
+            <TextView
+                android:id="@+id/tv_from_Date"
+                style="@style/scheduletabSearchByDate"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/to"
+                style="@style/defaultText"
+                android:text="End Date"
+                />
+
+            <TextView
+                android:id="@+id/tv_to_Date"
+                style="@style/scheduletabSearchByDate"
+                android:visibility="visible"/>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scrollbars="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/btn_search_ticket"
+                style="@style/ButtonDefault"
+                android:gravity="center"
+                android:text="Search" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

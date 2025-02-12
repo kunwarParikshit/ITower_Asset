@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_notification_type"
+        style="@style/scheduletabSiteId"
+        android:text="Notification" />
+
+    <LinearLayout
+        android:id="@+id/tt_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_ticket_id"
+            style="@style/scheduletabActivityType"
+            android:text="Ticket Id" />
+
+        <TextView
+            android:id="@+id/tv_tt_site_id"
+            style="@style/scheduletabActivityType"
+            android:text="Site Id" />
+
+        <TextView
+            android:id="@+id/tv_alarm_description"
+            style="@style/scheduletabActivityType"
+            android:text="Alarm Description" />
+
+        <TextView
+            android:id="@+id/tv_tt_assigned_to"
+            style="@style/scheduletabActivityType"
+            android:text="Assigned To" />
+
+        <TextView
+            android:id="@+id/tv_alarm_duration"
+            style="@style/scheduletabActivityType"
+            android:text="Duration" />
+
+        <TextView
+            android:id="@+id/tv_tt_escalation_level"
+            style="@style/scheduletabActivityType"
+            android:text="Escalation level" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pm_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_pm_siteid"
+            style="@style/scheduletabActivityType"
+            android:text="Site Id" />
+
+        <TextView
+            android:id="@+id/tv_pm_esca_level"
+            style="@style/scheduletabActivityType"
+            android:text="Escalation level" />
+
+        <TextView
+            android:id="@+id/tv_pm_activity_type"
+            style="@style/scheduletabActivityType"
+            android:text="Activity Type" />
+
+        <TextView
+            android:id="@+id/tv_pm_assigned_to"
+            style="@style/scheduletabActivityType"
+            android:text="Assigned To" />
+
+        <TextView
+            android:id="@+id/tv_pm_schedule_date"
+            style="@style/scheduletabActivityType"
+            android:text="Schedule Date" />
+
+        <TextView
+            android:id="@+id/tv_pm_run_hour"
+            style="@style/scheduletabActivityType"
+            android:text="Run hour" />
+
+        <TextView
+            android:id="@+id/tv_pm_current_run_hour"
+            style="@style/scheduletabActivityType"
+            android:text="Current Run hour" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ff_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_ff_siteid"
+            style="@style/scheduletabActivityType"
+            android:text="Site Id" />
+
+        <TextView
+            android:id="@+id/tv_fill_qty"
+            style="@style/scheduletabActivityType"
+            android:text="Filling Quantity" />
+
+        <TextView
+            android:id="@+id/tv_ff_dgType"
+            style="@style/scheduletabActivityType"
+            android:text="DG Type" />
+
+        <TextView
+            android:id="@+id/tv_fillDate"
+            style="@style/scheduletabActivityType"
+            android:text="Filling Date" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gen_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_gen"
+            style="@style/scheduletabActivityType"
+            android:text="Site Id" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/scheduletabActivityType"
+            android:text="Time" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ut_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ut_site"
+            style="@style/scheduletabActivityType"
+            android:text="Site Id" />
+
+        <TextView
+            android:id="@+id/ut_site_lat"
+            style="@style/scheduletabActivityType"
+            android:text="Site Latitude" />
+
+        <TextView
+            android:id="@+id/ut_site_long"
+            style="@style/scheduletabActivityType"
+            android:text="Site Longitude" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fpr_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fpr_site_id"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_suplier"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_request_date"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_approval_date"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_circle"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_zone"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_cluster"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_status"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/fpr_aqty"
+            style="@style/scheduletabActivityType"
+            android:text="" />
+    </LinearLayout>
+
+</LinearLayout>

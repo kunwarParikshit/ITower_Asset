@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TableRow style="@style/BodyRow" >
+                <TextView
+                    android:id="@+id/tv_interval"
+                    style="@style/BodyTextHeader"
+                    android:layout_weight="2"
+                    android:background="@color/orange"
+                    android:drawableRight="@drawable/doted1"
+                    android:text="10-30 mins" />
+
+                <TextView
+                    android:id="@+id/tv_sitedown"
+                    style="@style/BodyText"
+                    android:layout_weight="1.5"
+                    android:drawableRight="@drawable/doted1"
+                    android:text="10" />
+
+                <TextView
+                    android:id="@+id/tv_critical"
+                    style="@style/BodyText"
+                    android:layout_weight="1.2"
+                    android:drawableRight="@drawable/doted1"
+                    android:text="50" />
+
+                <TextView
+                    android:id="@+id/tv_major"
+                    style="@style/BodyText"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/doted1"
+                    android:text="100" />
+
+                <TextView
+                    android:id="@+id/tv_minor"
+                    style="@style/BodyText"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/doted1"
+                    android:text="250" />
+
+                <TextView
+                    android:id="@+id/tv_info"
+                    style="@style/BodyText"
+                    android:layout_weight=".8"
+                    android:text="30" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

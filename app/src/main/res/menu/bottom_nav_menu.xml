@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/task"
+        android:icon="@drawable/tasks_icon"
+        android:title="Tasks"
+       />
+
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/notifications_icon"
+        android:title="Notifications"
+        />
+
+    <item
+        android:id="@+id/module"
+        android:icon="@drawable/refresh_icon"
+        android:title="Module" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profile_icon"
+        android:title="Profile" />
+
+
+</menu>

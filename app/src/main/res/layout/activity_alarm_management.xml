@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white"
+    android:orientation="vertical" >
+
+   <!-- <RelativeLayout
+        android:id="@+id/rl_header_existing_ticket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <Button
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#456ca4"
+            android:drawableLeft="@drawable/back"
+            android:padding="10dp"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="20sp"
+            android:text="@string/alarm_management"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>-->
+
+    <RelativeLayout
+        android:id="@+id/rl_header_existing_ticket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/iv_back"
+            style="@style/tabBackButton"/>
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:text="Alarm Management"
+            style="@style/tabHeaderTextView"/>
+    </RelativeLayout>
+
+   <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header_existing_ticket"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/custom_border_state"
+            android:drawableEnd="@drawable/next"
+            android:padding="15dp"
+            android:text="@string/dashboard"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_alarm_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/custom_border_state"
+            android:drawableEnd="@drawable/next"
+            android:padding="15dp"
+            android:text="@string/my_search"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:visibility="gone" />
+    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/rl_header_existing_ticket" >
+
+        <TextView
+            android:id="@+id/tv_dashboard"
+            style="@style/next"
+            android:text="@string/dashboard"/>
+
+        <TextView
+            android:id="@+id/tv_alarm_search"
+            style="@style/next"
+            android:text="@string/my_search"/>
+    </LinearLayout>
+</RelativeLayout>

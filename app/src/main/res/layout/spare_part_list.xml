@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_color_white"
+    android:orientation="vertical"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:weightSum="4.02" >
+
+        <TextView
+            android:id="@+id/tv_part_name"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="2"
+            android:text="Spare Parts"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:paddingLeft="2dp"
+            />
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight=".01"
+            android:background="@android:color/darker_gray"
+            />
+
+        <TextView
+            android:id="@+id/tv_quantitiy"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Quantity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_action_before"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight=".01"
+            android:background="@android:color/darker_gray"
+            />
+
+        <ImageView
+            android:id="@+id/action"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edit_query"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight=".5"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_spare_delete"
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_weight=".5"
+            android:gravity="center"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_spare_delete"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_delete"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

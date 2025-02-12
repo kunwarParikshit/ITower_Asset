@@ -1,0 +1,61 @@
+<androidx.fragment.app.FragmentTabHost
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_page_bg">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <RelativeLayout
+            android:id="@+id/rl_header_ticket_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/header" >
+
+            <Button
+                android:id="@+id/bt_back"
+                style="@style/tabBackButton"/>
+
+            <TextView
+                android:id="@+id/tv_brand_logo"
+               style="@style/tabHeaderTextView"/>
+
+            <TextView
+                android:id="@+id/tv_add_activity"
+                style="@style/tabHeaderTextView"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/tab_color"/>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0"/>
+
+        <FrameLayout
+            android:id="@+id/realtabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+</androidx.fragment.app.FragmentTabHost>

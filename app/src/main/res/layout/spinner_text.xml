@@ -1,0 +1,13 @@
+ <TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/tv"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:ellipsize="marquee"
+     android:layout_gravity="center_vertical"
+     android:singleLine="true"
+     android:scrollHorizontally="true"
+     android:textColor="@color/input_textcolor"
+     android:background="@color/input_box_color"
+     android:paddingLeft="7dp"/>
+  

@@ -1,0 +1,196 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_home">
+
+   <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/bt_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_logo"
+            style="@style/tabHeaderTextView" />
+
+       <!-- <Button
+           android:id="@+id/bt_back"
+           android:layout_width="wrap_content"
+           android:background="#3F51B5"
+           android:text=""
+           android:padding="13dp"
+           android:textColor="#FFFFFF"
+           android:drawableLeft="@drawable/back"
+           android:layout_height="wrap_content"
+           android:textSize="15sp"
+           />
+
+       <TextView
+           android:id="@+id/tv_logo"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:layout_centerVertical="true"
+           android:text="DFR Approval"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:textColor="@android:color/white"
+           android:paddingLeft="20sp" />-->
+    </RelativeLayout>
+
+     <LinearLayout
+        android:id="@+id/search_by"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header"
+        android:layout_marginTop="10sp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Search By"
+            android:textColor="#2B4E81"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/sp_search_by"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="7sp"
+            android:layout_marginRight="7sp"
+            android:background="@drawable/doted"
+            android:ems="10"
+            android:minHeight="35sp"
+            android:padding="5sp"
+            android:prompt="@string/country_prompt"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_searchby_site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_by"
+        android:layout_marginLeft="7sp"
+        android:layout_marginRight="7sp"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/input_box"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_@/:-\\"
+        android:ems="10"
+        android:maxLength="20"
+        android:minHeight="40sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:singleLine="true"
+        android:textColor="@color/input_textcolor"
+        android:textSize="15sp"
+        android:visibility="gone"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/search_by_vender"
+        android:layout_below="@+id/et_searchby_site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:visibility="gone">
+
+        <Spinner
+            android:id="@+id/sp_search_by_vender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="7sp"
+            android:layout_marginRight="7sp"
+            android:background="@drawable/doted"
+            android:ems="10"
+            android:minHeight="35sp"
+            android:padding="5sp"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_by_filler"
+        android:layout_below="@+id/search_by_vender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:visibility="gone">
+
+        <Spinner
+            android:id="@+id/sp_search_by_filler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="7sp"
+            android:layout_marginRight="7sp"
+            android:background="@drawable/doted"
+            android:ems="10"
+            android:minHeight="35sp"
+            android:padding="5sp"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_sites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_by_filler"
+        android:orientation="vertical"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="2sp">
+
+       <!-- <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/pullToRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lv_sites"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+       <!-- </android.support.v4.widget.SwipeRefreshLayout>-->
+    </LinearLayout>
+
+    <RelativeLayout
+       android:id="@+id/textlayout"
+       android:layout_width="fill_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@+id/ll_sites"
+       android:layout_centerInParent="true"
+       android:visibility="gone">
+
+       <TextView
+           android:id="@+id/txt_no_ticket"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:text="No Data found"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:textColor="@android:color/black"
+           android:textStyle="bold" />
+   </RelativeLayout>
+
+</RelativeLayout>

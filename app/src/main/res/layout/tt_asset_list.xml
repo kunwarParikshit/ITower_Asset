@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/disable_bacgroundColor"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent" >
+
+
+
+        <!--<TextView
+            android:id="@+id/tv_add_asset"
+            style="@style/tabHeaderTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
+            android:text="Add Asset"
+            android:textColor="@color/black"
+            android:textSize="18dp" />-->
+
+        <Button
+            android:id="@+id/tv_add_asset"
+            android:layout_width="70sp"
+            android:layout_height="30sp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_9_blue"
+            android:minHeight="30sp"
+            android:padding="2sp"
+            android:text="+Add"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/lv_assets"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header_ticket_list"
+        android:background="@color/disable_bacgroundColor"
+        android:cacheColorHint="@android:color/transparent"
+        android:scrollingCache="false">
+    </ListView>
+
+    <TextView
+        android:id="@+id/txt_no_data"
+        style="@style/disableInputText"
+        android:text="No data found"
+        android:layout_below="@+id/lv_assets"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"/>
+
+</RelativeLayout>

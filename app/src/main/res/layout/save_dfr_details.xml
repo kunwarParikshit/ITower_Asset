@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_home"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+     <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:background="@color/header">
+
+         <Button
+             android:id="@+id/bt_back"
+             style="@style/tabBackButton" />
+
+         <TextView
+             android:id="@+id/tv_header"
+             style="@style/tabHeaderTextView" />
+    </RelativeLayout>
+
+     <ScrollView
+        android:id="@+id/sv_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/tv_siteId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Site ID"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp"
+                />
+
+               <EditText
+                    android:id="@+id/et_site_id"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:enabled="false"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                   android:textColor="@color/input_textcolor"/>
+
+            <TextView
+                android:id="@+id/tv_fwoid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="FWO ID"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_fwoid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/et_data"
+                android:enabled="false"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:text=""
+                android:textSize="15sp"
+                android:textColor="@color/input_textcolor"/>
+
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Date"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/et_data"
+                android:enabled="false"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:text=""
+                android:textSize="15sp"
+                android:textColor="@color/input_textcolor"/>
+
+
+
+
+            <TextView
+                android:id="@+id/tv_standard_cph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Standard CPH"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_standard_cph"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/et_data"
+                android:enabled="false"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:text=""
+                android:textSize="15sp"
+                android:textColor="@color/input_textcolor"/>
+
+            <TextView
+                android:id="@+id/tv_actual_cph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Actual CPH"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tv_actual_cph_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="DFR"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_actual_cph_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Mobile"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_actual_cph_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Sensor"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/et_actual_cph_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_data"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_actual_cph_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_data"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_actual_cph_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_data"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:textColor="@color/input_textcolor"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_transaction_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Transaction Type"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp"
+                />
+
+            <LinearLayout
+                android:id="@+id/rg_tran_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <RadioButton
+                    android:id="@+id/rb_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DFR"
+                    android:textColor="@color/textcolor" />
+
+                <RadioButton
+                    android:id="@+id/rb_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mobile"
+                    android:textColor="@color/textcolor" />
+
+                <RadioButton
+                    android:id="@+id/rb_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sensor"
+                    android:textColor="@color/textcolor"/>
+
+                <RadioButton
+                    android:id="@+id/rb_reject"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reject"
+                    android:textColor="@color/textcolor" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_fill_qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Filled Qty.(Ltrs)"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tv_fill_qty_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="DFR"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_fill_qty_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Mobile"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_fill_qty_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Sensor"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/et_fill_qty_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_fill_qty_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_fill_qty_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/input_textcolor"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_genset_reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Genset Meter Reading"
+                android:textColor="#2B4E81"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tv_genset_reading_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="DFR"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_genset_reading_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Mobile"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_genset_reading_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Sensor"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/et_genset_reading_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_genset_reading_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_genset_reading_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
+                    android:textColor="@color/input_textcolor"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_opening_stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Opning Stock"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tv_opening_stock_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="DFR"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_opening_stock_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Mobile"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_opening_stock_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Sensor"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/et_opening_stock_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_opening_stock_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_opening_stock_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/input_textcolor"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_grid_reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Grid Meter Reading "
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tv_grid_reading_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="DFR"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_grid_reading_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Mobile"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_grid_reading_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Sensor"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/et_grid_reading_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_grid_reading_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
+                    android:textColor="@color/input_textcolor"/>
+
+                <EditText
+                    android:id="@+id/et_grid_reading_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_box"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
+                    android:textColor="@color/input_textcolor"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_mortable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="5dp"
+                android:text="Site Motorable"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tv_mortable_dfr"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="DFR"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_mortable_mobile"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Mobile"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_mortable_sensor"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text="Sensor"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                >
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_dfr"
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:button="@drawable/custom_checkbox"
+                        android:padding="0dp"
+                        android:text=" "
+                        android:textColor="@color/textcolor"
+                        android:layout_gravity="center_horizontal|center_vertical"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_mobile"
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:button="@drawable/custom_checkbox"
+                        android:padding="0dp"
+                        android:text=" "
+                        android:textColor="@color/textcolor"
+                        android:layout_gravity="center_horizontal|center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_sensor"
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:button="@drawable/custom_checkbox"
+                        android:padding="0dp"
+                        android:text=" "
+                        android:textColor="@color/textcolor"
+                        android:layout_gravity="center_horizontal|center_vertical"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_last_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="5sp"
+                android:layout_marginTop="12sp"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:text="Last Transaction Details"
+                android:textColor="@color/link_textcolor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_current_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="5sp"
+                android:layout_marginTop="12sp"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:text="More Transaction Details"
+                android:textColor="@color/link_textcolor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_remarks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="5sp"
+                android:layout_marginTop="5sp"
+                android:gravity="center"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:text="Remarks"
+                android:textColor="@color/textcolor"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/input_box"
+                android:gravity="left"
+                android:minHeight="35sp"
+                android:maxLength="250"
+                android:padding="5dp"
+                android:text=""
+                android:textSize="15sp"
+                android:layout_marginBottom="10sp"
+                android:textColor="@color/input_textcolor"/>
+
+            <LinearLayout
+                android:id="@+id/ll_update"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/bottom"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/bt_submit"
+                    style="@style/ButtonDefault"
+                    android:gravity="center"
+                    android:text="Submit" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

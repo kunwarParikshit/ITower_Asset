@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtview_fieldName"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/relative"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:id="@+id/relative"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_placeholder_image"
+            android:id="@+id/imgview_show"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_60sdp"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/imgview_show"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/imgview_camera"
+                android:src="@drawable/camera"
+                android:layout_gravity="end"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"/>
+
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:id="@+id/imgview_upload"
+                    android:src="@drawable/ic_baseline_file_upload_24"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_gravity="end"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"/>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

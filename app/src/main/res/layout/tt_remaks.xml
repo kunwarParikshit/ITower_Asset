@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="#8C000000"
+    android:padding="10dp">
+    
+    <RelativeLayout
+        android:id="@+id/rl_header_forgot"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header"
+        android:padding="5dp" 
+        >
+
+        <TextView
+            android:id="@+id/tv_hader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Remaks"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/bt_popup_close"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/close"
+            android:text="" />
+      </RelativeLayout>
+
+     <ListView
+        android:id="@+id/lv_remakss"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5sp"
+        android:padding="1sp">
+      </ListView>
+
+    <TextView
+        android:id="@+id/txt_no_remarks_added"
+        style="@style/disableInputText"
+        android:text="No remarks added"
+        android:gravity="center"
+        android:layout_height="400dp"
+        android:layout_margin="0dp"/>
+
+</LinearLayout>

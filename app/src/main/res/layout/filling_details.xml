@@ -1,0 +1,266 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header" >
+
+        <Button
+            android:id="@+id/bt_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_no_list" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/tv_tran_id"
+                    android:text="@string/site_id"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_site_id"
+                    android:text="@string/site_id"
+                    style="@style/defaultText" />
+                <TextView
+                    android:id="@+id/tv_plandt"
+                    android:text="Planned Date"
+                    style="@style/defaultText" />
+                <TextView
+                    android:id="@+id/tv_planqt"
+                    android:text="Planned Qty."
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_trans"
+                    android:text="Transaction Type"
+                    style="@style/defaultText" />
+
+
+                <TextView
+                    android:id="@+id/tv_filler_details"
+                    android:text="Filler Details"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_filling_st"
+                    android:text="Filling Status"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_dg_type"
+                    android:text="Genset No."
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_genset_deploy_date"
+                    android:text="Mobile Genset Deploy Date"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_reson_genset"
+                    android:text="Reason of Mobile Genset"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_cap_genset"
+                    android:text="Capacity of Mobile Genset (kVA)"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_gRngNo"
+                    android:text="Genset Engine No."
+                    style="@style/defaultText" />
+
+               <TextView
+                    android:id="@+id/tv_fill_date"
+                    android:text="Fill Date"
+                   style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_filled_qty"
+                    android:text="Filled Qty (Ltrs.)"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_genset_reading"
+                    android:text="Genset Meter Reading"
+                    style="@style/defaultText" />
+                
+                 <TextView
+                    android:id="@+id/tv_genset_replace"
+                    android:text="Genset Meter Replacement date"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_faulty_since"
+                    android:text="Faulty Since"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_grid_reading"
+                    android:text="Grid Meter Reading"
+                    style="@style/defaultText" />
+                
+                <TextView
+                    android:id="@+id/tv_grid_replace"
+                    android:text="Grid Meter Replacement date"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_open_stock"
+                    android:text="Opening Stock (Ltrs.)"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_mode"
+                    android:text="Filling Mode"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_fuel_tank"
+                    android:text="Fuel in Tank"
+                    style="@style/defaultText" />
+                
+                <TextView
+                    android:id="@+id/tv_ava_run_hours"
+                    android:text="Avg Run Hrs"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_cph"
+                    android:text="Actual CPH"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_vender"
+                    android:text="Vendor"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_motorable"
+                    android:text="Site Motorable"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:text="Status"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_lat"
+                    android:text="Latitute"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_log"
+                    android:text="Longitute"
+                    style="@style/defaultText" />
+
+                <TextView
+                    android:id="@+id/tv_distance"
+                    android:text="Distance(Kms)"
+                    style="@style/defaultText" />
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:scrollbars="vertical"
+                    android:visibility="visible"
+                    android:layout_marginTop="10sp">
+
+                    <com.isl.itower.ExpandableHeightGridView
+                        android:id="@+id/list_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:columnWidth="250dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="1dp"
+                        android:isScrollContainer="false"
+                        android:listSelector="@android:color/transparent"
+                        android:numColumns="1"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="2dp"
+                        android:visibility="gone"/>
+
+                   <!-- <ImageView
+                        android:id="@+id/no_media"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10sp"
+                        android:layout_marginLeft="25sp"
+                        android:layout_marginRight="25sp"
+                        android:background="@drawable/et_data"
+                        android:padding="1sp"
+                        android:src="@drawable/no_media"
+                        android:visibility="gone" />-->
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<LinearLayout
+                android:id="@+id/ll_noData"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/txt_no_data"
+                    style="@style/noDataFoundTV"/>
+            </LinearLayout>-->
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header_ticket_list"
+        android:layout_centerInParent="true"
+        android:visibility="visible" >
+
+        <TextView
+            android:id="@+id/txt_no_data"
+            style="@style/noDataFoundTV"/>
+
+        <!-- <TextView
+             android:id="@+id/txt_no_data"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerInParent="true"
+             android:text="No Data Found"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textColor="@android:color/black"
+             android:textStyle="bold" />-->
+    </RelativeLayout>
+
+</RelativeLayout>

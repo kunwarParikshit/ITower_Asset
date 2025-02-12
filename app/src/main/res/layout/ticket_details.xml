@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/iv_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header_ticket_details">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_site_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_site_id"
+                    style="@style/defaultText"
+                    android:text="Site ID" />
+
+                <TextView
+                    android:id="@+id/et_site_id"
+                    style="@style/disableInputText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_site_vsblty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_site_status"
+                    style="@style/defaultText"
+                    android:text="Site Visibility" />
+
+                <TextView
+                    android:id="@+id/et_site_status"
+                    style="@style/disableInputText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tkt_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_ticket_id"
+                    style="@style/defaultText"
+                    android:text="Ticket ID" />
+
+                <TextView
+                    android:id="@+id/et_ticket_id"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ref_tkt_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_ref_tkt_id"
+                    style="@style/defaultText"
+                    android:text="Ref. Ticket ID" />
+
+                <TextView
+                    android:id="@+id/et_ref_tkt_id"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_prb_strt_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_problem_start_date_time"
+                    style="@style/defaultText"
+                    android:text="Problem Start Date Time" />
+
+                <TextView
+                    android:id="@+id/et_problem_start_date_time"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_prb_end_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_problem_end_date_time"
+                    style="@style/defaultText"
+                    android:text="Problem End Date Time" />
+
+                <TextView
+                    android:id="@+id/et_problem_end_date_time"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bttry_dschrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_bttry_dschrg_date"
+                    style="@style/defaultText"
+                    android:text="Battery Discharge Start Date Time" />
+
+                <TextView
+                    android:id="@+id/et_bttry_dschrg_date"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bttry_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_bttry_backup"
+                    style="@style/defaultText"
+                    android:text="Battery Backup Duration" />
+
+                <TextView
+                    android:id="@+id/et_bttry_backup"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_serviceImapact_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_serviceImapact"
+                    style="@style/defaultText"
+                    android:text="Service Impact"
+                    />
+                <TextView
+                    android:id="@+id/sp_serviceImapact"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_priority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_priority"
+                    style="@style/defaultText"
+                    android:text="Priority"
+                    />
+                <TextView
+                    android:id="@+id/sp_priority"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_serviceImpactStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/serviceImpactStart"
+                    style="@style/defaultText"
+                    android:text="Service Impact Start"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_serviceImpactStart"
+                    style="@style/disableInputText" />
+
+                <TextView
+                    android:id="@+id/serviceImpactStartTime"
+                    style="@style/defaultText"
+                    android:text="Service Impact Start Time"/>
+
+                <TextView
+                    android:id="@+id/tv_serviceImpactStartTime"
+                    style="@style/disableInputText"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_servicesAffected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_servicesAffected"
+                    style="@style/defaultText"
+                    android:text="Services Effected"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_servicesAffected_value"
+                    style="@style/disableInputText" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_operator_site_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_operator_site_id"
+                    style="@style/defaultText"
+                    android:text="Operator Site ID" />
+
+                <TextView
+                    android:id="@+id/et_operator_site_id"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_equipment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_equipment"
+                    style="@style/defaultText"
+                    android:text="Equipment" />
+
+                <TextView
+                    android:id="@+id/txt_value_equipment"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tkt_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tkt_type"
+                    style="@style/defaultText"
+                    android:text="Ticket Type" />
+
+                <TextView
+                    android:id="@+id/txt_value_ticket_type"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_alrm_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_alarm_description"
+                    style="@style/defaultText"
+                    android:text="Alarm Description" />
+
+                <TextView
+                    android:id="@+id/txt_value_alarm_description"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_severity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_severity"
+                    style="@style/defaultText"
+                    android:text="Severity" />
+
+                <TextView
+                    android:id="@+id/txt_value_alarm_type"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_alarm_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_alarm_details"
+                    style="@style/defaultText"
+                    android:text="Alarm Detail" />
+
+                <TextView
+                    android:id="@+id/et_alarm_details"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tkt_log_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_ticket_logged_date"
+                    style="@style/defaultText"
+                    android:text="Ticket Logged Date Time" />
+
+                <TextView
+                    android:id="@+id/et_ticket_logged_date"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tkt_log_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tkt_logged_by"
+                    style="@style/defaultText"
+                    android:text="Ticket Logged By" />
+
+                <TextView
+                    android:id="@+id/et_ticket_logged_by"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_prb_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_problem_description"
+                    style="@style/defaultText"
+                    android:text="Problem Description" />
+
+                <TextView
+                    android:id="@+id/et_problem_description"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tkt_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tkt_status"
+                    style="@style/defaultText"
+                    android:text="Ticket Status" />
+
+                <TextView
+                    android:id="@+id/txt_value_status"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_assigned_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_assign_to"
+                    style="@style/defaultText"
+                    android:text="Assigned To" />
+
+                <TextView
+                    android:id="@+id/txt_value_ticket_assignment_user_details"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_contacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_contact"
+                    style="@style/defaultText"
+                    android:text="Contacts" />
+
+                <TextView
+                    android:id="@+id/txt_contact"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_eta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_eta"
+                    style="@style/defaultText"
+                    android:text="ETA" />
+
+                <TextView
+                    android:id="@+id/txt_eta"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_eta_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_eta_time"
+                    style="@style/defaultText"
+                    android:text="ETA Time" />
+
+                <TextView
+                    android:id="@+id/txt_eta_time"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_etr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_etr"
+                    style="@style/defaultText"
+                    android:text="ETR" />
+
+                <TextView
+                    android:id="@+id/txt_etr"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_etr_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_etr_time"
+                    style="@style/defaultText"
+                    android:text="ETR Time" />
+
+                <TextView
+                    android:id="@+id/txt_etr_time"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_trvlDistnc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/defaultText"
+                    android:text="Distance Travelled" />
+
+                <TextView
+                    android:id="@+id/et_trvlDistnc"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_noOfTech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/defaultText"
+                    android:text="No. Of Technician" />
+
+                <TextView
+                    android:id="@+id/et_noOfTech"
+                    style="@style/disableInputText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_wrkgNights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/defaultText"
+                    android:text="Working Nights" />
+
+                <TextView
+                    android:id="@+id/et_wrkgNights"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_rca_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_rca_category"
+                    style="@style/defaultText"
+                    android:text="RCA Category" />
+
+                <TextView
+                    android:id="@+id/txt_rca_category"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_rca_sub_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_rca_sub_category"
+                    style="@style/defaultText"
+                    android:text="RCA Sub Category" />
+
+                <TextView
+                    android:id="@+id/txt_rca_sub_category"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_rca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_rca"
+                    style="@style/defaultText"
+                    android:text="RCA" />
+
+                <TextView
+                    android:id="@+id/txt_rca"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_operator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_operator"
+                    style="@style/defaultText"
+                    android:text="Operator" />
+
+                <TextView
+                    android:id="@+id/txt_operator"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_operator_exempt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_operator_exempt"
+                    style="@style/defaultText"
+                    android:text="Operator Exempted" />
+
+                <TextView
+                    android:id="@+id/txt_operator_exempt"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_effected_sites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_eff_site"
+                    style="@style/defaultText"
+                    android:text="Effected Sites" />
+
+                <TextView
+                    android:id="@+id/txt_dependent_site"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_dg_reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_dg_reading"
+                    style="@style/defaultText"
+                    android:text="DG Meter Reading" />
+
+                <TextView
+                    android:id="@+id/txt_dg_reading"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_grid_reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_grid_reading"
+                    style="@style/defaultText"
+                    android:text="Grid Meter Reading" />
+
+                <TextView
+                    android:id="@+id/txt_grid_reading"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_fuel_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_fuel_level"
+                    style="@style/defaultText"
+                    android:text="Fuel Level" />
+
+                <TextView
+                    android:id="@+id/txt_fuel_level"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_action_taken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_action_taken"
+                    style="@style/defaultText"
+                    android:text="Action Taken" />
+
+                <TextView
+                    android:id="@+id/txt_action_taken"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_ticket_treatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_ticket_treatment"
+                    style="@style/defaultText"
+                    android:text="Ticket Treatment" />
+
+                <TextView
+                    android:id="@+id/txt_ticket_treatment"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_hub_siteId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_hub_siteId"
+                    style="@style/defaultText"
+                    android:text="Hub Site Id" />
+
+                <TextView
+                    android:id="@+id/txt_hub_siteId"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_first_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_first_level"
+                    style="@style/defaultText"
+                    android:text="First Level Approval" />
+
+                <TextView
+                    android:id="@+id/txt_first_level"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_second_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_second_level"
+                    style="@style/defaultText"
+                    android:text="Second Level Approval" />
+
+                <TextView
+                    android:id="@+id/txt_second_level"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_reject_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_reject_category"
+                    style="@style/defaultText"
+                    android:text="Rejection Category" />
+
+                <TextView
+                    android:id="@+id/txt_reject_category"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_reject_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_reject_remarks"
+                    style="@style/defaultText"
+                    android:text="Rejection Remarks" />
+
+                <TextView
+                    android:id="@+id/txt_reject_remarks"
+                    style="@style/disableInputText" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_chk_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/tv_chk_link"
+                    style="@style/linkTextView"
+                    android:text="View Health and Safety Checklist"
+                    android:visibility="visible"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ref_tt_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_ref_tt_link"
+                    style="@style/linkTextView"
+                    android:text="Add Reference Ticket"
+                    android:visibility="visible"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tv_remarks"
+                    style="@style/defaultText"
+                    android:text="Remarks" />
+
+                <TextView
+                    android:id="@+id/txt_no_remarks"
+                    style="@style/disableInputText"
+                    android:text="No remarks added" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_remarks_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:background="@drawable/et_data"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp">
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_image"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:visibility="visible"
+                >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_img"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rl"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/bottom"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/tv_next"
+                    style="@style/ButtonDefault"
+                    android:gravity="center"
+                    android:text="Submit" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_weight="1"
+                    android:id="@+id/tv_navigate"
+                    style="@style/ButtonDefault"
+                    android:gravity="center"
+                    android:text="Navigate" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

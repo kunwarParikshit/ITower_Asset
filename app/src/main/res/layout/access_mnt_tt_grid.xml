@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_bg"
+    android:id="@+id/main_view" >
+
+    <TextView
+        android:id="@+id/txt_site_id"
+        android:text="ACBA_0027(dasdas)"
+        style="@style/scheduletabSiteId"  />
+
+
+
+    <TextView
+        android:id="@+id/txt_requester_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:text="01-Mar-2019"
+        android:textColor="@color/grid_item"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txt_site_id"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/ticket_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/txt_date"
+        android:layout_below="@+id/txt_site_id">
+
+
+        <TextView
+            android:id="@+id/txt_change_Id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:text="Change Id"
+            android:textColor="@color/grid_item"/>
+
+        <TextView
+            android:id="@+id/txt_product_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_change_Id"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:text="Rectifier"
+            android:textColor="@color/grid_item" />
+        <TextView
+            android:id="@+id/txt_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_product_type"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:text="Pending"
+            android:textColor="@color/grid_item" />
+    </RelativeLayout>
+
+</RelativeLayout>

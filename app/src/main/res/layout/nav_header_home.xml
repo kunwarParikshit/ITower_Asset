@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@color/header"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/sliderUserLayout1">
+
+            <ImageView
+                android:id="@+id/linkedin"
+                style="@style/sliderUserImage" />
+
+            <LinearLayout
+                style="@style/sliderUserLayout2">
+
+                <TextView
+                    android:id="@+id/tv_userName"
+                    style="@style/sliderUsertext1"/>
+
+                <TextView
+                    android:id="@+id/tv_lastlogin"
+                   style="@style/sliderUsertext2"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+        <ListView
+            android:id="@+id/lv_slider"
+           style="@style/sliderListView"/>
+    </LinearLayout>

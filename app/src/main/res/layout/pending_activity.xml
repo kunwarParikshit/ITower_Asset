@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_bg">
+
+    <RelativeLayout
+        android:id="@+id/ticket_info1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
+
+        <TextView
+            android:id="@+id/txt_activity"
+            style="@style/scheduletabSiteId"
+            android:text="Activity Type" />
+
+        <TextView
+            android:id="@+id/txt_site_id"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_activity"
+            android:text="Site Id" />
+
+        <TextView
+            android:id="@+id/txt_ticket_status"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_site_id"
+            android:text="Critical" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_ticket_status"
+            android:text="Alarm Description" />
+
+        <TextView
+            android:id="@+id/txt_vendor"
+            style="@style/scheduletabDate"
+            android:layout_alignRight="@+id/txt_ticket_status"
+            android:layout_below="@+id/txt_site_id"
+            android:text="Vendor" />
+
+        <TextView
+            android:id="@+id/txt_date"
+            style="@style/scheduletabDate"
+            android:layout_alignRight="@+id/txt_ticket_status"
+            android:layout_below="@+id/txt_vendor"
+            android:text="03 sep, 2014" />
+
+        <TextView
+            android:id="@+id/txt_error"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_description"
+            android:text="Error"
+            android:textColor="@color/orange" />
+
+        <TextView
+            android:id="@+id/txt_rejected_rmk"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_error"
+            android:text="Error"
+            android:textColor="@color/orange" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ticket_info2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ticket_info1"
+        android:background="@drawable/list_bg">
+
+        <TextView
+            android:id="@+id/txt_type"
+            style="@style/scheduletabSiteId"
+            android:text="Spare Part Approval" />
+
+        <TextView
+            android:id="@+id/txt_site"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_type"
+            android:text="ACBA_0027(dasdas)" />
+
+        <TextView
+            android:id="@+id/txt_spare_name"
+            style="@style/scheduletabDate"
+            android:layout_below="@+id/txt_site"
+            android:text="Air Filter" />
+
+        <TextView
+            android:id="@+id/txt_spare_qty"
+            style="@style/scheduletabDate"
+            android:layout_below="@+id/txt_spare_name"
+            android:text="Qty 5" />
+
+        <TextView
+            android:id="@+id/txt_vendor1"
+            style="@style/scheduletabDate"
+            android:layout_below="@+id/txt_spare_qty"
+            android:text="Vendor" />
+
+        <TextView
+            android:id="@+id/txt_spare_date"
+            style="@style/scheduletabDate"
+            android:layout_below="@+id/txt_vendor1"
+            android:text="01-Mar-2019" />
+
+        <TextView
+            android:id="@+id/txt_error1"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_spare_date"
+            android:text="Error"
+            android:textColor="@color/orange" />
+
+        <RelativeLayout
+            android:id="@+id/ticket"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_site"
+            android:layout_toLeftOf="@+id/txt_spare_date">
+
+            <TextView
+                android:id="@+id/txt_checklist_type"
+                style="@style/scheduletabSiteId"
+                android:text="Trouble Ticket" />
+
+            <TextView
+                android:id="@+id/txt_ticket_id"
+                style="@style/scheduletabActivityType"
+                android:layout_below="@+id/txt_checklist_type"
+                android:text="TT00001467" />
+
+            <TextView
+                android:id="@+id/txt_status"
+                style="@style/scheduletabActivityType"
+                android:layout_below="@+id/txt_ticket_id"
+                android:text="Pending" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

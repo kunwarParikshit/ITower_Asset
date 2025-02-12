@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white"
+     >
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/tv_main_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Add Spare Parts"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/bt_close"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/close"
+            android:text="" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/rl_header">
+
+        <TextView
+            android:id="@+id/tv_category"
+            style="@style/defaultText"
+            android:text="Category" />
+
+       <com.isl.SingleSelectSearchable.SearchableSpinner
+            android:id="@+id/sp_category"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="5sp"
+            android:gravity="center_horizontal"
+            android:minHeight="35sp"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+       />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_spare"
+        style="@style/defaultText"
+        android:text="Spare Parts"
+       android:layout_below="@+id/ll_category"/>
+
+    <LinearLayout
+        android:id="@+id/ll_spare_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_below="@+id/tv_spare" >
+
+        <com.isl.SingleSelectSearchable.SearchableSpinner
+            android:id="@+id/spinner_spare"
+            android:layout_width="0sp"
+            android:layout_height="40dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="2sp"
+            android:gravity="center_horizontal"
+            android:minHeight="35sp"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+            />
+
+          <EditText
+            android:id="@+id/editText_quantity"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/input_box"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:minHeight="40sp"
+            android:padding="2sp"
+            android:singleLine="true"
+            android:textColor="@color/input_textcolor" />
+
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="0sp"
+            android:layout_height="42sp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/button_9_blue"
+            android:minHeight="42sp"
+            android:padding="2sp"
+            android:text="+Add"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_spPart"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginTop="10sp"
+        android:background="@color/header"
+        android:orientation="horizontal"
+        android:weightSum="4.02"
+        android:layout_below="@+id/ll_spare_top" >
+
+        <TextView
+            android:id="@+id/tv_spPart"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Spare Parts"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight=".01"
+            android:background="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_spQty"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Quantity"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_divider"
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight=".01"
+            android:background="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_spaction"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Action"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_spPart"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:max="100"
+        android:minHeight="50dp"
+        android:minWidth="250dp"
+        android:progress="10"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/listView_Spare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="2dp"
+        android:padding="1sp"
+        android:layout_below="@+id/pBar" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@color/bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scrollbars="vertical"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/button_submit"
+                style="@style/ButtonDefault"
+                android:gravity="center"
+                android:text="Submit" />
+
+        </LinearLayout>
+
+   </RelativeLayout>
+</RelativeLayout>

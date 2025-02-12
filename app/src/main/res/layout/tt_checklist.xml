@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_page_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5">
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="wrap_content"
+            android:background="#3F51B5"
+            android:text=""
+            android:padding="13dp"
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/back"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Checklist"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:paddingLeft="20sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="80sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignBaseline="@+id/bt_back"
+            android:layout_alignBottom="@+id/bt_back"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:background="@drawable/cart"/>
+       </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tkt_type_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/rl_header">
+
+        <TextView
+            android:id="@+id/tv_tickettype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="12sp"
+            android:text="Type"
+            android:textColor="#2B4E81"
+            android:textSize="15sp" />
+
+        <com.isl.SingleSelectSearchable.SearchableSpinner
+            android:id="@+id/sp_tktType"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="5sp"
+            android:gravity="center_horizontal"
+            android:minHeight="35sp"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/rl_header">
+    </LinearLayout>
+
+</RelativeLayout>

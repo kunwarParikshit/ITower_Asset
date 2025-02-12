@@ -1,0 +1,33 @@
+<!-- bottom_sheet_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewContent1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Content of Bottom Sheet" />
+
+    <TextView
+        android:id="@+id/textViewContent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Content of Bottom Sheet" />
+
+    <TextView
+        android:id="@+id/textViewContent3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Content of Bottom Sheet" />
+
+    <TextView
+        android:id="@+id/textViewContent4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Content of Bottom Sheet" />
+
+    <!-- Add more UI elements here -->
+</LinearLayout>

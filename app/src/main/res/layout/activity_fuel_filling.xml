@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E1E1E2"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#456ca4"
+            android:drawableLeft="@drawable/back"
+            android:padding="13dp"
+            android:text="@string/back"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_last_trans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_site_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="SITE ID"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <AutoCompleteTextView
+                android:id="@+id/et_site_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+                android:inputType="textNoSuggestions"
+                android:maxLength="20"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_tank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:scrollbars="vertical" >
+
+                <Spinner
+                    android:id="@+id/spinner_tank"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="35sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="9dp"
+                    android:src="@drawable/drop" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_mobile"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/tv_mobile_genset_date"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Mobile Genset Deploy Date"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txv_mobile_genset_date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:drawableRight="@drawable/calendar_icon"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_reason_of_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Reason of Mobile Genset"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_reason_of_mobile"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:textSize="15sp" 
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:scrollHorizontally="true"
+                    android:inputType="text" />
+
+                <TextView
+                    android:id="@+id/tv_capacity_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Capacity of Mobile Genset (kVA)"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_capacity_of_mobile"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_gen_eng_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Genset Engine No."
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_gen_eng_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                    android:maxLength="20"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_vno"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_vno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Vehicle No."
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+
+            <EditText
+                android:id="@+id/et_v_no"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionDone"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:maxLength="20"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_filled_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_filled_qty"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:maxLength="9"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_opening_stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_fuel_level"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:maxLength="9"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_genset_meter"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:scrollbars="vertical" >
+
+                <Spinner
+                    android:id="@+id/spinner_genset_meter"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="35sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="9dp"
+                    android:src="@drawable/drop" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_genset"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_genset_meter_reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_genset_meter_reading"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:maxLength="9"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:id="@+id/tv_fault_since"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/tv1_fault_since"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_fault_since"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:scrollbars="vertical"
+                android:visibility="gone" >
+
+                <Spinner
+                    android:id="@+id/sp_fault_since"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="35sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="9dp"
+                    android:src="@drawable/drop" />
+            </RelativeLayout>
+            
+              <RelativeLayout
+                android:id="@+id/rl_genset_replace_date" 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" 
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_genset_replace_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Genset Meter Replacement Date"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_value_genset_replace_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:textSize="15sp"
+                android:background="@drawable/input_box"
+                android:drawableRight="@drawable/calendar_icon"
+                android:padding="5dp"
+                android:text=""
+                android:minHeight="35sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_grid_meter"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:scrollbars="vertical" >
+
+                <Spinner
+                    android:id="@+id/spinner_grid_meter"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="35sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="9dp"
+                    android:src="@drawable/drop" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_eb"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_grid_meter_reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_grid_meter_reading"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:textSize="15sp" />
+            
+             <RelativeLayout
+                android:id="@+id/rl_grid_replace_date" 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" 
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_grid_replace_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Grid Meter Replacement Date"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_value_grid_replace_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:textSize="15sp"
+                android:background="@drawable/input_box"
+                android:drawableRight="@drawable/calendar_icon"
+                android:padding="5dp"
+                android:text=""
+                android:minHeight="35sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_remarks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_remarks"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:maxLength="200"
+                android:minHeight="35sp"
+                android:padding="5dp"
+                android:textSize="15sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:scrollHorizontally="true"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tv_click_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="12sp"
+                android:text=""
+                android:textColor="#2B4E81"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_take_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/click"
+                android:padding="5dp"
+                android:text="" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.isl.itower.ExpandableHeightGridView
+                    android:id="@+id/grid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:columnWidth="250dp"
+                    android:gravity="center"
+                    android:horizontalSpacing="3dp"
+                    android:isScrollContainer="false"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="1"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="3dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#59ae8d"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+                <Button
+                    android:id="@+id/button_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/send"
+                    android:minWidth="106dp"
+                    android:paddingLeft="20sp"
+                    android:paddingRight="20sp"
+                    android:text=""
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white" >
+    <!-- Header aligned to top -->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/header" >
+
+        <Button
+            android:id="@+id/bt_back"
+           style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+           style="@style/tabHeaderTextView" />
+    </RelativeLayout>
+
+    <!-- Footer aligned to bottom -->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_color_white"
+        android:orientation="horizontal"
+        android:scrollbars="vertical"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_passward"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/bt_submit"
+                style="@style/ButtonDefault" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- center -->
+
+    <RelativeLayout
+        android:id="@+id/scrollableContents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer"
+        android:layout_below="@id/header"
+        android:background="@color/bg_color_white">
+        
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+         
+            <TextView
+                    android:id="@+id/tv_site_id"
+                    style="@style/defaultText" />
+            
+            <EditText
+                android:id="@+id/et_site_id"
+                style="@style/defaultInputSiteId" />
+            
+             <TextView
+                android:id="@+id/tv_tank"
+                style="@style/defaultText" />
+
+            <Spinner
+                android:id="@+id/spinner_tank"
+                style="@style/defaultSpinner" />
+             
+             <!--<RelativeLayout
+                 android:layout_width="fill_parent"
+                 android:layout_height="40dp"
+                 android:layout_marginLeft="12sp"
+                 android:layout_marginRight="12sp"
+                 android:layout_marginTop="5sp"
+                 android:scrollbars="vertical" >
+
+                <Spinner
+                    android:id="@+id/spinner_tank"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="35sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="9dp"
+                    android:src="@drawable/drop" />
+            </RelativeLayout>-->
+            
+             <TextView
+                    android:id="@+id/tv_age"
+                    style="@style/defaultText" />
+
+
+             
+             <RelativeLayout
+                 android:id="@+id/rl_age"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:scrollbars="vertical" >
+
+
+                 <Spinner
+                     android:id="@+id/spinner_age"
+                     style="@style/defaultSpinner" />
+               <!-- <Spinner
+                    android:id="@+id/spinner_age"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="35sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="9dp"
+                    android:src="@drawable/drop" />-->
+            </RelativeLayout>
+            
+             <LinearLayout
+                  android:id="@+id/ll_age"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:visibility="gone" >
+            
+              <TextView
+                  android:id="@+id/from"
+                  style="@style/defaultText" />
+
+                 <TextView
+                     android:id="@+id/tv_from_Date"
+                     style="@style/defaultDateText"/>
+
+               <!-- <TextView
+                    android:id="@+id/tv_from_Date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:drawableRight="@drawable/calendar_icon"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />-->
+                
+                <TextView
+                    android:id="@+id/to"
+                    style="@style/defaultText" />
+
+                 <TextView
+                     android:id="@+id/tv_to_Date"
+                     style="@style/defaultDateText"/>
+                
+               <!-- <TextView
+                    android:id="@+id/tv_to_Date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginBottom="12sp"
+                    android:background="@drawable/input_box"
+                    android:drawableRight="@drawable/calendar_icon"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />-->
+        </LinearLayout>
+       
+         </LinearLayout>
+         </ScrollView>
+  </RelativeLayout>
+
+</RelativeLayout>

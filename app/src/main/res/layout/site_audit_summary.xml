@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#E3E3E3"
+    android:orientation="vertical"
+    android:scrollbars="vertical" >
+
+     <RelativeLayout
+        android:id="@+id/rl_header_existing_ticket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="#456ca4"
+            android:drawableLeft="@drawable/back"
+            android:padding="13dp"
+            android:text="Back"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Site Audit Summary"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+         >
+                
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent"
+         android:paddingLeft="5dp"
+         android:text="Search"
+         android:textColor="#2B4E81"
+         android:textSize="15sp" 
+         android:gravity="center"/>
+     
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:background="@drawable/input_box"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+                
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.70"
+            android:background="@android:color/transparent"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+            android:maxLength="@string/max_length_twenty"
+            android:padding="5sp" />
+
+        <ImageButton
+            android:id="@+id/bt_search"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_weight=".3"
+            android:background="@android:color/transparent"
+            android:src="@drawable/search" />
+    </LinearLayout>
+</LinearLayout>    
+
+    <ScrollView
+         android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5sp" >
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2sp"
+                    android:layout_marginTop="5sp"
+                    android:orientation="horizontal" >
+
+                    <ListView
+                        android:id="@+id/listView1"
+                        android:layout_width="2100sp"
+                        android:layout_height="400sp"
+                        android:background="@android:color/transparent" >
+                    </ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
+     
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/rl_blank"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No Data Found"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </RelativeLayout> 
+</LinearLayout>
+
+
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E6E6E6" >
+    
+    
+    
+    <RelativeLayout
+        android:id="@+id/rl_header_existing_ticket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="#456ca4"
+            android:drawableLeft="@drawable/back"
+            android:padding="10dp"
+            android:text="Back"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Site Audit Summary"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+         >
+                
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent"
+         android:paddingLeft="5dp"
+         android:text="Search"
+         android:textColor="#2B4E81"
+         android:textSize="15sp" 
+         android:gravity="center"/>
+     
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:background="@drawainput_boxedit"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+                
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.70"
+            android:background="@android:color/transparent"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+            android:maxLength="@string/max_length_twenty"
+            android:padding="5sp" />
+
+        <ImageButton
+            android:id="@+id/bt_search"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_weight=".3"
+            android:background="@android:color/transparent"
+            android:src="@drawable/search" />
+    </LinearLayout>
+</LinearLayout>
+  
+
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5sp" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp" >
+
+            <TableRow
+                style="@style/BodyRow"
+                android:weightSum="5" >
+
+                <TextView
+                    android:id="@+id/tv_site_id"
+                    android:layout_weight="1.3"
+                    android:text="Site Name"
+                    android:gravity="center"
+					android:drawableRight="@drawable/doted1"
+					android:background="#456ca4"
+                    android:layout_marginLeft="1sp"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ffffff"/>
+
+                <TextView
+                    android:id="@+id/tv_site_type"
+                     android:layout_weight="1.3"
+                     android:text="Audit Date" 
+                     android:gravity="center"
+                     android:drawableRight="@drawable/doted1"
+                     android:background="#456ca4"
+                     android:layout_marginLeft="1sp"
+                     android:layout_width="0sp"
+                     android:layout_height="match_parent"
+                    android:textColor="#ffffff"/>
+                
+                <TextView
+                    android:id="@+id/tv_site_class"
+                     android:gravity="center"
+                    android:layout_weight=".9"
+                    android:text="By Whom"
+                    android:drawableRight="@drawable/doted1"
+                    android:background="#456ca4"
+                    android:layout_marginLeft="1sp" 
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ffffff"/>
+                
+                 <TextView
+                    android:id="@+id/tv"
+                     android:gravity="center"
+                    android:layout_weight=".6"
+                    android:text="DG" 
+                    android:drawableRight="@drawable/doted1"
+                    android:background="#456ca4"
+                    android:layout_marginLeft="1sp"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:textColor="#ffffff"/>
+                
+                <TextView
+                    android:id="@+id/tv2"
+                    android:gravity="center"
+                    android:layout_weight=".9"
+                    android:text="Battery"
+                    android:drawableRight="@drawable/doted1"
+                    android:background="#456ca4"
+                    android:layout_marginLeft="1sp" 
+                    android:layout_marginRight="1sp"
+                    android:layout_width="0sp"
+                   android:layout_height="match_parent"
+                    android:textColor="#ffffff"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+<ListView
+    android:id="@+id/listView1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:visibility="gone" >
+</ListView>
+
+ <RelativeLayout
+        android:id="@+id/rl_blank"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No Data Found"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout> -->

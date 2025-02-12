@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/header" >
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/tabBackButton"
+            />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_no_ticket"
+        style="@style/noDataFoundTV"
+        android:layout_marginTop="10dp"
+        android:textSize="16dp"
+        android:layout_below="@+id/et_txn_id"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/search_by"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:layout_below="@+id/rl_header_ticket_list">
+
+        <TextView
+            android:id="@+id/tv_search_by_logo"
+            style="@style/scheduletabSearchBy"/>
+
+        <Spinner
+            android:id="@+id/sp_search_by"
+            style="@style/defaultSpinner" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_searchby_site"
+        android:layout_below="@+id/search_by"
+        style="@style/scheduletabSearchBySite" />
+
+
+    <EditText
+        android:id="@+id/et_sch_date"
+        android:layout_below="@+id/et_searchby_site"
+        style="@style/scheduletabSearchByDate"
+        />
+
+    <TextView
+        android:id="@+id/tv_operator"
+        android:layout_below="@+id/et_sch_date"
+        style="@style/scheduletabSearchByActivity" />
+
+    <EditText
+        android:id="@+id/et_txn_id"
+        android:layout_below="@+id/tv_operator"
+        style="@style/scheduletabSearchBySite"
+        android:visibility="gone"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_no_ticket"
+        android:layout_marginTop="10dp">
+
+        <ListView
+            android:id="@+id/lv_sites"
+            style="@style/scheduleListView">
+        </ListView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:background="@color/transparent"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+
+    <Button
+        android:id="@+id/cancel_button"
+        style="@style/tabCrossButton"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/clear_pad" />
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_below="@+id/cancel_button"
+        android:layout_above="@+id/buttons_container"
+        android:id="@+id/signature_pad_container">
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            android:layout_above="@+id/signature_pad_description" />
+
+        <TextView
+            android:id="@+id/signature_pad_description"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentBottom="true"
+            android:text="" />
+
+        <com.github.gcacace.signaturepad.views.SignaturePad
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/signature_pad" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_container"
+        android:paddingTop="16dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/clear_button"
+            style="@style/ButtonSecondary"
+            android:layout_weight="1"
+            android:text="@string/clear_pad"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/save_button"
+            style="@style/ButtonDefault"
+            android:layout_weight="1"
+            android:text="@string/save_signature"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

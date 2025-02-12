@@ -1,0 +1,19 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tab_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="Tab Title"
+        android:textSize="@dimen/tab_textsize"
+        android:textColor="@color/color_4D4D56" />
+</LinearLayout>

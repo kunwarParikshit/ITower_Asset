@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:orientation="vertical" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="51sp" >
+
+            <TableRow
+                style="@style/BodyRow"
+                android:weightSum="24"
+                android:layout_height="51sp" >
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="2"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Site Name"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="2"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Audit Date"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="2"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="By Whom"
+                    android:textColor="#ffffff" />
+                
+                
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="AC Meter"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Aircon"
+                    android:textColor="#ffffff" />
+                
+                
+                 <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Battery"
+                    android:textColor="#ffffff" />
+
+                
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="DC Meter"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="DG"
+                    android:textColor="#ffffff" />
+
+               
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="2"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Fire Extinguishers"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Fuel Tank"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="PIU"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="RMS/RTU"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="SMPS"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="2"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Security Equipment"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Shelter"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Solar"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="3"
+                    android:background="#456ca4"
+                    android:gravity="center"
+                    android:text="Remarks"
+                    android:textColor="#ffffff" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

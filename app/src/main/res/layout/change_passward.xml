@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:padding="20dp" >
+
+    <RelativeLayout
+        android:id="@+id/rl_box_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@color/white"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp">
+
+        <RelativeLayout
+            android:id="@+id/rl_header_forgot"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/header"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tv_brand_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Change Password"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_passward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_header_forgot"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+             >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_text_input"
+                style="@style/LoginTextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_old_pwd"
+                    style="@style/LoginInput"
+                    android:hint="Old password"
+                    android:inputType="textPassword"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$*"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_text_input1"
+                style="@style/LoginTextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_new_pwd"
+                    style="@style/LoginInput"
+                    android:hint="New password"
+                    android:inputType="textPassword"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$*"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_text_input2"
+                style="@style/LoginTextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_retry_pwd"
+                    style="@style/LoginInput"
+                    android:hint="Retype new password"
+                    android:inputType="textPassword"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$*"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_passward"
+            android:orientation="horizontal"
+            android:weightSum="2" >
+
+            <Button
+                android:id="@+id/bt_save"
+                style="@style/ButtonDefault" />
+
+            <Button
+                android:id="@+id/bt_cancel"
+                style="@style/ButtonSecondary"  />
+            
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

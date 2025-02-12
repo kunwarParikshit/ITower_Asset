@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_home"
+    android:focusableInTouchMode="true" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header" >
+
+        <Button
+            android:id="@+id/iv_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView" />
+
+        <!--<Button
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#3F51B5"
+            android:drawableLeft="@drawable/back"
+            android:padding="13sp"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Spare Part Approval"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />-->
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_buttons"
+        android:layout_below="@+id/rl_header_ticket_details" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:id="@+id/ll_site_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_site_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Site ID"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/et_site_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/input_textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tran_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_tran_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Transaction Date"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/et_transaction_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/input_textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tran_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_tran_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Transaction Type"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/et_tran_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/input_textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_ticket_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_ticket_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Ticket ID / PM Activity Type"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/et_ticket_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/input_textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_spare_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_spare_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Spare Part Name"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txt_spare_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:textColor="@color/input_textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Quantity"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/txt_qty"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:digits="1234567890."
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:textSize="15sp"
+                    android:textColor="@color/input_textcolor"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_app_qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_app_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Approve Quantity"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/et_app_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/input_textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_serial_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                <TextView
+                    android:id="@+id/tv_seriali_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Serial No."
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txt_serial_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/et_data"
+                    android:gravity="center_vertical"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:textColor="@color/input_textcolor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Remarks"
+                    android:textColor="@color/textcolor"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:gravity="center_vertical"
+                    android:maxLength="200"
+                    android:minHeight="35sp"
+                    android:padding="5sp"
+                    android:textSize="15sp"
+                    android:textColor="@color/input_textcolor"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_last_tran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_last_tran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:layout_marginBottom="20sp"
+                    android:gravity="right"
+                    android:text="Last Transaction Details"
+                    android:textColor="@color/link_textcolor"
+                    android:textSize="15sp"
+                    android:visibility="visible"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="12sp"
+                android:layout_marginLeft="12sp"
+                >
+
+                <RadioGroup
+                    android:id="@+id/rg_tran_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rb_dfr"
+                        android:layout_width="0sp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Approved"
+                        android:checked="true"
+                        android:textColor="@color/textcolor"/>
+
+
+                    <RadioButton
+                        android:id="@+id/rb_reject"
+                        android:layout_width="0sp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Rejected"
+                        android:textColor="@color/textcolor"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_update"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/bottom"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/bt_submit"
+                    style="@style/ButtonDefault"
+                    android:gravity="center"
+                    android:text="Submit" />
+            </LinearLayout>
+           <!-- <Button
+                android:id="@+id/bt_submit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/send"
+                android:text="Submit"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp" />-->
+        </LinearLayout>
+    </ScrollView>
+
+    <!--<LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="40sp">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="fill_parent"
+            android:layout_height="60sp"
+            android:background="#59ae8d"
+            android:orientation="horizontal"
+            android:scrollbars="vertical"
+            android:visibility="visible" >
+
+            <Button
+                android:id="@+id/btn_update_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:minWidth="106sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/send"
+                android:text="Apporve Spare Part"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"/>
+        </RelativeLayout>
+    </LinearLayout>-->
+
+</RelativeLayout>

@@ -1,0 +1,84 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:background="@color/tab_color">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tab_color"
+                app:layout_scrollFlags="enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                >
+                <RelativeLayout
+                    android:id="@+id/rl_header_ticket_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent" >
+
+                <Button
+                  android:id="@+id/bt_back"
+                  style="@style/tabBackButton1"
+                  />
+
+                <TextView
+                    android:id="@+id/tv_brand_logo"
+                    style="@style/tabHeaderTextView"/>
+
+                    <TextView
+                        android:id="@+id/tv_add_activity"
+                        style="@style/tabHeaderTextView"
+                        android:text="+"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable"
+                app:tabGravity="fill"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                android:background="@color/tab_color"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+      <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+   <!-- <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/LightTheme"
+        app:itemIconTint="@color/lsm_bottom_menu_color_selector"
+        app:itemTextColor="@color/lsm_bottom_menu_color_selector"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/lease_management_bottom_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+         />-->
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,12 @@
+{
+  "client_id": "9d029794-5dc3-41e3-aa14-a371cb7c96a9",
+  "redirect_uri": "msauth://mast.com.sa/2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D",
+  "authorization_scope": "https://graph.microsoft.com/User.Read",
+  "discovery_uri": "",
+  "authorization_endpoint_uri": "https://login.microsoftonline.com/f409a13c-bc56-4779-8fdb-948773f05564/oauth2/v2.0/authorize",
+  "token_endpoint_uri": "https://login.microsoftonline.com/f409a13c-bc56-4779-8fdb-948773f05564/oauth2/v2.0/token",
+  "registration_endpoint_uri": "https://login.microsoftonline.com/9d029794-5dc3-41e3-aa14-a371cb7c96a9",
+  "user_info_endpoint_uri": "https://graph.microsoft.com/v1.0/me",
+  "https_required": true,
+  "logout_uri": "https://login.microsoftonline.com/f409a13c-bc56-4779-8fdb-948773f05564/oauth2/logout?"
+}

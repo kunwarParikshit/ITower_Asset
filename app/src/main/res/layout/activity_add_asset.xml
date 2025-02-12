@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rl_main"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    tools:context="com.isl.audit.activity.AddAssetActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/header"
+            android:drawableLeft="@drawable/back"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/back"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/add_asset"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_top"
+        android:layout_above="@+id/tv_submit"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/tv_add_parent_asset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="@string/add_parent_asset"
+                android:textColor="@color/header"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/tv_parent_asset_value"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_add_parent_asset"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textColor="@color/header"
+                android:textSize="@dimen/_13ssp" />
+
+
+            <TextView
+                android:id="@+id/tv_select_asset_type"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/tv_parent_asset_value"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="@string/select_asset_type"
+                android:textColor="@color/header"
+                android:textSize="@dimen/_13ssp" />
+
+            <Spinner
+                android:id="@+id/spinner_asset_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/doted"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_below="@+id/tv_select_asset_type"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:minHeight="@dimen/_30sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:textSize="@dimen/_13ssp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/rv_attributes"
+                android:layout_below="@+id/spinner_asset_type"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <TextView
+        android:layout_width="@dimen/_120sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/tv_submit"
+        android:paddingLeft="@dimen/_20sdp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/white"
+        android:text="@string/submit"
+        android:background="@drawable/bg_submit_button"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

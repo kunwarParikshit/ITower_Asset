@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_bg">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_tran_id"
+                style="@style/scheduletabActivityType"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_site_id"
+                style="@style/scheduletabSiteId"
+                android:layout_marginTop="1dp"/>
+
+            <TextView
+                android:id="@+id/tv_dg_type"
+                style="@style/scheduletabActivityType" />
+
+            <TextView
+                android:id="@+id/tv_fill_date"
+                style="@style/scheduletabActivityType" />
+
+            <TextView
+                android:id="@+id/tv_filled_qty"
+                style="@style/scheduletabActivityType"/>
+        </LinearLayout>
+</RelativeLayout> 

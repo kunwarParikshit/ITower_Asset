@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
+    <!--android:background="#CC000000"-->
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_centerVertical="true"
+        android:background="@color/header">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="Add Generator overhaulding"
+            style="@style/confirmTextAlert"/>
+
+        <Button
+            android:id="@+id/iv_cross"
+            style="@style/tabCrossButton"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@color/white"
+        android:layout_below="@+id/rl_header">
+
+        <TextView
+            android:id="@+id/tv_sid"
+            android:text="Site ID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_sid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_aid"
+            android:text="Activity Type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_aid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_gen_status"
+            android:text="Generator Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/sp_gen_status"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+        <TextView
+            android:id="@+id/tv_pull_date"
+            android:text="Pull Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_pull_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_overall_date"
+            android:text="Pull Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_overall_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_checklist"
+            android:text="Do you want to fill site activity checklist?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="2dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:scrollbars="vertical"
+        >
+
+        <Button
+            android:id="@+id/bt_save"
+            android:text="Save"
+            android:layout_marginRight="5dp"
+            style="@style/ButtonDefault"/>
+
+        <Button
+            android:id="@+id/bt_next"
+            android:text="Next"
+            android:visibility="visible"
+            style="@style/ButtonSecondary"/>
+    </LinearLayout>
+
+</LinearLayout>

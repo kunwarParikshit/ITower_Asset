@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color_home">
+
+    <LinearLayout style="@style/homeGridLayout">
+
+
+        <RelativeLayout
+            android:id="@+id/checkInOut"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Switch
+                android:switchPadding="10dp"
+                android:id="@+id/switch_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:switchMinWidth="50dp"
+                app:switchPadding="20dp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_location"
+                android:textSize="15sp"
+                android:checked="true"
+                android:text="CheckedIn"/>
+
+
+
+            <Button
+                android:layout_below="@id/switch_button"
+                android:visibility="gone"
+                android:id="@+id/punch"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/button_9_blue"
+                android:text="Check In"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                />
+
+            <Button
+                android:id="@+id/punchout"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/button_9_blue"
+                android:text="Check Out"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <com.isl.itower.ExpandableHeightGridView
+            android:id="@+id/grid"
+            style="@style/homeGrid"
+            android:layout_marginTop="@dimen/_10sdp" />
+    </LinearLayout>
+</LinearLayout>

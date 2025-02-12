@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
+    <!--android:background="#CC000000"-->
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_centerVertical="true"
+        android:background="@color/header">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/confirmTextAlert"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:layout_below="@+id/rl_header">
+
+       <EditText
+            android:id="@+id/etconfig_ip"
+            style="@style/confirmEdit1Alert"/>
+
+        <EditText
+            android:id="@+id/et_ip"
+            android:maxLength="200"
+            style="@style/confirmEdit2Alert"/>
+
+        <EditText
+            android:id="@+id/et_reviewer_remark"
+            style="@style/confirmEdit3Alert"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:scrollbars="vertical"
+        >
+
+        <Button
+            android:id="@+id/bt_ok"
+            android:text="OK"
+            android:layout_marginRight="5dp"
+            style="@style/ButtonDefault"/>
+
+        <Button
+            android:id="@+id/bt_cancel"
+            android:text="CANCEL"
+            style="@style/ButtonSecondary"/>
+    </LinearLayout>
+
+</LinearLayout>

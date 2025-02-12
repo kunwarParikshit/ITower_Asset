@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1sp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="51sp" >
+
+            <TableRow
+                style="@style/BodyRow"
+                android:weightSum="24"
+                android:layout_height="51sp" >
+
+                <TextView
+                    android:id="@+id/tv_site_name1"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="2"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Site Name"
+                    android:textColor="#000000" 
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tv_last_audit_dt1"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="2"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Audit Date"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tv_by_whom1"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="2"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="By Whom"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+                
+                
+                 <TextView
+                    android:id="@+id/tv_ac_meter"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="AC Meter"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+                 
+                 
+                  <TextView
+                    android:id="@+id/tv_aircon"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Aircon"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+                  
+                   <TextView
+                    android:id="@+id/tv_battery"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Battery"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+                   
+                   
+                    <TextView
+                    android:id="@+id/tv_dc_meter"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="DC Meter"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tv_dg"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="DG"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+               
+
+               
+
+               
+
+               
+
+                <TextView
+                    android:id="@+id/tv_fire"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="2"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Fire Extinguishers"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tv_fuel_tank"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Fuel Tank"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tv_piu"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="PIU"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tv_rms"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="RMS/RTU"
+                    android:textColor="#000000" 
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tv_smps"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="SMPS"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tv_security"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="2"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Security Equipment"
+                    android:textColor="#000000" 
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tv_shelter"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Shelter"
+                    android:textColor="#000000"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tv_solar"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="Solar"
+                    android:textColor="#000000" 
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tv_remarks"
+                    android:layout_width="0sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_weight="3"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="No remarks added"
+                    android:singleLine="true"
+                    android:textColor="#000000" 
+                    />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

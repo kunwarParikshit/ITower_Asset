@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E8E8">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <LinearLayout
+            android:id="@+id/rl_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#456ca4"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/bt_back"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight=".5"
+                android:background="#456ca4"
+                android:drawableLeft="@drawable/back"
+                android:padding="13sp"
+                android:text=""
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:background="#456ca4"
+                android:orientation="horizontal"
+                android:layout_weight="2"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/tv_brand_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fuel Purchase Request"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:background="#456ca4"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="right"
+            android:layout_weight=".5">
+            <TextView
+                android:id="@+id/tv_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+Add"
+                android:layout_gravity="right"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="15sp"
+                />
+         </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/textlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header_ticket_list"
+        android:layout_centerInParent="true"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/txt_no_ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="NO TICKETS FOUND"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/lv_tickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header_ticket_list"
+        android:background="@android:color/white"
+        android:cacheColorHint="@android:color/transparent"
+        android:scrollingCache="false" >
+    </ListView>
+
+</RelativeLayout>

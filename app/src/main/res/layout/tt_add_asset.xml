@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView"
+            android:text="Add Asset" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+           >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+               >
+
+                <TextView
+                    android:id="@+id/tv_manual_qr_code"
+                    style="@style/defaultText"
+                    android:text="QR Code" />
+
+                <EditText
+                    android:id="@+id/et_manual_qr_code"
+                    style="@style/defaultInputText"
+                    android:layout_height="41dp"
+                    android:drawableRight="@drawable/bar"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_equipment_type"
+                    style="@style/defaultText"
+                    android:text="Equipment Type" />
+
+                <Spinner
+                    android:id="@+id/sp_equipment_type"
+                    style="@style/defaultSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_asset_id_tag"
+                    style="@style/defaultText"
+                    android:text="Asset Id Tag" />
+
+                <Spinner
+                    android:id="@+id/sp_asset_id_tag"
+                    style="@style/defaultSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_action"
+                    style="@style/defaultText"
+                    android:text="Asset Id Tag" />
+
+                <Spinner
+                    android:id="@+id/sp_action"
+                    style="@style/defaultSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_asset_id"
+                    style="@style/defaultText"
+                    android:text="Asset Id" />
+
+                <EditText
+                    android:id="@+id/et_asset_id"
+                    style="@style/defaultInputText"
+                    android:inputType="text"
+                    android:maxLength="50"/>
+
+                <TextView
+                    android:id="@+id/tv_warranty_date"
+                    style="@style/defaultText"
+                    android:text="Warranty Date" />
+
+                <EditText
+                    android:id="@+id/et_warranty_date"
+                    style="@style/defaultInputText"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-"
+                    android:visibility="visible"
+                    android:maxLength="11"/>
+
+
+                <TextView
+                    android:id="@+id/tv_manual_brand"
+                    style="@style/defaultText"
+                    android:text="Manufacturer" />
+
+                <EditText
+                    android:id="@+id/et_manual_brand"
+                    style="@style/defaultInputText"
+                    android:inputType="text"
+                    android:maxLength="50"/>
+
+                <TextView
+                    android:id="@+id/tv_manual_model"
+                    style="@style/defaultText"
+                    android:text="Model" />
+
+                <EditText
+                    android:id="@+id/et_manual_model"
+                    style="@style/defaultInputText"
+                    android:inputType="text"
+                    android:maxLength="50"/>
+
+                <TextView
+                    android:id="@+id/tv_manual_ser_no"
+                    style="@style/defaultText"
+                    android:text="Serial Number" />
+
+                <EditText
+                    android:id="@+id/et_manual_serial_no"
+                    style="@style/defaultInputText"
+                    android:maxLength="50"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/()_-|$"/>
+
+                <TextView
+                    android:id="@+id/tv_capacity"
+                    style="@style/defaultText"
+                    android:text="Capacity" />
+
+                <EditText
+                    android:id="@+id/et_capacity"
+                    style="@style/defaultInputText"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/()_-|$"
+                    android:maxLength="10" />
+
+                <TextView
+                    android:id="@+id/tv_remarks"
+                    style="@style/defaultText"
+                    android:text="Remarks" />
+
+                <EditText
+                    android:id="@+id/et_remarks"
+                    style="@style/defaultInputText"
+                    android:inputType="text"
+                    android:maxLength="200"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/rl_submit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tvSubmit"
+                    style="@style/ButtonDefault"
+                    android:gravity="center"
+                    android:text="Submit" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

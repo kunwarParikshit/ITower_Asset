@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+ <!-- color for tawal -->
+  <color name="colorPrimary">#3F51B5</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#FF4081</color>
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+  <color name="orange">#FC4C02</color>
+ <color name="light_orange">#40FC4C02</color>
+  <color name="checkbox">#FC4C02</color>
+  <color name="disablecheckbox">#FBE5E0</color>
+  <color name="nevermind_bg_color">#B2FFFFFF</color>
+  <color name="transparent">#B2000000</color>
+  <color name="textcolor">#2B4E81</color>
+  <color name="grid_item">#606060</color>
+  <color name="toggle_off">#A9A9A9</color>
+  <color name="over_textcolor">#FFFFFF</color>
+  <color name="link_textcolor">#2B4E81</color>
+  <color name="hint_textcolor">#C0C0C0</color>
+  <color name="input_textcolor">#000000</color>
+  <color name="disable_textcolor">#717171</color>
+  <color name="disable_bacgroundColor">#F2F2F2</color>
+  <color name="divider">#C8C8C8</color>
+  <color name="black_overlay">#66000000</color>
+  <color name="home_menu_slider_textcolor">#000000</color>
+  <color name="bg_color_white">#F2F2F2</color>
+  <color name="input_box_color">#FFFFFF</color>
+  <color name="input_box_shadow">#B0B0B0</color>
+  <color name="bg_color_home">#F2F2F2</color>
+  <color name="pm_chklist_bg_group">#FC4C02</color>
+  <color name="header">#253746</color>
+  <color name="bottom">#F2F2F2</color>
+  <color name="toast_bg">#253746</color>
+  <color name="toast_textcolor">#FFFFFF</color>
+  <color name="tab_color">#253746</color>
+  <color name="menu_home_image">#FC4C02</color>
+  <color name="menu_home_slider_image">#FC4C02</color>
+ <color name="color_456ca4">#456ca4</color>
+ <color name="color_ff0000">#ff0000</color>
+ <color name="gray_light">#50C8C8C8</color>
+ <color name="liteColorAccent">#FC8065</color>
+
+ <!-- For iLease Management-->
+ <color name="color_4D4D56">#4D4D56</color>
+ <color name="color_001E60">#001E60</color>
+ <color name="color_FF6522">#FF6522</color>
+ <color name="color_FFFFC2">#FFFFC2</color>
+ <color name="color_008000">#008000</color>
+ <color name="color_57E964">#DBF9DB</color>
+ <color name="color_ff3B30">#FF3B30</color>
+ <color name="color_E2E2E2">#E2E2E2</color>
+
+ <color name="color_253746">#253746</color>
+
+
+ <color name="color_606F8A">#606F8A</color>
+ <color name="color_34C759">#34C759</color>
+ <color name="color_B1B7C8">#B1B7C8</color>
+ <color name="color_48484A">#48484A</color>
+ <color name="color_f8fafb">#f8fafb</color>
+
+ <color name="color_00AC69">#00AC69</color>
+ <color name="color_F7FAFB">#F7FAFB</color>
+
+ <color name="light_sky_blue">#f8fafb</color>
+ <color name="color_3366FF">#3366FF</color>
+ <color name="color_dae0e7">#dae0e7</color>
+ <color name="color_A2A9C7">#A2A9C7</color>
+ <color name="color_505F6B">#505F6B</color>
+ <color name="color_FF4D4F">#FF4D4F</color>
+ <color name="color_2850B9">#2850B9</color>
+ <color name="color_FFF7CB">#FFF7CB</color>
+ <color name="color_1E293B">#1E293B</color>
+ <color name="color_EDF3FF">#EDF3FF</color>
+ <color name="color_8E8E93">#8E8E93</color>
+ <color name="color_717E95">#717E95</color>
+
+ <!-- For iAsset-->
+ <color name="menu_unselect_color">#717E95</color>
+ <color name="menu_select_color">#233746</color>
+ <color name="color_background">#F6F6F6</color>
+ <color name="color_menu_background">#FFFFFF</color>
+ <color name="color_toolbar_background">#FFFFFF</color>
+ <color name="color_movement">#001E60</color>
+ <color name="color_add_request_background">#FFFFFF</color>
+ <color name="color_add_request_border">#233746</color>
+ <color name="color_add_request">#001E60</color>
+ <color name="color_count">#505F6B</color>
+ <color name="tab_button_bg">#253746</color>
+ <color name="tab_bg">#FFFFFF</color>
+ <color name="tab_bg_selected">#233746</color>
+ <color name="tab_bg_unselected">#F0F0F5</color>
+ <color name="tab_select_text_color">#FFFFFF</color>
+ <color name="tab_unselect_text_color">#3A3A3C</color>
+ <color name="card_bg_color">#FFFFFF</color>
+ <color name="id_color">#606F8A</color>
+ <color name="status_color">#FF6522</color>
+ <color name="status_bg_color">#FFF7CB</color>
+ <color name="from_to_color">#253746</color>
+ <color name="count_grid_color">#3A3A3C</color>
+ <color name="category_color">#606F8A</color>
+ <color name="date_color">#3A3A3C</color>
+ <color name="search">#6D6D6E</color>
+ <color name="label">#4D4D56</color>
+ <color name="input_box">#FFFFFF</color>
+ <color name="input_box_border">#A2A9C7</color>
+ <color name="input_box_text_color">#3A3A3C</color>
+ <color name="shades_color">#F2F2F2</color>
+ <color name="tint_calender">#FF6522</color>
+ <color name="tint_ddl">#0A1325</color>
+ <color name="tint_grip">#A2A9C7</color>
+ <color name="tint_close">#8E8E93</color>
+ <color name="btn">#233746</color>
+ <color name="border_asset_card">#E5E5EA</color>
+ <color name="qr_code_unverify">#FF9500</color>
+ <color name="qr_code_verify">#3CB33D</color>
+ <color name="toast_bg_color">#E8E8E8</color>
+
+
+
+
+
+ <color name="custom_header_background">#FF5722</color> <!-- Header background color -->
+ <color name="custom_header_text">#FFFFFF</color> <!-- Header text color -->
+ <color name="custom_button_background">#4CAF50</color> <!-- Button background -->
+ <color name="custom_button_text">#FFFFFF</color> <!-- Button text color -->
+ <!--color for kenya/Manmar-->
+<!-- <color name="colorPrimary">#3F51B5</color>
+ <color name="colorPrimaryDark">#303F9F</color>
+ <color name="colorAccent">#50AA52</color>
+ <color name="liteColorAccent">#AAF0AC</color>
+ <color name="white">#FFFFFF</color>
+ <color name="black">#000000</color>
+ <color name="orange">#3a5d8d</color>
+ <color name="checkbox">#FC4C02</color>
+ <color name="disablecheckbox">#FBE5E0</color>
+ <color name="nevermind_bg_color">#B2FFFFFF</color>
+ <color name="transparent">#B2000000</color>
+ <color name="textcolor">#2B4E81</color>
+ <color name="grid_item">#606060</color>
+ <color name="toggle_off">#A9A9A9</color>
+ <color name="over_textcolor">#FFFFFF</color>
+ <color name="link_textcolor">#2B4E81</color>
+ <color name="hint_textcolor">#C0C0C0</color>
+ <color name="input_textcolor">#000000</color>
+ <color name="disable_textcolor">#717171</color>
+ <color name="disable_bacgroundColor">#F2F2F2</color>
+ <color name="divider">#C8C8C8</color>
+ <color name="black_overlay">#66000000</color>
+ <color name="home_menu_slider_textcolor">#000000</color>
+ <color name="bg_color_white">#F2F2F2</color>
+ <color name="input_box_color">#FFFFFF</color>
+ <color name="input_box_shadow">#B0B0B0</color>
+ <color name="bg_color_home">#F2F2F2</color>
+ <color name="pm_chklist_bg_group">#50AA52</color>
+ <color name="header">#3a5d8d</color>
+ <color name="bottom">#F2F2F2</color>
+ <color name="toast_bg">#253746</color>
+ <color name="toast_textcolor">#FFFFFF</color>
+ <color name="tab_color">#3a5d8d</color>
+ <color name="menu_home_image">#50AA52</color>
+ <color name="menu_home_slider_image">#50AA52</color>
+ <color name="color_456ca4">#456ca4</color>
+ <color name="color_ff0000">#ff0000</color>
+ <color name="gray_light">#50C8C8C8</color>-->
+</resources>

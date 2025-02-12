@@ -1,0 +1,16 @@
+<resources>
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchableSpinner">
+        <attr name="hintText" format="string" />
+    </declare-styleable>
+    <declare-styleable name="TextView">
+        <attr name="ctypeface" format="string" />
+        <attr name="android:text" />
+        <attr name="cHintTypface" format="string" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_5sdp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:elevation="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/bg_color_home"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/tv_site_id_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Site id:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tv_site_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/tv_site_id_txt"
+                android:textColor="@color/textcolor"
+                android:textSize="@dimen/_14ssp" />
+
+
+            <TextView
+                android:id="@+id/tv_audit_id_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Audit name:"
+                android:layout_below="@+id/tv_site_id"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/tv_audit_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_audit_date"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_toRightOf="@+id/tv_audit_id_txt"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_below="@+id/tv_site_id"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/disable_textcolor"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/tv_audit_date_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scheduled date"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tv_audit_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_audit_date_txt"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:textColor="@color/disable_textcolor"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tv_audit_status_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Audit type:"
+                android:layout_below="@+id/tv_audit_id"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/tv_audit_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_audit_status_txt"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_below="@+id/tv_audit_id"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/disable_textcolor"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/tv_sync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_audit_id"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:text="@string/sync_now"
+                android:textColor="@color/color_ff0000"
+                android:textSize="@dimen/_13ssp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

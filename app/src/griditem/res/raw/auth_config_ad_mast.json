@@ -1,0 +1,12 @@
+{
+  "client_id": "7ea12a41-325b-49c1-982a-82cbf042cba1",
+  "redirect_uri": "msauth://https://mast-iasset.infozech.com/oauth/v2/callback",
+  "authorization_scope": "openid email profile",
+  "discovery_uri": "",
+  "authorization_endpoint_uri": "https://login.microsoftonline.com/c830c2d0-4532-4f6d-bd4a-7d2fd88fbdcf/oauth2/v2.0/authorize",
+  "token_endpoint_uri": "https://login.microsoftonline.com/c830c2d0-4532-4f6d-bd4a-7d2fd88fbdcf/oauth2/v2.0/token",
+  "registration_endpoint_uri": "https://login.microsoftonline.com/7ea12a41-325b-49c1-982a-82cbf042cba1",
+  "user_info_endpoint_uri": "https://graph.microsoft.com/v1.0/me",
+  "logout_uri": "https://login.microsoftonline.com/c830c2d0-4532-4f6d-bd4a-7d2fd88fbdcf/oauth2/v2.0/logout?",
+  "https_required": true
+}

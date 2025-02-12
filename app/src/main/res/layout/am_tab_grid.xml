@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_bg" >
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_change_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="5sp"
+            android:text=""
+            android:textColor="@color/grid_item"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_updated_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="5sp"
+            android:text=""
+            android:textColor="@color/grid_item"
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:id="@+id/tv_updated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="5sp"
+            android:text=""
+            android:textColor="@color/grid_item"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_update_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="5sp"
+            android:text="Updated By"
+            android:textColor="@color/grid_item"
+            android:textSize="15sp"
+            android:layout_marginBottom="5dp"/>
+
+        <!--<TextView
+            android:id="@+id/end_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginTop="2sp"
+            android:paddingBottom="3sp"
+            android:text=""
+            android:textColor="@color/grid_item"
+            android:textSize="15sp"
+            android:visibility="gone"/>-->
+
+    </LinearLayout>
+</RelativeLayout>

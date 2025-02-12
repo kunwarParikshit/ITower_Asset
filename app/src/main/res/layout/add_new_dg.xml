@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E1E1E2" >
+    
+    
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+             android:background="#456ca4"
+            android:text="Back"
+            android:padding="13dp"
+           
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/back"
+            android:layout_height="wrap_content"
+             />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Genset Details"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+             />
+    </RelativeLayout>
+    
+     
+   <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+       <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical" >  
+                       
+             <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="20sp"
+                    android:text="Site Id "
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+               <EditText
+                    android:id="@+id/et_site_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="10sp"
+                    android:background="@drawable/input_box"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:minHeight="40sp"
+                    android:paddingLeft="5dp" 
+                    android:textSize="15sp"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:cursorVisible="false"/>
+             </RelativeLayout>
+                      
+              <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+               <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="20sp"
+                    android:text="Genset No."
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+             </RelativeLayout>
+                              
+             <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10sp"
+                android:scrollbars="vertical" >
+
+               <Spinner
+                    android:id="@+id/sp_dgtype"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="40sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_box" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6sp"
+                    android:paddingLeft="9sp"
+                    android:src="@drawable/drop" />
+           
+             </RelativeLayout>
+                                 
+              <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+               <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="20sp"
+                    android:text="Genset Make"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+             </RelativeLayout>
+                              
+             <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10sp"
+                android:scrollbars="vertical" >
+
+               <Spinner
+                    android:id="@+id/sp_dgmake"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="40sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_box" />
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="6sp"
+                    android:paddingLeft="9sp"
+                    android:src="@drawable/drop" />
+           
+             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="20sp"
+                    android:text="Genset Capacity"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            
+            </RelativeLayout> 
+               
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+               <EditText
+                    android:id="@+id/dg_capacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="10sp"
+                    android:background="@drawable/input_box"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:minHeight="40sp"
+                    android:paddingLeft="5dp"
+                    android:textSize="15sp"
+                    android:maxLength="5" />
+            
+               </RelativeLayout>  
+                            
+               <RelativeLayout
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:scrollbars="vertical" >
+
+                 <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginTop="20sp"
+                    android:text="Genset Tank Capacity"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+               
+               </RelativeLayout>
+ 
+               <RelativeLayout
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:scrollbars="vertical" >
+
+                  <EditText
+                      android:id="@+id/dg_tank_capacity"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="10sp"
+                      android:layout_marginRight="10sp"
+                      android:layout_marginTop="10sp"
+                      android:background="@drawable/input_box"
+                      android:ems="10"
+                      android:inputType="numberDecimal"
+                      android:minHeight="40sp"
+                      android:paddingLeft="5dp"
+                      android:textSize="15sp"
+                      android:maxLength="9" />
+                
+                </RelativeLayout>
+                <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Click Image"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+                </RelativeLayout> 
+            
+          
+            <Button
+                android:id="@+id/btn_take_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/click"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:text="" />
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:src="@drawable/no_media"
+                android:visibility="gone" />
+            
+             <RelativeLayout
+                   android:id="@+id/rl_send"
+                   android:layout_width="fill_parent"
+                   android:layout_height="60sp"
+                   android:layout_marginBottom="20sp"
+                   android:layout_marginTop="20sp"
+                   android:background="#59ae8d"
+                   android:gravity="center_horizontal"
+                   android:scrollbars="vertical" >
+
+                  <Button
+                       android:id="@+id/send"
+                       android:layout_width="106sp"
+                       android:layout_height="40sp"
+                       android:layout_centerInParent="true"
+                       android:layout_marginTop="10sp"
+                       android:background="@drawable/send"
+                       android:text="Submit"
+                       android:textColor="#FFFFFF"
+                       android:textSize="16sp" />
+            </RelativeLayout>
+        
+        </LinearLayout>
+    
+    </ScrollView>
+
+</LinearLayout>

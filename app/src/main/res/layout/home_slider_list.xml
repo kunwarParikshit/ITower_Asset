@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        style="@style/sliderItemlayout" >
+
+
+
+
+          <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_home"
+            android:drawableStart="@drawable/home"
+           />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_notification"
+            android:drawableStart="@drawable/notification_list" />
+
+        <TextView
+            android:id="@+id/tv_notification_divider"
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_notification_setting"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/setting" />
+
+        <TextView
+            android:id="@+id/tv_notification_setting_divider"
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_change_lang"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/change_language"
+        />
+        <!-- <TextView
+            android:id="@+id/tv_select_lang"
+            style="@style/selectlanguageTV"
+            />-->
+
+
+        <TextView
+            android:id="@+id/tv_change_lang_divider"
+            style="@style/sliderItemDivider"/>
+        
+        <TextView
+            android:id="@+id/tv_change_password"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/change_password"
+            />
+
+        <TextView
+          android:id="@+id/tv_change_password_divider"
+          style="@style/sliderItemDivider"/>
+        
+        <TextView
+            android:id="@+id/tv_syn"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/refresh"
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_syn_pending"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/refresh"
+           />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_pending"
+            android:drawableStart="@drawable/pending_transaction" />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            style="@style/sliderTextView"
+            android:id="@+id/tv_reject"
+            android:drawableStart="@drawable/rejected_transaction"/>
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_about"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/about_us"
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_privacy"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/ic_policyicon"
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+
+        <TextView
+            android:id="@+id/tv_logout"
+            style="@style/sliderTextView"
+            android:drawableStart="@drawable/logout"
+            />
+
+        <TextView
+            style="@style/sliderItemDivider"/>
+        </LinearLayout>
+</LinearLayout>

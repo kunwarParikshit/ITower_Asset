@@ -1,0 +1,78 @@
+package com.isl.constant;
+
+public interface WebMethods {
+    public static String url_Authenticate ="/api/Service/AuthenticateUser";
+    public static String url_logout = "/api/iROC/logOutUser";
+    public static String url_GetBaseData = "/api/Service/GetBaseData";
+    public static String url_chngPWD = "/api/Service/ChangPwd";
+    public static String url_forgotPWD = "/api/iROC/ForgotPasword";
+    public static String url_getTTChecklist = "/api/iMaintain/GetTTChecklist";
+    public static String url_GetMetadata = "/api/Service/GetMetaData";
+    public static String url_GetCompleteAlarmList = "/api/iROC/GetCompleteAlarmList";
+    public static String url_Search_tickets = "/api/iMaintain/SearchTickets";
+    public static String url_get_tickets = "/api/iMaintain/GetTicket";
+    public static String url_getTicketDetails = "/api/iMaintain/GetTicketsDetails";
+    public static String url_getTicketRemarks = "/api/iMaintain/GetTicketsDetailsRemarks";
+    public static String url_GetAppVersion = "/api/Service/GetAppVersion";
+    public static String urlPurchaseRpt = "/api/iETS/GetDieselPurchaseRpt";
+    public static String url_SaveWithdrawalDetail = "/api/iETS/SaveWithdrawalDetail";
+    public static String url_GetSiteDetails = "/api/iETS/GetSiteDetails";
+    public static String url_GetSiteInitiativeDetails = "/api/iETS/GetSiteInitiativeDetails";
+    public static String url_SaveSiteInitiativeDetails = "/api/iETS/SaveSiteInitiativeDetails";
+    public static String url_SaveDGDetails = "/api/iETS/SaveDGDetails";
+    public static String url_PopulateDGNo = "/api/iETS/PopulateDGNo";
+    public static String url_PopulateDGMake = "/api/iETS/PopulateDGMake";
+    public static String url_GetDGDetail = "/api/iETS/GetDGDetail";
+    public static String url_GetEquipmentDetail = "/api/iETS/GetEquipmentDetail";
+    public static String url_SaveEquipmentDetails = "/api/iETS/SaveEquipmentDetails";
+    public static String url_GetSiteDetailGeneralInfo = "/api/iETS/GetSiteDetailGeneralInfo";
+    public static String url_SaveSiteGeneralInfo = "/api/iETS/SaveSiteGeneralInfo";
+    public static String url_GetSiteAuditDetails = "/api/iETS/GetSiteAuditDetails";
+    public static String url_GetMissingAssetDetails = "/api/iETS/GetMissingAssetDetails";
+    public static String url_GetEquipmentAuditSummary = "/api/iETS/GetEquipmentAuditSummary";
+    public static String url_GetFillingReport = "/api/iETS/GetFillingReport";
+    public static String url_SaveSparePartDetails = "/api/iMaintain/SaveSparePartDetails";
+    public static String url_GetSparePartsDetails = "/api/iMaintain/GetSparePartsDetails";
+    public static String url_getScheduled = "/api/PM/GetScheduled";
+    public static String url_getScheduled_Sites = "/api/PM/GetScheduleSites";
+    public static String url_getCheckListDetails = "/api/PM/GetCheckListDetails";
+    public static String url_GetPmImage = "/api/PM/GetPmImage";
+    public static String url_getScheduledFilling = "/api/PM/GetScheduledCount";
+    public static String url_getScheduledFillingSites = "/api/PM/GetScheduledSites";
+    public static String url_getlocation = "/api/iROC/GetLocationData";
+    public static String url_GetSiteAlarms = "/api/iROC/GetSiteAlarms";
+    public static String url_SaveMobileInfo = "/data-adaptor/bulkPushData";
+    public static String url_GetAlarmStatus = "/api/iROC/GetAlarmStatus";
+    public static String url_Get_site_Ava_summary = "/api/iROC/SiteAvailabilitySummary";
+    public static String url_Get_EquipmentwiseSummary = "/api/iROC/EquipmentwiseSummary";
+    public static String url_Get_OpenAlarmSummary = "/api/iROC/OpenAlarmSummary";
+    public static String url_Get_MostFrequent_Alarms = "/api/iROC/Mos_Frequent_Alarms";
+    public static String url_Get_ProblematicSite = "/api/iROC/Problematic_Site";
+    public static String url_SaveAPI = "/api/DocumentUpload/MediaUpload";
+    public static String url_PopulateEquipmentMake = "/Service.asmx/PopulateEquipmentMake";
+    public static String urlFormTask = "/api/Service/GetFormTask";
+    public static String url_DataList = "/api/iETS/GetDataList";
+    public static String url_get_spare_part = "/api/iMaintain/GetSparePart";
+    public static String url_dfr_count = "/api/iETS/GetDFRCount";
+    public static String url_dfr_approval = "/api/iETS/GetDFRApproval";
+    public static String url_dfr_SaveDFRApproval= "/api/iETS/SaveDFRApproval";
+    public static String url_save_spare_part = "/api/iMaintain/SaveApprovalSparePart";
+    public static String url_add_activity="/api/PM/SaveActivity";
+    public static String url_get_assign_user="/api/PM/GetAssignUser";
+    public static String url_get_site_wise_group="/api/iMaintain/GetSiteWiseGroup";
+    public static String url_GetTicketHistory="/api/iMaintain/GetTicketHistory";
+    public static String url_logout_ad="https://login.microsoftonline.com/f409a13c-bc56-4779-8fdb-948773f05564/oauth2/logout?post_logout_redirect_uri=msauth://tawal.com.sa/2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D";
+    public static String urlWorkFlowFormConfiguration = "/api/Service/GetFormConfiguration";
+    public static String schedule_form_config = "/api/PM/GetManualPMFieldconfigData?";
+    public static String url_GetRTTSFoultAreaData ="/api/iMaintain/GetRttsFaultArea";
+    public static String googleDistanceApi ="https://maps.googleapis.com/maps/api/distancematrix/json?";
+    public static String url_get_AssetList = "/api/PM/GetAssetDetail";
+
+
+    public static String url_get_QRCode = "/api/iMaintain/GetQRCode";
+    public static String url_get_assetDetailsByQRcode = "/api/iMaintain/GetAssetDetailsByQRCode";
+    public static String url_save_assetDetails = "/api/iMaintain/SaveAssetDetail";
+    public static String url_get_siteDetails = "/api/Service/GetLargeMetData?";
+    public static String url_Add_Asset = "/api/PM/SaveUpdateAssetDetail";
+
+}

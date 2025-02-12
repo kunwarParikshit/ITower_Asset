@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_bg" >
+
+    <TextView
+        android:id="@+id/tv_site_id"
+        android:text="ACBA_0027"
+        style="@style/scheduletabSiteId"  />
+
+    <TextView
+        android:id="@+id/tv_filler"
+        style="@style/scheduletabActivityType"
+        android:text="Filler:"
+        android:layout_below="@+id/tv_site_id"
+        />
+
+    <TextView
+        android:id="@+id/tv_genset_type"
+        style="@style/scheduletabActivityType"
+        android:layout_below="@+id/tv_filler"
+        android:text="Genset Type:"
+         />
+
+    <TextView
+        android:id="@+id/tv_vendor"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="Vendor"
+        android:layout_toLeftOf="@+id/tv_filler"
+        android:layout_below="@+id/tv_site_id"
+        style="@style/scheduletabDate" />
+
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:text="01-Oct-19"
+        android:layout_toLeftOf="@+id/tv_genset_type"
+        android:layout_below="@+id/tv_vendor"
+        style="@style/scheduletabDate"/>
+
+</RelativeLayout>

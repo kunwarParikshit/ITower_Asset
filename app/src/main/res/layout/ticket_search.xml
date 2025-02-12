@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView"
+            android:text="My Search"/>
+
+    </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_header_ticket_search"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_open"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_open_ticket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Open"
+                        android:textColor="#2B4E81"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_assign_ticket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Assigned"
+                        android:textColor="#2B4E81"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_resolve_ticket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resolved"
+                        android:textColor="#2B4E81"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_close_ticket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Closed"
+                        android:textColor="#2B4E81"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_open_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#2B4E81"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_assign_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#2B4E81"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_resolve_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#2B4E81"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_close_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#2B4E81"
+                        android:textSize="17sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginTop="12sp"
+                />
+        </LinearLayout>
+
+
+
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_buttons"
+        android:layout_below="@+id/ll_all">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="#9D9695" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12sp"
+                android:scrollbars="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_site_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:text="Site ID"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_site_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/input_box"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_@/:-\\"
+                android:maxLength="20"
+                android:minHeight="40sp"
+                android:padding="5sp"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tkt_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Ticket Status"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:scrollbars="vertical">
+
+                <Spinner
+                    android:id="@+id/spinner_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="40sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+        <!--    <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_tkt_treatment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Ticket Treatment"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_marginTop="5sp"
+                android:scrollbars="vertical">
+
+
+                <Spinner
+                    android:id="@+id/spinner_tratment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ems="10"
+                    android:minHeight="40sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>-->
+
+            <LinearLayout
+                android:id="@+id/ll_tkt_type_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_tickettype"
+                    style="@style/defaultText"
+                    android:text="Ticket Type"/>
+
+                <com.isl.SingleSelectSearchable.SearchableSpinner
+                    android:id="@+id/sp_tktType"
+                    style="@style/defaultSpinner"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_alrm_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_alarm_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Alarm Description"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <com.isl.SingleSelectSearchable.SearchableSpinner
+                    android:id="@+id/sp_alarmDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center_horizontal"
+                    android:minHeight="40sp"
+                    android:paddingLeft="5sp"
+                    android:paddingRight="5sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_severity_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_sererity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Severity"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:scrollbars="vertical">
+
+                    <Spinner
+                        android:id="@+id/sp_sererity"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:ems="10"
+                        android:minHeight="40sp"
+                        android:paddingLeft="5sp"
+                        android:paddingRight="5sp"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/from"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_from_Date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:drawableRight="@drawable/calendar_icon"
+                    android:gravity="center_vertical"
+                    android:minHeight="40sp"
+                    android:padding="5dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text=""
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_to_Date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12sp"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:background="@drawable/input_box"
+                    android:drawableRight="@drawable/calendar_icon"
+                    android:gravity="center_vertical"
+                    android:minHeight="40sp"
+                    android:padding="5dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_search_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_search_by"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="12sp"
+                    android:text="Search By"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40sp"
+                    android:layout_marginLeft="12sp"
+                    android:layout_marginRight="12sp"
+                    android:layout_marginTop="5sp"
+                    android:scrollbars="vertical">
+
+                    <Spinner
+                        android:id="@+id/sp_search_by"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:ems="10"
+                        android:minHeight="40sp"
+                        android:paddingLeft="5sp"
+                        android:paddingRight="5sp"
+                        android:textSize="15sp" />
+
+                   <!-- <ImageView
+                        android:layout_width="30dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:paddingBottom="6sp"
+                        android:paddingLeft="9sp"
+                        android:src="@drawable/drop" />-->
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/bottom"
+        android:orientation="horizontal"
+        android:scrollbars="vertical"
+        android:weightSum="2"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/btn_search_ticket"
+            style="@style/ButtonDefault"
+            android:text="Search"
+            android:gravity="center"/>
+      </LinearLayout>
+    </LinearLayout>
+   <!-- <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60sp"
+            android:layout_marginTop="20sp"
+            android:background="#59ae8d"
+            android:orientation="horizontal"
+            android:scrollbars="vertical">
+
+            <Button
+                android:id="@+id/btn_search_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/send"
+                android:minWidth="106sp"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:text="Search"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>-->
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#E6E6E6" >
+    
+    
+    
+      
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+                
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true" >
+        
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/TableLayout01"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+               
+                android:scrollbars="vertical"
+                android:stretchColumns="*"
+                tools:ignore="UselessParent" >
+
+                <TableRow
+                    android:id="@+id/TableRow01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dip"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:id="@+id/tv_site_id"                        
+                        android:text="Site ID"
+                        android:textColor="#FFFFFF"
+                        android:background="#959595"
+                        android:height="40dp"
+                        android:layout_width="0dp"
+                        android:textSize="14sp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:layout_margin="1dip"
+                        android:layout_weight="1" 
+                        android:drawableRight="@drawable/darrow"/>
+
+                    <TextView
+                        android:id="@+id/tv_site_name"
+                        android:text="Site Name"
+                        android:layout_width="0sp"
+                        android:textColor="#58595A"
+                        android:height="40dp"
+                        android:background="#ffffff"
+                        android:textSize="14sp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:layout_margin="1dip"
+                        android:layout_weight="1" />
+                    
+                    
+                    <TextView
+                        android:id="@+id/tv_site_status"
+                        android:text="Not Audited"
+                        android:layout_width="0sp"
+                        android:textColor="#58595A"
+                        android:height="40dp"
+                        android:background="#ffffff"
+                        android:textSize="14sp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:layout_margin="1dip"
+                        android:layout_weight="1" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_bg" >
+
+    <RelativeLayout
+        android:id="@+id/person_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp">
+
+        <TextView
+            android:id="@+id/txt_tkt_id"
+            style="@style/scheduletabSiteId"
+            android:text="HS_20210104"
+            />
+
+        <TextView
+            android:id="@+id/txt_name"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_tkt_id"
+            android:text="Name : Admin"
+            />
+
+        <TextView
+            android:id="@+id/txt_job"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_name"
+            android:text="Job Title : Technician"
+            />
+
+        <TextView
+            android:id="@+id/txt_company"
+            android:layout_below="@+id/txt_job"
+            style="@style/scheduletabActivityType"
+            android:text="Company : Infozech Software PVT LTD."
+            />
+
+        <TextView
+            android:id="@+id/txt_contact"
+            style="@style/scheduletabActivityType"
+            android:text="Contact : +918505345677"
+            android:layout_toLeftOf="@+id/txt_company"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="2dp"/>
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:background="@drawable/button_9_blue"
+            android:layout_width="75dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/txt_contact"
+            android:layout_alignParentEnd="true"
+            android:text="Edit"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+</RelativeLayout>

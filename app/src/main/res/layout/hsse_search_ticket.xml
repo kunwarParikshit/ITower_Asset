@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/bt_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_header"
+            style="@style/tabHeaderTextView"
+            android:text="My Search" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_buttons"
+        android:layout_below="@+id/rl_header_ticket_search">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_region"
+                android:text="Region"
+                style="@style/defaultText" />
+
+            <Spinner
+                android:id="@+id/sp_region"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_sub_region"
+                style="@style/defaultText"
+                android:text="Sub Region"
+                />
+
+            <Spinner
+                android:id="@+id/sp_sub_region"
+                style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/tv_mini_cluster"
+                style="@style/defaultText"
+                android:text="Mini Cluster"
+                />
+
+            <Spinner
+                android:id="@+id/sp_mini_cluster"
+                style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/tv_tkt_classification"
+                style="@style/defaultText"
+                android:text="Incident Classification"
+                />
+
+            <Spinner
+                android:id="@+id/sp_tkt_classification"
+                style="@style/defaultSpinner" />
+
+             <TextView
+                android:id="@+id/tv_tktType"
+                style="@style/defaultText"
+                android:text="Ticket Type" />
+
+            <Spinner
+                android:id="@+id/sp_tktType"
+                style="@style/defaultSpinner" />
+
+
+
+
+            <TextView
+                android:id="@+id/tv_type_incident"
+                style="@style/defaultText"
+                android:text="Type of Incident"
+                />
+
+            <Spinner
+                android:id="@+id/sp_type_incident"
+                style="@style/defaultSpinner" />
+
+
+            <TextView
+                android:id="@+id/tv_tktStsatus"
+                android:text="Ticket Status"
+                style="@style/defaultText"/>
+
+            <Spinner
+                android:id="@+id/sp_tktStsatus"
+                style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/tv_group"
+                android:text="Assign To Group"
+                style="@style/defaultText"/>
+
+            <Spinner
+                android:id="@+id/sp_group"
+                style="@style/defaultSpinner" />
+
+
+
+
+              <TextView
+                  android:id="@+id/tv_force_entry"
+                  android:text="Forced Entry"
+                  style="@style/defaultText" />
+
+              <Spinner
+                  android:id="@+id/sp_force_entry"
+                  style="@style/defaultSpinner" />
+
+             <TextView
+                  android:id="@+id/tv_alarm_notification"
+                  style="@style/defaultText"
+                  android:text="Alarm Notifications"
+                  />
+
+              <Spinner
+                  android:id="@+id/sp_alarm_notification"
+                  style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/tv_rca_category"
+                style="@style/defaultText"
+                android:text="Root Cause"
+                />
+
+            <Spinner
+                android:id="@+id/sp_rca_category"
+                style="@style/defaultSpinner" />
+
+            <TextView
+                android:id="@+id/tv_rca_sub_category"
+                style="@style/defaultText"
+                android:text="RCA Sub Category"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:id="@+id/sp_rca_sub_category"
+                style="@style/defaultSpinner"
+                android:visibility="gone"/>
+
+
+            <TextView
+                android:id="@+id/tv_ticket_id"
+                style="@style/defaultText"
+                android:text="Ticket Id"
+                />
+
+
+            <EditText
+                android:id="@+id/et_ticket_id"
+                style="@style/defaultInputText"/>
+
+            <TextView
+                android:id="@+id/tv_site_id"
+                style="@style/defaultText"
+                android:text="Site ID"
+                />
+
+
+            <EditText
+                android:id="@+id/et_site_id"
+                android:digits=">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_@/:-\\"
+                style="@style/defaultInputText"/>
+
+            <TextView
+                android:id="@+id/tv_request_date"
+                style="@style/defaultText"
+                android:text="Request Date"
+                />
+
+             <Spinner
+                 android:id="@+id/sp_request_date"
+                 style="@style/defaultSpinner" />
+
+             <TextView
+                 android:id="@+id/from"
+                 style="@style/defaultText"
+                 android:text="Start Date"
+                 />
+
+             <TextView
+                 android:id="@+id/tv_from_Date"
+                 style="@style/scheduletabSearchByDate"
+                 android:visibility="visible"/>
+
+             <TextView
+                 android:id="@+id/to"
+                 style="@style/defaultText"
+                 android:text="End Date"
+                 />
+
+             <TextView
+                 android:id="@+id/tv_to_Date"
+                 style="@style/scheduletabSearchByDate"
+                 android:visibility="visible"/>
+       </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scrollbars="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/btn_search_ticket"
+                style="@style/ButtonDefault"
+                android:gravity="center"
+                android:text="Search" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

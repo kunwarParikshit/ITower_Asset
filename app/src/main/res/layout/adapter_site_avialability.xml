@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+		
+		
+			
+			<TableLayout android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+				<TableRow style="@style/BodyRow"
+				          >
+							    
+					<TextView
+					    android:id="@+id/tv_site_class" 
+					    android:layout_width="0sp"
+					    android:text="Critical" 
+					    style="@style/BodyTextHeader"
+					    android:layout_weight="1"
+					    android:background="@color/orange"
+					    android:drawableRight="@drawable/doted1" />
+				
+					<TextView 
+					    android:id="@+id/tv_availability"
+					    android:text="23" 
+					    style="@style/BodyText"
+						android:layout_weight="1"
+						android:drawableRight="@drawable/doted1" />
+					
+					<TextView
+                        android:id="@+id/tv_mttr"
+					    android:text="48" 
+					    style="@style/BodyText"
+					    android:layout_weight="1.3"
+					    android:drawableRight="@drawable/doted1" />
+					
+					<TextView 
+					    android:id="@+id/tv_sitedown"
+					    android:text="255" 
+					    style="@style/BodyText"
+					    android:layout_weight="1" />
+					</TableRow>
+		</TableLayout>
+    
+</LinearLayout>

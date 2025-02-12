@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#8C000000"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color_white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/rl_header_forgot"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/header"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/tv_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Add Spare Parts"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/bt_popup_close"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/close"
+                android:text="" />
+        </RelativeLayout>
+
+
+       <ScrollView
+        android:id="@+id/sv_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+           <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                
+           
+           <LinearLayout
+                android:id="@+id/ll_spare_part"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:paddingLeft="5sp" 
+                android:paddingRight="5sp"
+                android:layout_marginBottom="10sp">
+                
+           </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/rl_submit"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp"
+                   android:layout_marginTop="20dp"
+                   android:background="@color/bottom"
+                   android:orientation="horizontal"
+                   android:scrollbars="vertical"
+                   android:weightSum="1.5"
+                   android:gravity="center"
+                   >
+
+                   <TextView
+                       android:id="@+id/bt_add_serialNo"
+                       style="@style/ButtonDefault"
+                       android:text="Add Serial Number"
+                       android:gravity="center"/>
+               </LinearLayout>
+
+        <!-- <Button
+            android:id="@+id/bt_add_serialNo"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_9_blue"
+            android:padding="10dp"
+            android:text="Add Serial Number"
+            android:textColor="@color/white"
+            android:textStyle="bold" />-->
+           </LinearLayout> 
+        </ScrollView>  
+        
+    </LinearLayout>
+
+</LinearLayout>

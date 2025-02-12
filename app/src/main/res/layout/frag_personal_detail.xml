@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_page_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bt_add_person"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text=""
+            android:drawableEnd="@drawable/add"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/bt_add_logbook"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text=""
+            android:drawableEnd="@drawable/logbook"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/bt_add_corective_action"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text=""
+            android:drawableEnd="@drawable/action"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:textStyle="bold"/>
+       </LinearLayout>
+
+   <LinearLayout
+        android:id="@+id/ll_sites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_add"
+        android:orientation="vertical"
+        >
+
+       <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/pullToRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">;
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_count"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+       </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/textlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_sites"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_no_ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:padding="10dp"
+            />
+    </RelativeLayout>
+</RelativeLayout>

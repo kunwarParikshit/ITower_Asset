@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_color_white">
+
+
+  <RelativeLayout
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/bottom"
+    android:gravity="center" >
+
+      <LinearLayout
+          android:id="@+id/rl_submit"
+          android:layout_width="match_parent"
+          android:layout_height="60dp"
+          android:layout_marginTop="20dp"
+          android:background="@color/bottom"
+          android:orientation="horizontal"
+          android:scrollbars="vertical"
+          android:weightSum="2"
+          android:gravity="center"
+          >
+
+          <TextView
+              android:id="@+id/tvSubmit"
+              style="@style/ButtonDefault"
+              android:text="Submit"
+              android:gravity="center"/>
+      </LinearLayout>
+  </RelativeLayout>
+
+  <!-- Scrollable Item below header and above footer -->
+  <ScrollView
+    android:id="@+id/scrollableContents"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_above="@id/footer"
+    android:background="@color/bg_color_white"
+    android:layout_below="@id/header" >
+
+     <RelativeLayout
+         android:id="@+id/ll"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:contentDescription="Login Screen"
+                android:gravity="center_horizontal"
+                android:padding="20dp"
+                android:id="@+id/img_version"
+                android:src="@drawable/logo"
+                android:layout_marginTop="80sp" />
+
+            <TextView
+                android:id="@+id/pass_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_version"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="35sp"
+                android:gravity="center"
+                android:text="Your current session has expired.Please re-login."
+                android:textColor="@color/input_textcolor"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+    
+            </RelativeLayout>
+  </ScrollView>
+</RelativeLayout>

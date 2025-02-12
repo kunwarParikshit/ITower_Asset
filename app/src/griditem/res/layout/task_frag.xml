@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.isl.common.activities.Home"
+    android:background="@android:color/transparent">
+
+    <!-- Use ComposeView to embed Compose content -->
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"/>
+
+   <!-- <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="visible" />
+
+    </FrameLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.isl.common.activities.Home"
+        android:background="@color/color_background">
+
+
+        &lt;!&ndash; AppBar with Toolbar and TabLayout &ndash;&gt;
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar">
+            &lt;!&ndash; Toolbar &ndash;&gt;
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="127dp"
+                android:background="@color/color_toolbar_background"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="127dp"
+                    android:background="@color/color_toolbar_background">
+
+                    <ImageButton
+                        android:id="@+id/bt_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/back_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.277"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+
+
+
+                    <ImageButton
+                        android:id="@+id/bt_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/search_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.277"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Movement Requests"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="30dp"
+                        android:textSize="@dimen/movement_requests_textsize"
+                        android:textColor="@color/color_movement"
+                        android:textStyle="bold"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total :"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="75dp"
+                        android:textSize="@dimen/count_textsize"
+                        android:textColor="@color/color_count"
+                        />
+
+                    <Button
+                        android:id="@+id/bt_add"
+                        android:layout_width="108dp"
+                        android:layout_height="42dp"
+                        android:layout_marginTop="55dp"
+                        android:layout_marginRight="14dp"
+                        android:background="@drawable/button_bg_box"
+                        android:text="Request +"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_add_request"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck"
+                        android:textSize="@dimen/add_textsize"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        &lt;!&ndash; TabLayout for Tabs &ndash;&gt;
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginTop="138dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/white"
+            app:tabMode="scrollable"
+            app:tabPaddingStart="5dp"
+            app:tabPaddingEnd="5dp"
+            app:tabSelectedTextColor="@color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        &lt;!&ndash; ViewPager2 for displaying fragments &ndash;&gt;
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tabLayout"
+            android:layout_marginTop="200dp"
+            android:background="@color/color_background"
+            android:layout_marginBottom="43sp"/>
+
+
+        <FrameLayout
+            android:id="@+id/frameLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="visible" />
+
+        </FrameLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->

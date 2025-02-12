@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="infozech.itower">
+    <!--
+         <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+         tools:ignore="ScopedStorage" />
+    -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+    <uses-permission android:name="android.permission.TYPE_APPLICATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.prgguru.example.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--         <uses-permission android:name="android.permission.WAKE_LOCK" /> -->
+    <!-- <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- for Samsung -->
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- for htc -->
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- for sony -->
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" /> <!-- for apex -->
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- for solid -->
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+
+    <queries>
+
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name="com.isl.itower.MyApp"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/tawal_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true">
+        <!--android:networkSecurityConfig="@xml/network_config"-->
+        <!--android:theme="@android:style/Theme.NoTitleBar"-->
+        <!---->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <service
+            android:name="com.isl.userTracking.userttracking.LocationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+        <activity
+            android:name="com.isl.itower.ValidateUDetails"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LoginPageTheme"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity
+            android:name="com.isl.app.auth.TokenActivity"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.isl.energy.EnergyManagement"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.energy.filling.FillingTransactions"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.energy.filling.FillingTransactionInput"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.energy.filling.FillingTransactionDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.energy.withdrawal.FuelPurchaseGridRPT"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.HomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LoginPageTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.sparepart.schedule.FillingSchedules"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.AssetScheduleList"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.EquipmentList"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.AddNewAsset"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.AssetDescription"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.UpdateTicket"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.IncidentManagement"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.TicketDetailsTabs"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="adjustPan|stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.AddTicket"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.AddNewAssetTT"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.ExistingTicketsList"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.TicketSearch"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.incident.MyTickets"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.workflow.FormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.sparepart.schedule.PMSchedules"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.PMTabs"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="adjustPan|stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.ScheduleModuleTab"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="adjustPan|stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.alarm.AlarmSearch"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.alarm.AlarmManagement"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.alarm.DashboardActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LoginPageTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.isl.asset.SiteDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.asset.AssetsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.reports.Report"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.reports.SiteAuditStatus"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.reports.MissingAsset"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.reports.SiteAuditSummary"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.asset.SiteGeneralDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.asset.SiteInitiativeDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.asset.GensetDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.asset.EquipmentDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.asset.AddNewGensetDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.asset.AuditScheduleList"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.PMChecklist"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.ViewPMCheckList"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.sparepart.schedule.Schedule"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.NotificationList"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.AlwaysPopUP"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.Version"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.SessionExpired"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.PasswardExpire"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.PasswardExpired"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.itower.NotificationDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.sparepart.SparePart"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <service
+            android:name="com.isl.user.tracking.LocationOffOnService"
+            android:exported="false" />
+        <service
+            android:name="com.isl.user.tracking.NoDataPacket"
+            android:exported="false" />
+        <service
+            android:name="com.isl.itower.AppVersionService"
+            android:exported="false" />
+        <service
+            android:name="com.isl.user.tracking.GetUserInfoService"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.isl.itower.BootCompleteReceiver"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.isl.itower.InstallAppReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.isl.itower.FirebaseMsgReceive"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.isl.user.tracking.GetUserInfoAlarmReceiver"
+            android:exported="false"
+            android:process=":remote" />
+        <receiver
+            android:name="com.isl.user.tracking.GpsLocationReceiver"
+            android:exported="false" />
+        <receiver
+            android:name="com.isl.user.tracking.PowerConnectionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.isl.home.module.NotificationUpdate"
+            android:exported="false" />
+
+        <activity
+            android:name="com.isl.taskform.ActivityTaskForm"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.approval.Approval"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.approval.DFRApprovalCount"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.approval.DFRApprovalDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.approval.SaveDFRDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.approval.SparePartTabs"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.workflow.tabs.RequestReport"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.workflow.SearchRequest"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.approval.SaveSparePartApproval"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.AddPMScheduling"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.ScheduleSiteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.preventive.PMChecklistApproval"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.photo.camera.ViewVideoWebView"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.photo.camera.ViewVideoVideoView"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.workflow.WorkflowImpl"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.hsse.Hsse"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.hsse.HsseFrame"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.hsse.SubFormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.hsse.MyReport"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.hsse.SearchHsseTicket"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="net.openid.appauthdemo"
+                    android:path="/msauth://https://mast-iasset.infozech.com/oauth/v2/callback"
+                    android:scheme="msauth" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.isl.audit.activity.AlertActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.audit.activity.AddAssetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.isl.audit.activity.AuditManagementActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.audit.activity.AssetsListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.audit.activity.AuditListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.isl.audit.activity.MyAuditsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--
+ <receiver android:name="com.isl.audit.util.NetworkChangeReceiver">
+             <intent-filter>
+                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+             </intent-filter>
+         </receiver>
+        -->
+        <service
+            android:name="com.isl.userTracking.UserTrackingService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location" />
+        <service
+            android:name="com.isl.userTracking.StartService"
+            android:enabled="true" />
+        <service
+            android:name="com.isl.userTracking.PunchInNotificationService"
+            android:enabled="true" />
+
+        <receiver
+            android:name="com.isl.userTracking.SensorRestarterBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
+                <action android:name="android.intent.action.PACKAGE_FIRST_LAUNCH" />
+                <action android:name="android.intent.action.PROVIDER_CHANGED" />
+                <action android:name="android.intent.action.USER_UNLOCKED" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="startLocationService" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.isl.userTracking.DailyReceiver"
+            android:enabled="true"
+            android:exported="true" />
+        <receiver
+            android:name="com.isl.userTracking.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.isl.common.activities.Home"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.AssetModule"
+            android:windowSoftInputMode="adjustPan|stateHidden|adjustResize" />
+
+        <!-- android:theme="@style/AppTheme.AssetModule"-->
+    </application>
+
+</manifest>

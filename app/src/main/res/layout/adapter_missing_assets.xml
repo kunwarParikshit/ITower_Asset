@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff" >
+    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="45sp"
+    android:weightSum="3"
+    android:layout_marginTop="2sp" >
+
+    <TextView
+        android:id="@+id/tv_site_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Site Name" 
+        android:layout_weight="1"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="2sp"
+        android:textColor="#000000"
+        android:minHeight="43sp"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/tv_audit_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Audit date."
+        android:layout_weight="1"
+        android:gravity="center" 
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="2sp"
+        android:textColor="#000000"
+        android:minHeight="43sp"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/tv_missing_asset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Missing Assets"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="2sp"
+        android:layout_marginRight="2sp"
+        android:textColor="#000000"
+        android:minHeight="43sp"
+        android:singleLine="true"/>
+
+</LinearLayout>
+
+</LinearLayout>

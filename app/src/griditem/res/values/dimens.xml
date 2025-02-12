@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_height">55dp</dimen>
+    <dimen name="toolbar_height">132sp</dimen>
+    <dimen name="movement_requests_textsize">17sp</dimen>
+    <dimen name="count_textsize">12sp</dimen>
+    <dimen name="add_textsize">14sp</dimen>
+    <dimen name="tab_textsize">13sp</dimen>
+
+
+
+</resources>

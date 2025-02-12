@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:weightSum="6.06" >
+
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#000000"
+            android:textSize="14sp" 
+            />
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight=".03"
+            android:background="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_ser_no"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="3.5"
+            android:gravity="center"
+            android:text="ACDS12345"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_div"
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight=".03"
+            android:background="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_delete"
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_delete"/>
+      </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

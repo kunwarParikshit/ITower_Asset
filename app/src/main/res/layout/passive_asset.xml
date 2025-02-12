@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E1E1E2"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#456ca4" >
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+             android:background="#456ca4"
+            android:text="Back"
+            android:padding="13dp"
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/back"
+            android:layout_height="wrap_content"
+             />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Audit:Passive Assets"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+             />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+              <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:id="@+id/ll1" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg1"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y1"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n1"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing1"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                       
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+       </LinearLayout>
+       
+              <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:id="@+id/ll2" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg2"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y2"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n2"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing2"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                       
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+       </LinearLayout>
+       
+              <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll3" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg3"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y3"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n3"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing3"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout>
+               <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll4" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg4"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y4"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n4"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing4"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout>
+                <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll5" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg5"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="Fire Extinguishers"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y5"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n5"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing5"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout>
+                <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll6" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg6"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y6"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n6"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing6"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout>
+                 <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll7" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg7"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup7"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y7"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n7"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing7"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout>
+                 <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal" 
+               android:id="@+id/ll8">
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg8"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup8"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y8"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n8"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing8"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout>
+                  <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll9" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg9"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup9"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y9"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n9"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing9"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout>
+                  <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll10" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg10"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup10"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y10"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n10"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing10"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout> 
+                  
+
+                   <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal" 
+               android:id="@+id/ll11">
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg11"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup11"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y11"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n11"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing11"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout> 
+       
+           
+                    <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll12" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg12"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup12"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y12"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n12"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing12"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                       
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+           
+            
+       </LinearLayout> 
+       
+                    <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+               android:id="@+id/ll13" >
+         
+            <TableRow
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" >
+           
+             <TextView
+                  android:id="@+id/tv_dg13"
+                  android:layout_width="85sp"
+                  android:layout_height="wrap_content"
+                  android:text="@string/dg"
+                  android:textSize="13sp"
+                  android:paddingLeft="5sp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="#000000"/>
+                    
+              <RadioGroup
+                    android:id="@+id/radioGroup13"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+                     
+                  <RadioButton 
+                         android:id="@+id/rb_y13"
+                         android:layout_width="0sp"
+                         android:layout_height="wrap_content"
+                         android:text="Y"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="10sp"
+                         android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1sp"
+                         android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_n13"
+                        android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="NA"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.3"
+                         android:paddingLeft="1sp"
+                          android:textColor="#000000"/>
+                  <RadioButton 
+                         android:id="@+id/rb_missing13"
+                         android:layout_width="0sp"
+                         android:layout_height="match_parent"
+                         android:text="Missing"
+                         android:checked="false"
+                         android:textSize="13sp" 
+                         android:layout_marginLeft="5sp"
+                         android:layout_weight="1.7"
+                        
+                         android:textColor="#000000"/>
+            </RadioGroup>
+           </TableRow>
+         </LinearLayout> 
+                   
+        
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Remarks"  
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_remarks"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:minHeight="60sp"
+                android:background="@drawable/input_box"
+                android:maxLength="250"
+                android:padding="5dp" />
+            
+            	
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:scrollbars="vertical" >
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Click Image"
+                    android:textColor="#2B4E81"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+            
+         
+            <Button
+                android:id="@+id/btn_take_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/click"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:text="" />
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/no_media"
+                android:visibility="gone" />
+            
+            
+            
+             <RelativeLayout
+                android:id="@+id/Rl"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#59ae8d"
+                android:orientation="horizontal"
+                android:scrollbars="vertical" >
+
+                <Button
+                    android:id="@+id/button_submit"
+                    android:layout_centerInParent="true"
+                    android:layout_width="106dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/send"
+                    android:text="Submit"
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

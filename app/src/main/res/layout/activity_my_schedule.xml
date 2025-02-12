@@ -1,0 +1,255 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_page_bg" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+           <TextView
+                android:id="@+id/txt_pm_schedule"
+                style="@style/LabelStyle"
+                android:text="adsffdsdfsdfs" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@drawable/custom_border_state"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_pm_scheduled"
+                    style="@style/ScheduleCountStyle"/>
+
+                <TextView
+                    android:id="@+id/txt_pm_schedule_cnt"
+                    style="@style/ScheduleCountStyle"
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_missed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@drawable/custom_border_state"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_pm_missed"
+                    style="@style/ScheduleCountStyle"/>
+
+                <TextView
+                    android:id="@+id/txt_pm_missed_cnt"
+
+                    android:layout_alignParentRight="true"
+                    style="@style/ScheduleCountStyle"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_done"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@drawable/custom_border_state"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_pm_done"
+                    style="@style/ScheduleCountStyle"/>
+
+                <TextView
+                    android:id="@+id/txt_pm_done_cnt"
+                    android:layout_alignParentRight="true"
+                    style="@style/ScheduleCountStyle"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_resubmit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@drawable/custom_border_state"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_pm_resubmit"
+                    style="@style/ScheduleCountStyle"/>
+
+                <TextView
+                    android:id="@+id/txt_pm_resubmit_cnt"
+                    android:layout_alignParentRight="true"
+                    style="@style/ScheduleCountStyle"/>
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/txt_pm_review"
+                style="@style/LabelStyle"
+                />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_pending"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@drawable/custom_border_state"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_pm_pending"
+                    style="@style/ScheduleCountStyle"/>
+
+                <TextView
+                    android:id="@+id/txt_pm_pending_cnt"
+                    android:layout_alignParentRight="true"
+                    style="@style/ScheduleCountStyle"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_approve"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@drawable/custom_border_state"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_pm_approved"
+                    style="@style/ScheduleCountStyle"/>
+
+                <TextView
+                    android:id="@+id/txt_pm_approved_cnt"
+                    android:layout_alignParentRight="true"
+                    style="@style/ScheduleCountStyle"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_reject"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@drawable/custom_border_state"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_pm_reject"
+                    style="@style/ScheduleCountStyle"/>
+
+                <TextView
+                    android:id="@+id/txt_pm_reject_cnt"
+                    android:layout_alignParentRight="true"
+                    style="@style/ScheduleCountStyle"/>
+            </RelativeLayout>
+
+           <LinearLayout
+                android:id="@+id/ll_filling_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20sp" >
+
+                <TextView
+                    android:id="@+id/txt_filling"
+                    style="@style/LabelStyle"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/rl_filling_schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/custom_border_state"
+                    android:padding="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/txt_filling_schedule"
+                        style="@style/ScheduleCountStyle"/>
+
+                    <TextView
+                        android:id="@+id/txt_filling_schedule_cnt"
+                        android:layout_alignParentRight="true"
+                        style="@style/ScheduleCountStyle"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_filling_missed"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/custom_border_state"
+                    android:padding="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/txt_filling_missed"
+                        style="@style/ScheduleCountStyle"/>
+
+                    <TextView
+                        android:id="@+id/txt_filling_missed_cnt"
+                        android:layout_alignParentRight="true"
+                        style="@style/ScheduleCountStyle"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_filling_done"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/custom_border_state"
+                    android:padding="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/txt_filling_done"
+                        style="@style/ScheduleCountStyle"/>
+
+                    <TextView
+                        android:id="@+id/txt_filling_done_cnt"
+                        android:layout_alignParentRight="true"
+                        style="@style/ScheduleCountStyle"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

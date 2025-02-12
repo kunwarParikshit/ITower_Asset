@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="@color/bg_color_white">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/bt_back"
+            style="@style/tabBackButton" />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header_ticket_list"
+        android:layout_centerInParent="true"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/txt_no_data"
+            style="@style/noDataFoundTV"/>
+
+       <!-- <TextView
+            android:id="@+id/txt_no_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No Data Found"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />-->
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/filling_list"
+        android:layout_below="@+id/rl_header_ticket_list"
+        style="@style/scheduleListView"
+        >
+    </ListView>
+
+   <!-- <ListView
+        android:id="@+id/filling_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rl_header_ticket_list"
+        >
+    </ListView>-->
+
+</RelativeLayout>
+

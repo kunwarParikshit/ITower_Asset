@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/disable_bacgroundColor"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header" >
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/tabBackButton1"
+            />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView"
+            />
+
+        <TextView
+            android:id="@+id/tv_add_asset"
+            style="@style/tabHeaderTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="20dp"
+            android:text="+"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/lv_equiment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header_ticket_list"
+        android:background="@color/disable_bacgroundColor"
+        android:cacheColorHint="@android:color/transparent"
+        android:scrollingCache="false">
+    </ListView>
+
+</RelativeLayout>

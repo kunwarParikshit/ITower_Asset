@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_home"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/tabBackButton"  />
+
+        <TextView
+            android:id="@+id/tv_brand_logo"
+            style="@style/tabHeaderTextView" />
+    </RelativeLayout>
+
+     <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+         <LinearLayout
+                android:id="@+id/ll_site_id_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5sp">
+
+
+                <TextView
+                    android:id="@+id/tv_siteId"
+                    style="@style/defaultText"
+                    android:text="Site ID"
+                    />
+
+                <AutoCompleteTextView
+                    android:id="@+id/et_siteId"
+                    style="@style/defaultInputSiteId"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_opco_siteId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5sp">
+
+                <TextView
+                    android:id="@+id/tv_opco_siteId"
+                    style="@style/defaultText"
+                    android:text="Opco Site Id"
+                    />
+
+                <AutoCompleteTextView
+                    android:id="@+id/et_opco_siteId"
+                    style="@style/defaultInputSiteId"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_site_visibility_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_site_visibility"
+                    style="@style/defaultText"
+                    android:text="Site Visibility"
+                    />
+
+                <Spinner
+                    android:id="@+id/sp_site_status"
+                    style="@style/defaultSpinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tkt_type_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_tickettype"
+                    style="@style/defaultText"
+                    android:text="Ticket Type"/>
+
+                <com.isl.SingleSelectSearchable.SearchableSpinner
+                    android:id="@+id/sp_tktType"
+                    style="@style/defaultSpinner"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ref_tkt_id_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_tkt"
+                    style="@style/defaultText"
+                    android:text="Ref. Ticket ID"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/et_ref_tkt"
+                    style="@style/defaultInputText"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_equipment_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_equipment"
+                    style="@style/defaultText"
+                    android:text="Equipment"/>
+
+                <com.isl.SingleSelectSearchable.SearchableSpinner
+                    android:id="@+id/sp_equipment"
+                    style="@style/defaultSpinner"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_severity_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                <TextView
+                    android:id="@+id/tv_sererity"
+                    style="@style/defaultText"
+                    android:text="Severity"/>
+
+                <Spinner
+                    android:id="@+id/sp_alarmType"
+                    style="@style/defaultSpinner"/>
+              </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_alrm_description_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                <TextView
+                    android:id="@+id/tv_alarm_desc"
+                    style="@style/defaultText"
+                    android:text="Alarm Description"/>
+
+                <com.isl.SingleSelectSearchable.SearchableSpinner
+                    android:id="@+id/sp_alarmDesc"
+                    style="@style/defaultSpinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_serviceImapact_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_serviceImapact"
+                    style="@style/defaultText"
+                    android:text="Service Impact"
+                    />
+
+                <Spinner
+                    android:id="@+id/sp_serviceImapact"
+                    style="@style/defaultSpinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/ll_priority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_priority"
+                    style="@style/defaultText"
+                    android:text="Priority"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_priority1"
+                    style="@style/defaultInputSiteId" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_serviceImpactStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/serviceImpactStart"
+                    style="@style/defaultText"
+                    android:text="Service Impact Start"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_serviceImpactStart"
+                    style="@style/scheduletabSearchByDate"/>
+                <TextView
+                    android:id="@+id/serviceImpactStartTime"
+                    style="@style/defaultText"
+                    android:text="Service Impact Start Time"/>
+
+                <TextView
+                    android:id="@+id/tv_serviceImpactStartTime"
+                    style="@style/scheduletabSearchByDate"/>
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_servicesAffected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_servicesAffected"
+                    style="@style/defaultText"
+                    android:text="Services Effected"
+                    />
+
+                <EditText
+                    android:id="@+id/et_servicesAffected"
+                    style="@style/defaultInputText"
+                    android:inputType="text"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+             android:id="@+id/ll_trvlDistnc"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:visibility="gone">
+              <TextView
+                  android:text="Distance Travelled"
+                  style="@style/defaultText" />
+            <EditText
+                android:id="@+id/et_trvlDistnc"
+                style="@style/defaultInputText"/>
+         </LinearLayout>
+
+         <LinearLayout
+             android:id="@+id/ll_noOfTech"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:visibility="gone">
+
+             <TextView
+                 style="@style/defaultText"
+                 android:text="No. Of Technician"/>
+
+            <EditText
+                android:id="@+id/et_noOfTech"
+                style="@style/defaultInputText"
+                android:inputType="number"/>
+         </LinearLayout>
+
+         <LinearLayout
+            android:id="@+id/ll_wrkgNights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <TextView
+                style="@style/defaultText"
+                android:text="Working Nights"/>
+
+            <EditText
+                android:id="@+id/et_wrkgNights"
+                style="@style/defaultInputText"
+                android:inputType="number"
+               />
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_prblm_strt_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_strDate"
+                    style="@style/defaultText"
+                    android:text="Problem Start Date"/>
+
+                <TextView
+                    android:id="@+id/tv_prb_strDate"
+                    style="@style/scheduletabSearchByDate"/>
+
+                <TextView
+                    android:id="@+id/tv_strTime"
+                    style="@style/defaultText"
+                    android:text="Problem Start Time"/>
+
+                <TextView
+                    android:id="@+id/tv_prb_strTime"
+                    style="@style/scheduletabSearchByDate" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bttry_dschrg_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_bttry_dschrg_Date"
+                    style="@style/defaultText"
+                    android:text="Battery Discharge Start Date"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bttry_Date"
+                    style="@style/scheduletabSearchByDate"/>
+           
+
+                <TextView
+                    android:id="@+id/tv_bttry_dschrg_time"
+                    style="@style/defaultText"
+                    android:text="Battery Discharge Start Time"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bttry_time"
+                    style="@style/scheduletabSearchByDate" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_alarm_detail_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_alarmDetails"
+                    style="@style/defaultText"
+                    android:text="Alarm Detail"
+                    />
+
+                <EditText
+                    android:id="@+id/et_alarmDetails"
+                    style="@style/defaultInputText"
+                    android:maxLength="500"
+                    android:inputType="text" />
+            </LinearLayout>
+
+             <LinearLayout
+                android:id="@+id/ll_prblm_description_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_problemDesc"
+                    style="@style/defaultText"
+                    android:text="Problem Description"
+                    />
+
+                <EditText
+                    android:id="@+id/et_problemDesc"
+                    style="@style/defaultInputText"
+                    android:maxLength="500"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_assigned_to_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_assigned"
+                    style="@style/defaultText"
+                    android:text="Assigned To"
+                    />
+
+                <!--<com.isl.SingleSelectSearchable.SearchableSpinner
+                    android:id="@+id/sp_group"
+                    style="@style/defaultSpinner"/>-->
+
+                <TextView
+                    android:id="@+id/tv_grp"
+                    style="@style/defaultInputText"
+                    android:text="Select Assigned To"
+                    android:layout_gravity="center_horizontal|center_vertical"/>
+
+            </LinearLayout>
+            
+             <LinearLayout
+                android:id="@+id/ll_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_user"
+                    style="@style/defaultText"
+                    android:text="User(s)"
+                    />
+
+                 <TextView
+                     android:id="@+id/tv_grp_user"
+                     style="@style/defaultInputText"
+                     android:text="Select User"
+                     android:layout_gravity="center_horizontal|center_vertical"/>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/ll_operator_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_opera"
+                    style="@style/defaultText"
+                    android:text="Operator"
+                   />
+
+                <TextView
+                    android:id="@+id/tv_operator"
+                    style="@style/defaultInputText"
+                    android:text="Select Operator"
+                    />
+            </LinearLayout>
+            
+             <LinearLayout
+                android:id="@+id/ll_operator_exempt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_opera_exempt"
+                    style="@style/defaultText"
+                    android:text="Operator Exempted"
+                   />
+
+                 <TextView
+                     android:id="@+id/tv_operator_exempt"
+                     style="@style/defaultInputText"
+                     android:text="Select Operator Exempted"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_effected_sites_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_eff_site"
+                    style="@style/defaultText"
+                    android:text="Effected Sites"
+                    />
+
+                <EditText
+                    android:id="@+id/et_deptSite"
+                    style="@style/defaultInputText"
+                    android:digits="1234567890"
+                    android:inputType="numberSigned"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_hub_siteId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5sp">
+                <TextView
+                    style="@style/defaultText"
+                    android:text="Hub Site Id"/>
+
+                <EditText
+                    android:id="@+id/et_hubSiteId"
+                    style="@style/defaultInputHubSiteId"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_chk_link"
+                style="@style/linkTextView"
+                android:text="Upload Checklist Data"
+                android:visibility="visible"/>
+            
+             <TextView
+                    android:id="@+id/tv_click_img"
+                    style="@style/defaultText"
+                    android:text="Click Image"
+                    />
+
+                <Button
+                    android:id="@+id/btn_take_photo"
+                    style="@style/cameraButton"/>
+               
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+               <!-- <com.isl.itower.ExpandableHeightGridView
+                    android:id="@+id/grid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:columnWidth="250dp"
+                    android:gravity="center"
+                    android:horizontalSpacing="3dp"
+                    android:isScrollContainer="false"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="1"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="3dp" />-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/grid"
+                        android:scrollbars="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rl_submit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/bottom"
+                android:orientation="horizontal"
+                android:scrollbars="vertical"
+                android:weightSum="2"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/tvSubmit"
+                    style="@style/ButtonDefault"
+                    android:text="Submit"
+                    android:gravity="center"/>
+            </LinearLayout>
+      </LinearLayout>
+    </ScrollView> 
+   <RelativeLayout
+        android:id="@+id/rl_no_textlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header"
+        android:layout_centerInParent="true"
+        android:visibility="visible" >
+
+        <TextView
+            android:id="@+id/txt_no_ticket"
+            style="@style/noDataFoundTV" />
+        </RelativeLayout>
+</LinearLayout>

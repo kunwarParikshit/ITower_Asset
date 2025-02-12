@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/relative_main"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF" >
+
+
+    <RelativeLayout
+        android:background="#FFFFFF"
+        android:id="@+id/ticket_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/txt_ticket_id"
+            style="@style/scheduletabSiteId"
+            android:layout_marginBottom="1dp"/>
+
+
+        <TextView
+            android:id="@+id/txt_asset_id"
+            android:layout_below="@+id/txt_ticket_id"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:text="Asset Id"
+            />
+
+        <TextView
+            android:id="@+id/txt_action"
+            android:layout_below="@+id/txt_asset_id"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:text="Action"
+            />
+
+        <TextView
+            android:id="@+id/txt_asset_type"
+            android:layout_below="@+id/txt_action"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:text="Asset Type"
+            />
+
+        <TextView
+            android:id="@+id/txt_manufacturer"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:layout_below="@+id/txt_asset_type"
+            android:text="Critical"
+            />
+
+        <TextView
+            android:id="@+id/txt_model"
+            android:layout_below="@+id/txt_manufacturer"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:text="Alarm Description"
+            />
+
+        <TextView
+            android:id="@+id/txt_serial_no"
+            android:layout_below="@+id/txt_model"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:text="Serial Number"
+            />
+
+        <TextView
+            android:id="@+id/txt_capacity"
+            android:layout_below="@+id/txt_serial_no"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:text="Capacity"
+            />
+
+        <TextView
+            android:id="@+id/txt_warenty_date"
+            style="@style/scheduletabActivityType"
+            android:layout_below="@+id/txt_capacity"
+            android:layout_marginBottom="1dp"
+            android:text="Warenty Date"/>
+
+        <TextView
+            android:id="@+id/txt_remarks"
+            android:layout_below="@+id/txt_warenty_date"
+            style="@style/scheduletabActivityType"
+            android:layout_marginBottom="1dp"
+            android:text="Remarks"
+            />
+
+    </RelativeLayout>
+
+
+    <!--<View
+        android:background="@color/disable_textcolor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>-->
+</RelativeLayout>

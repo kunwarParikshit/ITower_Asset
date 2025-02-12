@@ -1,0 +1,174 @@
+<resources>
+    <string name="app_name">iTower</string>
+    <string name="apollo_app_name">iTower-Blue</string>
+    <string name="ock_app_name_">iTower-Black</string>
+    <string name="eft_app_name"> iTower-Green</string>
+    <string name="voltalia_app_name">iTower-Yellow</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_dashboard">iTower</string>
+
+    <!-- common string -->
+    <string name="back">Back</string>
+    <string name="site_id">Site Id</string>
+    <string name="region">Region</string>
+    <string name="sub_region">Sub Region</string>
+    <string name="mini_cluster">Mini Cluster</string>
+
+    <string name="max_length_tech">50</string>
+    <string name="max_length_twenty">20</string>
+    <string name="max_length_app">100</string>
+
+    <!-- login -->
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="server_configuration">Server Configuration</string>
+    <string name="login">Login</string>
+
+    <!-- Alarm Management -->
+    <string name="alarm_management">Alarm Management</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="my_search">My Search</string>
+    <string name="open_alarm">Open Alarm</string>
+    <string name="current_status">Current Status</string>
+
+    <!-- asset module -->
+    <string name="schedule">Schedule</string>
+    <string name="scope">Transformer Maintenance</string>
+    <string name="dg"><u>Fuel Catalyst</u></string>
+    <string name="title_activity_notification_setting">NotificationSetting</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="nt_site_id"><b>Site ID -</b></string>
+    <string name="country_prompt">Select</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_assets">iTower</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_pmall_tabs">PreventiveMaintenance</string>
+
+    <string name="app_name_short">AppAuth</string>
+    <string name="auth_granted">Authentication granted</string>
+    <string name="intro_header">OpenID AppAuth Demo</string>
+    <string name="openid_logo_content_description">AppAuth Logo</string>
+    <string name="refresh_token">Refresh token</string>
+    <string name="access_token_expires_at">Access token expires at: %s</string>
+    <string name="no_access_token_returned">No access token returned</string>
+    <string name="no_refresh_token_returned">No refresh token returned</string>
+    <string name="refresh_token_returned">Refresh token returned</string>
+    <string name="no_id_token_returned">No ID token returned</string>
+    <string name="id_token_returned">ID token returned</string>
+    <string name="view_profile">Continue</string>
+    <string name="userinfo_profile_content_description">User profile picture</string>
+    <string name="login_hint_value">Account ID (e.g. test@example.com)</string>
+    <string name="account_id_description">The Account ID is optional. If specified, it is transmitted as a login_hint parameter in the authorization request.</string>
+    <string name="auth_options">Authorization options:</string>
+    <string name="browser_selector_label">Use browser:</string>
+    <string name="browser_icon_contentDescription">Browser app icon</string>
+    <string name="browser_appauth_default_label">AppAuth heuristic selection</string>
+    <string name="custom_tab_label">"%1$s (custom tab)"</string>
+    <string name="retry_label">Retry</string>
+    <string name="not_authorized">Not authorized</string>
+    <string name="start_authorization">Start authorization</string>
+    <string name="reauthorize">Reauthorize</string>
+    <string name="sign_out">Back</string>
+    <string name="no_access_token_expiry">Access time has no defined expiry</string>
+    <string name="access_token_expired">Access token has expired</string>
+    <string name="auth_settings">Authorization settings in use:</string>
+    <string name="use_pending_intents">Use PendingIntent\'s for completion</string>
+
+
+    <!--Added by Anshul Sharma-->
+    <!--Audit Module-->
+    <string name="my_audits">My Audits</string>
+    <string name="pending_audits">Pending Audits</string>
+    <string name="done_audits">Done Audits</string>
+    <string name="upcoming_audits">Upcoming Audits</string>
+    <string name="today_audits">Today\'s Audits</string>
+    <string name="rescheduled_audits">Rescheduled Audits</string>
+    <string name="loading">Loading...</string>
+    <string name="blind_audit">Blind Audit</string>
+    <string name="submit">Submit</string>
+    <string name="click_add_button">Click on the Add button to Add Asset.</string>
+    <string name="add_asset">Add Asset</string>
+    <string name="add_child_asset">Add Child Asset</string>
+    <string name="select_asset_type">Select Asset type</string>
+    <string name="select_child_asset_type">Select Child Asset type</string>
+    <string name="select_parent_asset_type">Select Parent Asset type</string>
+    <string name="add_parent_asset"><u>Add parent asset</u></string>
+    <string name="add_parent_asset2">Add Parent Asset</string>
+    <string name="parent_asset"><u>Parent asset:</u></string>
+    <string name="audit_management">Audit Management</string>
+    <string name="capture_min">Capture [Minimum </string>
+    <string name="max">Maximum</string>
+    <string name="images">] Images.</string>
+    <string name="capture_images">Capture Images.</string>
+    <string name="capture_max">Capture [Maximum</string>
+    <string name="no_asset_type_added">No Asset type added for selected audit.</string>
+    <string name="max_image_select_msg">You can not capture more than</string>
+    <string name="max_image_select_msg2">You can not capture more images</string>
+    <string name="images2">images.</string>
+    <string name="please_enter">Please enter</string>
+    <string name="please_select">Please select</string>
+    <string name="please_scan">Please scan</string>
+    <string name="regex_error"> value does not match specified regex</string>
+    <string name="please_add_assets">Please add assets</string>
+    <string name="select">Select</string>
+    <string name="date">date</string>
+    <string name="no_audits_found">No audits found.</string>
+    <string name="network_unavailable_msg">Please check your internet connection and try again.</string>
+    <string name="sync_now">Sync now</string>
+    <string name="capture">Capture</string>
+    <string name="image">image</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="delete_all">Yes, Delete All</string>
+    <string name="keep_them">No, Keep them</string>
+    <string name="ok">OK</string>
+    <string name="delete_asset_msg">Are you sure you want to remove this asset?</string>
+    <string name="delete_parent_asset_msg">Do you want to delete all associated child assets?</string>
+    <string name="sync_now_alert">You have unsynced audits, Do you want to sync them?</string>
+    <string name="add_child_asset_msg">Do you want to add child asset?</string>
+    <string name="add">Add</string>
+    <string name="siteid">Site ID - </string>
+    <string name="audit_name">Audit Name - </string>
+    <string name="audit_type">Audit Type - </string>
+    <string name="schedule_date">Scheduled Date - </string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="timestamp">Timestamp:</string>
+    <string name="img_tag">Image Tag: </string>
+    <string name="no_child_assets_available">No child assets available</string>
+    <string name="no_parent_assets_available">No parent assets available</string>
+    <string name="duplicate_qr">Please use unique QR code.</string>
+    <string name="invalid_qr">Please scan valid QR code.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="save">Save</string>
+    <string name="data_saved">Data saved successfully.</string>
+    <string name="perform_audit_error">You can not perform audit before scheduled date.</string>
+    <string name="add_parent">Add Parent</string>
+    <string name="add_child">Add Child</string>
+    <string name="parent">Parent:</string>
+    <string name="audit_submit_success">Audit submitted successfully.</string>
+
+    <!--Asset Movement-->
+    <string name="asset_movement">Asset Movement</string>
+    <string name="add_asset_by_scanning_qr_code">Add asset by scanning QR code</string>
+    <string name="enter_siteid">Enter SiteId</string>
+    <string name="select_asset">Select asset from Site</string>
+
+    <string name="service_already_running">Service is already running</string>
+    <string name="service_start_successfully">Service started successfully</string>
+    <string name="gps_enable">GPS enable</string>
+    <string name="please_turn_on_gps">Please turn on GPS</string>
+
+    <string name="background_location_permission_message">
+        Please select -"Allow all the Time"- in Location Permission to get location updates in the background even when not using the app
+        <!--  -Allow only while using the app- permission has been granted. If you want
+         to get location updates in the background even when not using the app then grant
+         -Allow all the time- permission-->
+    </string>
+
+</resources>

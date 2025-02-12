@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_white"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_header_existing_ticket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/tabBackButton"/>
+
+        <TextView
+            android:id="@+id/tv_header"
+            style="@style/tabHeaderTextView"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_pre_act_photo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_click_pre_img"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.isl.itower.ExpandableHeightGridView
+                        android:id="@+id/pre_grid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:columnWidth="250dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="3dp"
+                        android:isScrollContainer="false"
+                        android:listSelector="@android:color/transparent"
+                        android:numColumns="1"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="3dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_siteId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_site_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_assetId"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Asset Id"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_assetId"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_projectName"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Project Name"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_projectName"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_productName"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Product Name"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_productName"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_soNumber"
+                android:layout_width="match_parent"
+                android:text="SO Number"
+                android:visibility="gone"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_soNumber"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_WorkOrderNumber"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Work Order Number"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_WorkOrderNumber"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_Region"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Region"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_Region"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_District"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="District"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_District"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_City"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="City"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_City"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_Latitude"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Latitude"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_Latitude"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_Longitude"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Longitude"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_Longitude"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_siteTowerType"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="Site Tower Type"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_siteTowerType"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tv_rj_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_rj_cat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/et_rj_cat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_rj_rmk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/et_rj_rmk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_rj_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/et_rj_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/ll_textview"
+                style="@style/addViewlayout">
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_spare_parts"
+                android:text="Add/View Spare Parts?"
+                style="@style/linkTextView"
+                android:layout_marginBottom="10dp" />
+
+          <LinearLayout
+                android:id="@+id/ll_post_act_img"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_click_img"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.isl.itower.ExpandableHeightGridView
+                        android:id="@+id/post_grid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:columnWidth="250dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="3dp"
+                        android:isScrollContainer="false"
+                        android:listSelector="@android:color/transparent"
+                        android:numColumns="1"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="3dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_data_found"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header_ticket_list"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_no_data"
+            style="@style/noDataFoundTV" />
+    </RelativeLayout>
+
+</LinearLayout>

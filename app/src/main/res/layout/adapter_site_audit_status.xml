@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff" >
+    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="43sp"
+    android:weightSum="3"
+    android:layout_marginTop="2sp" >
+
+    <TextView
+        android:id="@+id/tv_site_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="Site Name" 
+        android:layout_weight="1"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="2sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/tv_last_audit_dt"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="Last Audit dt."
+        android:layout_weight="1"
+        android:gravity="center" 
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="2sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/tv_by_whom"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2sp"
+        android:layout_marginRight="2sp"
+        android:layout_weight="0.97"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:text="Audit Manager North"
+        android:textColor="#000000" />
+
+</LinearLayout>
+
+</LinearLayout>

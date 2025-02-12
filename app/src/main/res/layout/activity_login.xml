@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.isl.itower.ValidateUDetails"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/bg_login">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <LinearLayout
+            android:id="@+id/ll"
+            style="@style/ChildLayout"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/infozech_logo"
+                style="@style/infozechLogo" />
+
+            <ImageView
+                android:id="@+id/client_logo"
+                style="@style/LoginLogo" />
+
+            <TextView
+                android:id="@+id/tv_login_text_content4"
+                style="@style/LoginTextContent4" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_text_input"
+                style="@style/LoginTextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username"
+                    style="@style/LoginInput"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890.@_-"
+                    android:hint="Login Id" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_text_input1"
+                style="@style/LoginTextInputLayoutStyle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    style="@style/LoginInput"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/language_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:visibility="gone">
+
+                <Spinner
+                    android:id="@+id/sp_lang_name"
+                    style="@style/LoginInput" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout style="@style/SubChildLayout2">
+
+                <TextView
+                    android:id="@+id/tv_ip_config"
+                    style="@style/TextConfigIp" />
+
+                <TextView
+                    android:id="@+id/login"
+                    style="@style/LoginButton"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_other"
+                style="@style/TextConfigIp"
+                android:text="OR"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/start_auth"
+                style="@style/LoginWithSSO"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_display_msg"
+                style="@style/TextDisplayMSG" />
+
+            <LinearLayout
+                android:id="@+id/loading_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/loading_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textcolor"
+                    android:paddingLeft="10dp"
+                    android:textSize="15dp"/>
+
+                <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"/>
+
+            </LinearLayout>
+
+            <!-- Displayed once the authorization server configuration is resolved -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <LinearLayout
+                    android:id="@+id/auth_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical"
+                    >
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/login_hint_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:hint="@string/login_hint_value"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Spinner
+                        android:id="@+id/browser_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <CheckBox
+                        android:id="@+id/pending_intents_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/use_pending_intents"/>
+
+
+
+                    <TextView
+                        android:id="@+id/auth_endpoint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textIsSelectable="true" />
+
+                    <TextView
+                        android:id="@+id/client_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textIsSelectable="true" />
+
+                </LinearLayout>
+
+                <!-- displayed if there is an error. -->
+                <LinearLayout
+                    android:id="@+id/error_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/error_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_gravity="center"
+                        style="@style/Base.TextAppearance.AppCompat.Body1"/>
+
+                    <Button
+                        android:id="@+id/retry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/retry_label" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

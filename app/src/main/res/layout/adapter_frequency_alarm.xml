@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                style="@style/BodyRow"
+                android:weightSum="5" >
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_weight="4"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:shadowRadius="1.0"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowColor="#AFFFFFFF"
+                    android:text="Description"
+                    android:background="@color/orange"
+					android:gravity="left"
+					android:padding="10sp"
+					android:textColor="@color/white"
+					android:textSize="14sp"
+					android:textStyle="normal"
+					/> 
+					          
+                <TextView
+                    android:id="@+id/tv_count"
+                    style="@style/BodyText"
+                    android:layout_weight="1"
+                    android:text="2" 
+                    android:padding="5sp"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>
