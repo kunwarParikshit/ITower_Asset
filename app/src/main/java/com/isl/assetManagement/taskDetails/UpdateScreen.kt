@@ -891,7 +891,6 @@ class FormViewModel : ViewModel() {
     var remarks = MutableLiveData("")
     var expanded = MutableLiveData(false)
     var selectedOption = MutableLiveData("Select")
-
 }
 
 
