@@ -1,5 +1,6 @@
 package  com.isl.assetManagement.api
 import FetchDeviceIDRequest
+import com.isl.assetManagement.requests.TaskUploadPayload
 import com.isl.assetManagement.responses.*
 import com.isl.assetManagement.room.entity.*
 import io.reactivex.Observable
@@ -80,7 +81,30 @@ interface IApiRequest {
         @Query("siteId") siteId: String,
         @Query("assetId") assetId: String?,
         @Query("qrCode") qrCode: String?
-    ): Response<List<AssetDetailsResponse>> // Must use Response<> for suspend
+    ): Response<List<AssetDetailsResponse>>
+
+    /*@POST("rest-api/v1/site/1/tasks/{requestId}/documents")
+    fun uploadDocument(
+        @Header("Authorization") authHeader: String,
+        @Path("requestId") requestId: String,
+        @Body body: DocumentUpload
+    ): DocUploadApiResponse*/
+
+
+    @POST("rest-api/v1/site/1/tasks/{requestId}/documents")
+    suspend fun uploadDocument(
+        @Header("Authorization") authHeader: String,
+        @Path("requestId") requestId: String,
+        @Body body: Documents
+    ): Response<SuccessResponse> // Change return type to Response<T>
+
+    @PATCH("rest-api/v2/movement/1/tasks/{requestId}")
+    suspend fun addUpdateTaskDetails(
+        @Header("Authorization") authHeader: String,
+        @Path("requestId") requestId: String,
+        @Body body: TaskUploadPayload
+    ): Response<TaskAddUpdateApiRespose>
+
 }
 
 

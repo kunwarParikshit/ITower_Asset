@@ -7,9 +7,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -20,12 +23,18 @@ import androidx.compose.ui.unit.sp
 import infozech.itower.R
 
 @Composable
-fun TopBar(onBackClicked: () -> Unit, onSearchClicked: () -> Unit, title: String, subTitle: String,mode : Int) {
+fun TopBar(onBackClicked: () -> Unit,
+           onSearchClicked: () -> Unit,
+           onAddClicked: () -> Unit,
+           title: String,
+           subTitle: String,
+           addButtonTitle : String,
+           mode : Int) {
     TopAppBar(backgroundColor = colorResource(id = R.color.white),
         modifier = Modifier
             .fillMaxWidth()
             .background(colorResource(id = R.color.white))
-            .height(135.dp)
+            .height(150.dp)  //135
     ) {
         Column(
             horizontalAlignment = Alignment.Start,
@@ -61,13 +70,13 @@ fun TopBar(onBackClicked: () -> Unit, onSearchClicked: () -> Unit, title: String
                 horizontalArrangement = Arrangement.Start,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(65.dp)
+                    .height(80.dp)  //65
                     .padding(top = 17.dp)
             ) {
                 Column(
                     horizontalAlignment = Alignment.Start,
                     verticalArrangement = Arrangement.spacedBy(0.dp),
-                    modifier = Modifier.height(57.dp)
+                    modifier = Modifier.height(78.dp) //56
                 ) {
                     Text(
                         text = title, //Movement Requests
@@ -88,13 +97,14 @@ fun TopBar(onBackClicked: () -> Unit, onSearchClicked: () -> Unit, title: String
                     )
                 }
 
-                if(mode==1){
+                if(mode==1){   //1 means call from Tasks class
                     Spacer(modifier = Modifier.weight(1f))
                     Box(
                         modifier = Modifier
                             .height(42.dp)
                             .width(102.dp)
                             .padding(top = 7.dp)
+                            .clickable { onAddClicked() }
                             .background(
                                 color = colorResource(id = R.color.color_add_request_border),
                                 shape = RoundedCornerShape(2.dp)
@@ -107,14 +117,34 @@ fun TopBar(onBackClicked: () -> Unit, onSearchClicked: () -> Unit, title: String
                             .wrapContentSize(Alignment.Center)
                     ) {
                         Text(
-                            text = "Request +",
+                            text = addButtonTitle,
                             style = TextStyle(
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = colorResource(id = R.color.color_add_request)
+
                             )
                         )
                     }
+                }else if(mode==2){   //2 means call from all details screen
+                    Spacer(modifier = Modifier.weight(1f))
+                    Box(
+                        modifier = Modifier
+                            .height(40.dp)
+                            .width(40.dp)
+                            .padding(top = 7.dp)
+                            .clickable { onAddClicked() }
+                            .wrapContentSize(Alignment.Center)
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.edit_icon), // Your pencil icon
+                            contentDescription = "",
+                            tint = colorResource(id = R.color.btn),
+                            modifier = Modifier.size(18.dp) // Adjust size as needed
+                        )
+                    }
+
+
                 }
             }
         }

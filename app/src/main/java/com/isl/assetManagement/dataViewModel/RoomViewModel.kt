@@ -3,7 +3,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.isl.assetManagement.requests.TaskUploadPayload
 import com.isl.assetManagement.responses.Assets
+import com.isl.assetManagement.responses.DocUploadApiResponse
+import com.isl.assetManagement.responses.Documents
+import com.isl.assetManagement.responses.TaskAddUpdateApiRespose
 import com.isl.assetManagement.room.entity.*
 import com.isl.assetManagement.room.repository.RoomRepository
 import kotlinx.coroutines.Dispatchers
@@ -73,6 +77,19 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
         }
     }
 
+    fun addDocToExistingRequestDetails(status : Int, requestId: String, documents: Documents,
+                                       onComplete: (Boolean) -> Unit) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.addDocumentToExistingRequestDetails(status,requestId, documents)
+
+            withContext(Dispatchers.Main) {
+                onComplete(result) // Call the callback with the result
+            }
+        }
+    }
+
+
+
 
     fun fetchLevelFromApi() {
         viewModelScope.launch {
@@ -129,6 +146,30 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
         viewModelScope.launch {
             repository.fetchAndSaveTaskDetails(
                 token,requestId,onDataInserted)
+        }
+    }
+
+    fun uploadDocument(
+        token: String,
+        requestId: String,
+        body: Documents,
+        onResult: (DocUploadApiResponse) -> Unit
+    ) {
+        viewModelScope.launch {
+            val response = repository.uploadDocument(token, requestId, body)
+            onResult(response)
+        }
+    }
+
+    fun addUpdateResuest(
+        token: String,
+        requestId: String,
+        body: TaskUploadPayload,
+        onResult: (TaskAddUpdateApiRespose) -> Unit
+    ) {
+        viewModelScope.launch {
+            val response = repository.addUpdateTaskDetails(token, requestId, body)
+            onResult(response)
         }
     }
 

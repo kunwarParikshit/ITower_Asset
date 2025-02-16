@@ -1,11 +1,7 @@
 package com.isl.assetManagement.assetDetails
-import UpdateScreen
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +9,6 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -22,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -30,33 +23,27 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.isl.assetManagement.assetDetails.VerifyAsset
 
-import com.isl.assetManagement.constants.DefaultLevel
 import com.isl.assetManagement.dataViewModel.RoomViewModel
 import com.isl.assetManagement.jetpackcompose.BottomBar
 import com.isl.assetManagement.jetpackcompose.DialogFragmentTopBar
 import com.isl.assetManagement.responses.AssetDetailsResponse
 import com.isl.assetManagement.responses.Assets
+import com.isl.assetManagement.room.entity.TaskDetailEntity
 import com.isl.assetManagement.room.repository.RoomRepository
 import com.isl.assetManagement.utils.CustomToastMsg
 import com.isl.assetManagement.utils.DataViewModelFactory
-import com.isl.assetManagement.utils.Util
 import com.isl.itower.MyApp
 import infozech.itower.R
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.concurrent.Executors
 
 class AssetDetails : BottomSheetDialogFragment() {
     private lateinit var roomRepository: RoomRepository
@@ -144,6 +131,10 @@ class AssetDetails : BottomSheetDialogFragment() {
     @Composable
     fun DetailsScreen(formAssetDetails: List<AssetDetailsResponse>?) {
 
+        requestId?.let { viewModel.getTaskDetail(it) }
+        val taskDetailEntity by viewModel.getTaskDetail.observeAsState()
+
+
         Scaffold(
             topBar = {
                 DialogFragmentTopBar(
@@ -163,22 +154,27 @@ class AssetDetails : BottomSheetDialogFragment() {
                         dismiss()
                     },
                     onUpdateClicked = {
-                        if (validations()) {
+                        //if (validations()) {
+                        if (validations(taskDetailEntity)) {
                             viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
                                 formAssetDetails?.get(0)?.let { assetDetails ->
                                     val newAsset = assetDetails.assetType?.let {
                                         assetDetails.itemCode?.let { it1 ->
-                                            Assets(
-                                                assetType = it,
-                                                assetId = assetDetails.assetId,
-                                                itemCode = it1,
-                                                qrCode = assetDetails.qrCode,
-                                                availableQty = 0,
-                                                requestedQty = 0,
-                                                approvedQty = 1,
-                                                status = 1,
-                                                id = tranAssetDetails?.id
-                                            )
+                                            tranAssetDetails?.let { it2 ->
+                                                Assets(
+                                                    assetType = it,
+                                                    assetId = assetDetails.assetId,
+                                                    itemCode = it1,
+                                                    qrCode = assetDetails.qrCode,
+                                                    availableQty = 0,
+                                                    requestedQty = 0,
+                                                    approvedQty = it2.approvedQty,
+                                                    status = 1,
+                                                    id = tranAssetDetails?.id
+                                                    //id = tranAssetDetails?.id?.takeIf { it.isNotBlank() } ?: ""
+
+                                                )
+                                            }
                                         }
                                     }
 
@@ -253,7 +249,10 @@ class AssetDetails : BottomSheetDialogFragment() {
                                     )
                                 }
                             }
-                            if (validations()) {
+
+                           /* requestId?.let { viewModel.getTaskDetail(it) }
+                            val taskDetailEntity by viewModel.getTaskDetail.observeAsState()
+                            if (validations(taskDetailEntity)) {
                                 Spacer(modifier = Modifier.width(0.dp)) // Optional space between text and image
                                 androidx.compose.material3.Icon(
                                     painter = painterResource(id = R.drawable.right_icon), // Default back arrow icon
@@ -261,7 +260,7 @@ class AssetDetails : BottomSheetDialogFragment() {
                                     modifier = Modifier.padding(start = 5.dp),
                                     tint = colorResource(id = R.color.qr_code_verify) // Color for the arrow icon
                                 )
-                            }
+                            }*/
                         }
 
                         Row(
@@ -434,7 +433,8 @@ class AssetDetails : BottomSheetDialogFragment() {
         )
     }
 
-    fun validations(): Boolean {
+    fun validations(taskDetailEntity: TaskDetailEntity?): Boolean {
+        //return true
         if ((formAssetDetails?.isNotEmpty() == true) &&
             (formAssetDetails?.firstOrNull()?.siteId.isNullOrBlank()
                     || fromSid != formAssetDetails?.firstOrNull()?.siteId)
@@ -468,8 +468,41 @@ class AssetDetails : BottomSheetDialogFragment() {
                 requireActivity(),"Asset id mismatch")
             return false
         }
+        // verify unique asset id
+        else if((formAssetDetails?.isNotEmpty() == true)
+            && hasDuplicateAssetById(taskDetailEntity,
+                formAssetDetails?.firstOrNull()?.assetId ?: "")
+            )
+        {
+            CustomToastMsg.showCustomToast(
+                requireActivity(),"This asset has already been added to the list and verified.")
+            return false
+        }
         return true
     }
 
+
+
+    // Function to check for duplicates of a specific assetId entered by the user
+    fun hasDuplicateAssetById(taskDetailEntity: TaskDetailEntity?, userEnteredAssetId: String?): Boolean {
+        // Only proceed if taskDetailEntity and userEnteredAssetId are not null
+        if (taskDetailEntity != null && userEnteredAssetId != null) {
+            taskDetailEntity.assets.let { assets ->
+                // Filter assets with status 1
+                val filteredAssets = assets.filter { it.status == 1 }
+
+                // Check if the assetId already exists in the assets list
+                val assetExists = filteredAssets.any { it.assetId == userEnteredAssetId }
+
+                // If the asset already exists, return false (indicating it's a duplicate)
+                if (assetExists) {
+                    return true
+                }
+            }
+        }
+
+        // If the asset doesn't exist, return true (allow adding the asset)
+        return false
+    }
 
 }

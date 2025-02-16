@@ -1,9 +1,6 @@
 package  com.isl.assetManagement.room.entity
 import androidx.room.*
-import com.isl.assetManagement.responses.Assets
-import com.isl.assetManagement.responses.Location
-
-import com.isl.assetManagement.responses.Timeline
+import com.isl.assetManagement.responses.*
 
 @Entity(tableName = "LEVEL")
 data class LevelDBEntity(
@@ -58,5 +55,6 @@ data class TaskDetailEntity(
     val fromLocation: Location,
     val toLocation: Location,
     val assets: List<Assets>,
+    val documents: List<Documents>,
     val timelines: List<Timeline>
 )

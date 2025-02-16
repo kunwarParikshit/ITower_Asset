@@ -114,16 +114,22 @@ fun RequestItemCardView(item: AssetRequests, onClick: () -> Unit, level: HashMap
                     // Spacer to create some space between the last Text and the "Assets" text
                     Spacer(modifier = Modifier.weight(1f)) // This will push the "Assets" text to the far right
 
-                    Text(
+                    /*Text(
                         text = "Assets : ${item.totalAssetCount}",
                         style = TextStyle(
                             fontSize = 11.sp,
                             color = colorResource(id = R.color.count_grid_color)
                         )
-                    )
+                    )*/
                 }
 
-
+                Text(
+                    text = "Assets : ${item.totalAssetCount}",
+                    style = TextStyle(
+                        fontSize = 11.sp,
+                        color = colorResource(id = R.color.category_color)
+                    )
+                )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth() // Ensures the Row takes up the full width

@@ -16,7 +16,8 @@ data class TaskDetailResponce(
     val fromLocation: Location,
     val toLocation: Location,
     val assets: List<Assets>,
-    val timelines: List<Timeline>
+    val documents: List<Documents>,
+    val timelines: List<Timeline>,
 )
 
 data class Location(
@@ -29,17 +30,24 @@ data class Location(
     val longitude: Double
 )
 
-data class documents(
+data class Documents(
+    val userId: String = "",
+    val fileName: String = "",
+    val content: String = "",
+    val latiude: Double ,
     val latitude: Double,
     val longitude: Double,
-    val tagName: String,
-    val timeStamp: String,
-    val url: String,
-    val type: String,
+    val tagName: String = "",
+    val timeStamp: String = "",
+    val url: String = "",
+    val type: String = "",
     val tempDocId: String = "",
     val localPath: String = "",
-    val status: Int = 0
+    val status: Int = 0  //0 means new upload images include in payload,
+    // 1 means already uploaded no include in payload,
+    // 2 means pending for server after upload to server then revert 0
 )
+
 @Parcelize
 data class Assets(
     val assetType: String,
@@ -50,7 +58,8 @@ data class Assets(
     val requestedQty: Int,
     val approvedQty: Int,
     val status: Int = 0,
-    val id: String? = UUID.randomUUID().toString()  // Make it nullable
+    //val id: String
+    var id: String? = UUID.randomUUID().toString()  // Make it nullable
 ): Parcelable
 
 data class Timeline(

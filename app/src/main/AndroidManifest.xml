@@ -102,6 +102,11 @@
             android:enabled="true"
             android:exported="true" />
 
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBgWsq3urZMqeXenkij1YARBtLVtuO0uEk" />
+
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
@@ -113,6 +118,17 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginPageTheme"
             android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.isl.common.activities.MapActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/LightTheme"
+            tools:replace="screenOrientation">
 
         </activity>
         <activity
@@ -250,11 +266,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginPageTheme"
             android:windowSoftInputMode="stateHidden|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.isl.asset.SiteDetails"
@@ -612,7 +624,9 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.AssetModule"
-            android:windowSoftInputMode="adjustPan|stateHidden|adjustResize" />
+            android:windowSoftInputMode="adjustPan|stateHidden|adjustResize">
+
+        </activity>
 
         <!-- android:theme="@style/AppTheme.AssetModule"-->
     </application>

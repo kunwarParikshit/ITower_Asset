@@ -1,19 +1,30 @@
 package  com.isl.assetManagement.room.repository
+import AuthDetails
 import android.util.Log
+import androidx.compose.ui.semantics.SemanticsProperties.Error
 import androidx.lifecycle.LiveData
+import com.google.gson.Gson
 import com.isl.assetManagement.api.ApiClient.api_asset
 import com.isl.assetManagement.api.ApiClient.api_onm
 import com.isl.assetManagement.api.ApiClient.authService
+import com.isl.assetManagement.constants.DefaultLevel
+import com.isl.assetManagement.requests.TaskUploadPayload
 import com.isl.assetManagement.responses.*
 import com.isl.assetManagement.room.dao.DataDao
 import com.isl.assetManagement.room.entity.*
 import com.isl.assetManagement.sharedPref.KotlinPrefkeeper
+import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.HttpException
 import retrofit2.Response
 import java.util.*
 
@@ -42,30 +53,43 @@ class RoomRepository(private val dataDao: DataDao) {
         return dataDao.getTaskDetailByRequestId(requestId)
     }
 
-    suspend fun fetchToken(): String? {
-        return withContext(Dispatchers.IO) {
-            val call = authService.getAuthToken(
-                clientId = "iAsset-QC",
-                clientSecret = "MtHgxqrV89zmm1o2xAfu1BTuYumLhZNH",
-                grantType = "password",
-                username = "mast.admin@gmail.com",
-                password = "Test@123456789"
-            )
+    fun parseJson(): AuthDetails {
+        val gson = Gson()
+        var jsonString = KotlinPrefkeeper.assetinfo
+        return gson.fromJson(jsonString, AuthDetails::class.java)
+    }
 
-            try {
-                val response = call.execute() // Using execute() for a synchronous call in coroutines
-                if (response.isSuccessful) {
-                    val tokenResponse = response.body()
-                    return@withContext tokenResponse?.access_token
-                } else {
-                    Log.e("DataRepository", "Error: ${response.errorBody()?.string()}")
+    suspend fun fetchToken(): String? {
+        if(KotlinPrefkeeper.isauth.equals("1")) {
+            val authDetails = parseJson()
+             return withContext(Dispatchers.IO) {
+                val call = authService.getAuthToken(
+                    clientId = authDetails.clientId,
+                    clientSecret = authDetails.clientSecret,
+                    grantType = authDetails.grantType,
+                    username = authDetails.username,
+                    password = authDetails.password
+
+                )
+                try {
+                    val response =
+                        call.execute() // Using execute() for a synchronous call in coroutines
+                    if (response.isSuccessful) {
+                        val tokenResponse = response.body()
+                        return@withContext tokenResponse?.access_token
+                    } else {
+                        Log.e("DataRepository", "Error: ${response.errorBody()?.string()}")
+                        return@withContext null
+                    }
+                } catch (e: Exception) {
+                    Log.e("DataRepository", "Network error: ${e.message}")
                     return@withContext null
                 }
-            } catch (e: Exception) {
-                Log.e("DataRepository", "Network error: ${e.message}")
-                return@withContext null
             }
+        }else{
+            return UUID.randomUUID().toString()
         }
+
     }
 
     fun fetchAndSaveLevel() {
@@ -408,20 +432,43 @@ class RoomRepository(private val dataDao: DataDao) {
                         val data = response.body()
                         if (data != null) {
 
+                            /*val expandedDocument = mutableListOf<Documents>()
+                            data.documents?.let { documents ->
+                                documents.forEach { document ->
+                                    //expandedAssets.add(asset.copy(status = 0,id =""))
+                                    expandedDocument.add(
+                                        document.copy(status = 1)
+                                    )
+                                }
+                            }*/
+
                             val expandedAssets = mutableListOf<Assets>()
                             // Iterate through the assets and modify based on approvedQty
                             data.assets?.let { assets ->
                                 assets.forEach { asset ->
-                                    //expandedAssets.add(asset.copy())
-                                    // If approvedQty > 1, add the asset as-is with status = 2
-                                    if (asset.approvedQty > 1) {
+
+                                    if (asset.approvedQty >= 1) {
+                                           //expandedAssets.add(asset.copy(status = 0,id =""))
+                                        expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
+
+                                    }/*else if (asset.approvedQty == 1) {
+                                        expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
+                                    }*/
+
+                                   /* if (asset.approvedQty > 1) {
                                         repeat(asset.approvedQty){
                                             expandedAssets.add(asset.copy(status = 0,approvedQty = 1,
                                                 id = UUID.randomUUID().toString()))
                                         }
                                     }else if (asset.approvedQty == 1) {
                                             expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
-                                    }
+                                    }*/
+
+
+
+                                   /* if (asset.approvedQty >= 1) {
+                                        expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
+                                    }*/
                                     //excluded 0 item
                                 }
                             }
@@ -446,8 +493,9 @@ class RoomRepository(private val dataDao: DataDao) {
                                         ?: defaultLocation(), // Provide a default value
                                     toLocation = data.toLocation
                                         ?: defaultLocation(),     // Provide a default value
-                                    assets = expandedAssets
-                                        ?: emptyList(),                     // Default to an empty list
+                                    assets = expandedAssets?: emptyList(),
+                                    //assets = data.assets?: emptyList(),
+                                    documents = data.documents ?: emptyList(),
                                     timelines = data.timelines ?: emptyList()
                                 )
                             // }
@@ -512,19 +560,23 @@ class RoomRepository(private val dataDao: DataDao) {
         longitude = 0.0
     )
 
-    /*suspend fun addAssetToExistingRequestDetails(requestId: String, newAsset: Assets): Boolean {
-        val existingData = dataDao.getTaskDetailByRequestIdSync(requestId)
+    /*fun defaultDocument() =
+        Documents(
+            latitude = 1012.00,
+            longitude = 234.12,
+            tagName = "RM0001",
+            timeStamp = "20-Jun-2024, 14:30",
+            url = "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+            type = "Site Address 111",
+            tempDocId = "Site Name 1111",
+            localPath = "QWERT23",
+            status = 0
+        )
 
-        return if (existingData != null) {
-            val updatedAssets = existingData.assets.toMutableList().apply { add(newAsset) }
-            val updatedData = existingData.copy(assets = updatedAssets)
-
-            dataDao.insertTaskDetails(updatedData) // Inserts or updates the data
-            true  // Success
-        } else {
-            false // Failed because no existing data
-        }
+    fun defaultDocumentsList(): List<Documents> {
+        return List(5) { defaultDocument() }
     }*/
+
 
     suspend fun addAssetToExistingRequestDetails(requestId: String, newAsset: Assets): Boolean {
         val existingData = dataDao.getTaskDetailByRequestIdSync(requestId)
@@ -534,15 +586,40 @@ class RoomRepository(private val dataDao: DataDao) {
             val updatedAssets = existingData.assets.toMutableList()
 
             // Check if the asset with the same ID already exists
-            val existingAssetIndex = updatedAssets.indexOfFirst { it.id == newAsset.id }
 
-            if (existingAssetIndex != -1) {
+            val existingAssetIndex = updatedAssets.indexOfFirst {
+                it.id == newAsset.id
+            }
+
+
+            if (existingAssetIndex != -1 && newAsset.approvedQty==1) {
                 // Update the existing asset's status
-                updatedAssets[existingAssetIndex] = updatedAssets[existingAssetIndex].copy(status = 1)
-            } /*else {
+                updatedAssets[existingAssetIndex] = updatedAssets[existingAssetIndex].copy(
+                    status = 1,
+                    assetId = newAsset.assetId,
+                    qrCode = newAsset.qrCode)
+            } else {
+
+                val newAsset1 = Assets(
+                                assetType = newAsset.assetType,
+                                assetId = newAsset.assetId,
+                                itemCode = newAsset.itemCode,
+                                qrCode = newAsset.qrCode,
+                                availableQty = 0,
+                                requestedQty = 0,
+                                approvedQty = 0,
+                                status = 1,
+                                id = UUID.randomUUID().toString()
+                               )
+
+                // If the asset does not exist, update the ID if needed
+                  // Set or generate the ID as needed
+                    //newAsset.copy(id = UUID.randomUUID().toString(),
+                    //              approvedQty = 1) // Replace with logic to generate or default ID
                 // Add the new asset to the list
-                updatedAssets.add(newAsset.copy(status = 1))  // Ensure new asset gets status 1
-            }*/
+                updatedAssets.add(newAsset1)
+                //updatedAssets.add(newAsset.copy(status = 1))  // Ensure new asset gets status 1
+            }
 
             // Create an updated TaskDetailEntity with modified assets
             val updatedData = existingData.copy(assets = updatedAssets)
@@ -557,8 +634,112 @@ class RoomRepository(private val dataDao: DataDao) {
     }
 
 
+    suspend fun addDocumentToExistingRequestDetails(status : Int , requestId: String, documents: Documents): Boolean {
+        val existingData = dataDao.getTaskDetailByRequestIdSync(requestId)
 
+        return if (existingData != null) {
+            // Create a mutable copy of the assets list
+            val addDoc = existingData.documents.toMutableList()
+            addDoc.add(documents.copy(status = status))
+            // Create an updated TaskDetailEntity with modified assets
+            val updatedData = existingData.copy(documents = addDoc)
 
+            // Insert or update the TaskDetailEntity in the database
+            dataDao.insertTaskDetails(updatedData)
+
+            true  // Success
+        } else {
+            false // Failure because no existing data found
+        }
+    }
+
+    suspend fun uploadDocument(token: String, requestId: String, body: Documents): DocUploadApiResponse {
+        val authHeader = "Bearer $token"
+        return withContext(Dispatchers.IO) {  // Run on background thread
+            try {
+                val response = api_asset.uploadDocument(authHeader, requestId, body)
+
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        return@withContext DocUploadApiResponse.Success(it) // Success Case
+                    } ?: throw Exception("Empty Response")
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    val errorResponse = Gson().fromJson(errorBody, ErrorResponse::class.java)
+                    return@withContext DocUploadApiResponse.Error(errorResponse) // Error Case
+                }
+
+            } catch (e: HttpException) {
+                // Handle API errors (e.g., 400, 500)
+                val errorBody = e.response()?.errorBody()?.string()
+                val errorResponse = Gson().fromJson(errorBody, ErrorResponse::class.java)
+                return@withContext DocUploadApiResponse.Error(errorResponse)
+
+            } catch (e: Exception) {
+                // Handle unexpected exceptions
+                return@withContext DocUploadApiResponse.Error(
+                    ErrorResponse("1", listOf(ErrorDetail("UNKNOWN_ERROR", e.message ?: "Unknown error occurred")))
+                )
+            }
+        }
+    }
+
+    suspend fun addUpdateTaskDetails(
+        token: String,
+        requestId: String,
+        body: TaskUploadPayload
+    ): TaskAddUpdateApiRespose {
+        val authHeader = "Bearer $token"
+
+        return try {
+            val response = api_asset.addUpdateTaskDetails(authHeader, requestId, body)
+            //val response = api_asset.addUpdateTaskDetails(requestId, body)
+
+            if (response.isSuccessful) {
+                // Parse success response directly
+                response.body() ?: TaskAddUpdateApiRespose(
+                    flag = "1", // Treat empty body as error
+                    message = "Empty response from server",
+                    data = null,
+                    errors = listOf(ErrorDetail("EMPTY_RESPONSE", "No data received"))
+                )
+            } else {
+                // Parse error response
+                val errorBody = response.errorBody()?.string()
+                val errorResponse = try {
+                    Gson().fromJson(errorBody, TaskAddUpdateApiRespose::class.java)
+                } catch (e: Exception) {
+                    TaskAddUpdateApiRespose(
+                        flag = "1",
+                        message = "Error parsing error response",
+                        data = null,
+                        errors = listOf(ErrorDetail("PARSE_ERROR", e.message ?: "Unknown error"))
+                    )
+                }
+                errorResponse
+            }
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = try {
+                Gson().fromJson(errorBody, TaskAddUpdateApiRespose::class.java)
+            } catch (ex: Exception) {
+                TaskAddUpdateApiRespose(
+                    flag = "1",
+                    message = "HTTP error occurred",
+                    data = null,
+                    errors = listOf(ErrorDetail("HTTP_ERROR", ex.message ?: "Unknown error"))
+                )
+            }
+            errorResponse
+        } catch (e: Exception) {
+            TaskAddUpdateApiRespose(
+                flag = "1",
+                message = "Unexpected error occurred",
+                data = null,
+                errors = listOf(ErrorDetail("UNKNOWN_ERROR", e.message ?: "Unknown error"))
+            )
+        }
+    }
 
 
 }

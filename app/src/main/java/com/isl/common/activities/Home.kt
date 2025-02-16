@@ -1,10 +1,10 @@
 package com.isl.common.activities
 import FetchDeviceIDRequest
+import SnackbarUtils
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -12,21 +12,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.isl.assetManagement.assetModuleMainPage.Tasks
 import com.isl.assetManagement.dataViewModel.RemoteViewModel
 import com.isl.assetManagement.dataViewModel.RoomViewModel
 import com.isl.assetManagement.room.db.IAssetDatabase
-import com.isl.common.fragments.Module
-import com.isl.common.fragments.Notifications
-import com.isl.common.fragments.Profile
-import com.isl.assetManagement.assetModuleMainPage.Tasks
 import com.isl.assetManagement.room.repository.RemoteRepository
 import com.isl.assetManagement.room.repository.RoomRepository
 import com.isl.assetManagement.sharedPref.KotlinPrefkeeper
 import com.isl.assetManagement.utils.CustomToastMsg
 import com.isl.assetManagement.utils.DataViewModelFactory
 import com.isl.assetManagement.utils.HomeViewModelFactory
+import com.isl.common.fragments.Module
 import com.isl.dao.cache.AppPreferences
 import com.isl.itower.MyApp
+import com.isl.util.Utils
 import infozech.itower.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -44,7 +43,6 @@ class Home : AppCompatActivity() {
       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.asset_home_module_activity)
-
         init()
       }
 
@@ -72,29 +70,17 @@ class Home : AppCompatActivity() {
         var mAppPref: AppPreferences? = null
         mAppPref = AppPreferences(this@Home)
         val deviceToken = mAppPref.gcmRegistationId
+        KotlinPrefkeeper.assetinfo = Utils.msg(this@Home, "946")
+        KotlinPrefkeeper.isauth = Utils.msg(this@Home, "947")
         val loginId = mAppPref.loginId
         if (KotlinPrefkeeper.deviceUUID == null || KotlinPrefkeeper.deviceUUID!!.isEmpty()) {  //updating only after logout (as data will be cleared)
             KotlinPrefkeeper.deviceUUID = UUID.randomUUID().toString()
         }
 
         lifecycleScope.launch(Dispatchers.Main) {
+            SnackbarUtils.showLoading(this@Home,"Please wait...")
             val token = roomRepository.fetchToken()
             if(token!=null){
-
-                /*remoteViewModel.getAssetDetails(
-                    token = token,
-                    siteId = "",
-                    assetId = "TG-000010004",
-                    qrCode = "",
-                    onDataInserted = { status ->
-                        Log.d("DataInsertion", "Insertion Status: $status")
-                    }
-                ) { assets ->
-                    assets?.let {
-                        Log.d("Assets", "Fetched Assets: $it")
-                    } ?: Log.e("Assets", "No assets found")
-                }*/
-
                 val fetchDeviceIDRequest =
                     FetchDeviceIDRequest(
                         loginId = "mast.admin@gmail.com",
@@ -103,18 +89,17 @@ class Home : AppCompatActivity() {
                         deviceId = KotlinPrefkeeper.deviceUUID
                     )
                 //showProgressBar()
-                SnackbarUtils.showLoading(this@Home, "Loading data...")
+                //SnackbarUtils.showLoading(this@Home, "Loading data...")
                 remoteViewModel.getUserId(
                     { successResponse ->
+                        SnackbarUtils.hideLoading()
                         successResponse?.let { response ->
-                            //hideProgressBar()
-                            SnackbarUtils.hideLoading()
                             if (response.userId != null) {
                                 KotlinPrefkeeper.assetUserId = response.userId.toString()
                             } else {
                                 CustomToastMsg.showCustomToast(this@Home,
                                     "User's ID is empty")
-                                //finish()
+                                finish()
                                 //KotlinPrefkeeper.assetUserId = "1"
                             }
                             init2()
@@ -126,7 +111,7 @@ class Home : AppCompatActivity() {
                         //showToastMessage("Unable to get user's ID")
                         CustomToastMsg.showCustomToast(this@Home,
                             "Unable to get user's ID")
-                        //finish()
+                        finish()
                         //KotlinPrefkeeper.assetUserId = "1"
                         init2()
 
@@ -135,6 +120,7 @@ class Home : AppCompatActivity() {
                     token = token
                 )
             }else{
+                SnackbarUtils.hideLoading()
                 CustomToastMsg.showCustomToast(
                     this@Home,"Token authentication failed. Try again.")
                 //this@Home?.finish()
@@ -171,7 +157,8 @@ class Home : AppCompatActivity() {
                     true
                 }
                 R.id.notification -> {
-                    openFragment(Notifications())
+                    val bottomSheetFragment = Module()
+                    bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
                     true
                 }
                 R.id.module -> {
@@ -180,7 +167,8 @@ class Home : AppCompatActivity() {
                     true
                 }
                 R.id.profile -> {
-                    openFragment(Profile())
+                    val bottomSheetFragment = Module()
+                    bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
                     true
                 }
                 else -> false

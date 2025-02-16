@@ -23,12 +23,12 @@ public class NetworkManager {
        /*jsonObject.addProperty("username","SOE_RSVC");
        jsonObject.addProperty("password","Soe@202030");*/
 
-       /* jsonObject.addProperty("username","SOE_RSVC");
-        jsonObject.addProperty("password","Soe@202030");*/
+      jsonObject.addProperty("username","SOE_RSVC");
+        jsonObject.addProperty("password","Soe@202030");
 
     //   jsonObject.addProperty("username","amistya");
-       jsonObject.addProperty("username","Infozech");
-        jsonObject.addProperty("password","Infozech@123");
+//       jsonObject.addProperty("username","Infozech");
+//        jsonObject.addProperty("password","Infozech@123");
 
         /*<add key="TokenUserName" value="superadmin" />
         <add key="TokenPassowrd" value="tms@1234" />*/

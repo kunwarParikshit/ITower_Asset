@@ -16,6 +16,8 @@ import infozech.itower.R
 
 class CustomToastMsg {
     companion object {
+
+
         // Create the showCustomToast function as a static method
         fun showCustomToast(context: Context, message: String) {
             // Create a new LinearLayout

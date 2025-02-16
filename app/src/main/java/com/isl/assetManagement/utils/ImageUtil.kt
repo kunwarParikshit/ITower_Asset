@@ -11,68 +11,10 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import android.util.Base64
-import java.time.LocalDate
 
 
-class Util {
+class ImageUtil {
     companion object {
-
-        fun convertDate1(requestDate: String, dateFormate: String): String {
-            // Define the input format (dd/MM/yyyy)
-            val inputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-
-            // Parse the input date string into a LocalDate object
-            val localDate = LocalDate.parse(requestDate, inputFormatter)
-
-            // Convert the LocalDate to an Instant at the start of the day in UTC
-            val instant = localDate.atStartOfDay(ZoneOffset.UTC).toInstant()
-
-            // Convert Instant to ZonedDateTime (UTC timezone)
-            val zonedDateTime = instant.atZone(ZoneOffset.UTC)
-
-            // Define the output format (dd-MM-yyyy HH:mm:ss)
-            val outputFormatter = DateTimeFormatter.ofPattern(dateFormate)
-
-            // Format the ZonedDateTime to the required format
-            return zonedDateTime.format(outputFormatter)
-        }
-
-        fun convertDate(requestDate: String, dateFormate: String): String {
-            // Parse the input date string to Instant
-            val instant = Instant.parse(requestDate)
-
-            // Convert Instant to ZonedDateTime (UTC timezone)
-            val zonedDateTime = instant.atZone(ZoneOffset.UTC)
-
-            // Define the output format (dd-MM-yyyy HH:mm:ss)
-            val outputFormatter = DateTimeFormatter.ofPattern(dateFormate)
-
-            // Format the ZonedDateTime to the required format
-            return zonedDateTime.format(outputFormatter)
-        }
-
-        // Method to convert string to HashMap
-        fun stringToHashMap(input: String): HashMap<String, String> {
-            val hashMap = HashMap<String, String>()
-            val keyValuePairs = input.split(",")
-
-            for (pair in keyValuePairs) {
-                val keyValue = pair.split("=")
-                if (keyValue.size == 2) {
-                    val key = keyValue[0].trim()
-                    val value = keyValue[1].trim()
-                    hashMap[key] = value
-                }
-            }
-            return hashMap
-        }
-
-        fun getCurrentDateTime(): String {
-            //val formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy, HH:mm")
-            val formatter = DateTimeFormatter.ofPattern("M/d/yyyy, h:mm a")
-            return LocalDateTime.now().format(formatter)
-        }
-
         fun getFileNameFromUri(context: Context, uri: Uri, fileName: String): String {
             var finalFileName = fileName ?: "" // Assign a mutable variable
 
@@ -93,7 +35,7 @@ class Util {
             return fileName
         }
 
-        fun convertImageUriToBase64Optimized(context: Context, imageUri: Uri): String? {
+        fun convertImageUriToBase64(context: Context, imageUri: Uri): String? {
             return try {
                 val inputStream: InputStream? = context.contentResolver.openInputStream(imageUri)
                 val bitmap = BitmapFactory.decodeStream(inputStream)?.let { resizeBitmap(it, 800, 800) } // Resize to 800x800

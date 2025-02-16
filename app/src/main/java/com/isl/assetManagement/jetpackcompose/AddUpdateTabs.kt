@@ -16,7 +16,9 @@ import androidx.compose.ui.unit.sp
 import infozech.itower.R
 
 @Composable
-fun AddUpdateTabs(tabItems: List<String>, selectedTabIndex: MutableState<Int>, onTabSelected: (Int) -> Unit) {
+fun AddUpdateTabs(tabItems: List<String>,
+                  selectedTabIndex: MutableState<Int>,
+                  onTabSelected: (Int) -> Unit) {
 
         ScrollableTabRow(
             selectedTabIndex = selectedTabIndex.value,
@@ -30,6 +32,8 @@ fun AddUpdateTabs(tabItems: List<String>, selectedTabIndex: MutableState<Int>, o
             edgePadding = 0.dp, // Removes unnecessary spacing at the edges
             indicator = {},
             divider = {}
+
+
         ) {
             tabItems.forEachIndexed { index, title ->
                 Tab(

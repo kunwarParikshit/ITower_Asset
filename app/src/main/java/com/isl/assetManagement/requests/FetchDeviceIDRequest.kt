@@ -8,3 +8,11 @@ data class FetchDeviceIDRequest(
     val userId: Int?=null,
     val userName: String?=null
 )
+
+data class AuthDetails(
+    val clientId: String,
+    val clientSecret: String,
+    val grantType: String,
+    val username: String,
+    val password: String
+)

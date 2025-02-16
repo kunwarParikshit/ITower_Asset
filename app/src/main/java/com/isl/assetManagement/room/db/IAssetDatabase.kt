@@ -12,7 +12,7 @@ import com.isl.assetManagement.room.entity.*
                       ParamEntity::class,
                       TaskSummaryEntity::class,
                       TaskDetailEntity::class],
-    version = 11, exportSchema = false)
+    version = 12, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class IAssetDatabase : RoomDatabase() {
 

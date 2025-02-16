@@ -13,4 +13,12 @@ class SharedViewModel : ViewModel() {
     fun notifyDialogVerifyAssetDismissed() {
         _dialogVerifyAssetDismissed.value = true
     }
+
+    private val _dialogTaskDetails = MutableLiveData<Boolean>()
+    val isUpdateTaskDetails: LiveData<Boolean> get() = _dialogTaskDetails
+
+    // Function to call when DialogFragment verify asset is dismissed
+    fun notifyUpdateTaskDetails(isFresh : Boolean) {
+        _dialogTaskDetails.value = isFresh
+    }
 }

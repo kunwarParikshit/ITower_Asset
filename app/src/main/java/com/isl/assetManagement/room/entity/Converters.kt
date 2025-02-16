@@ -3,9 +3,7 @@ package com.isl.assetManagement.room.entity
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.isl.assetManagement.responses.Assets
-import com.isl.assetManagement.responses.Location
-import com.isl.assetManagement.responses.Timeline
+import com.isl.assetManagement.responses.*
 
 class Converters {
     private val gson = Gson()
@@ -39,6 +37,17 @@ class Converters {
     @TypeConverter
     fun toTimelineList(json: String): List<Timeline> {
         val type = object : TypeToken<List<Timeline>>() {}.type
+        return gson.fromJson(json, type)
+    }
+
+    @TypeConverter
+    fun fromDocumentsList(timelines: List<Documents>): String {
+        return gson.toJson(timelines)
+    }
+
+    @TypeConverter
+    fun toDocumentsList(json: String): List<Documents> {
+        val type = object : TypeToken<List<Documents>>() {}.type
         return gson.fromJson(json, type)
     }
 }

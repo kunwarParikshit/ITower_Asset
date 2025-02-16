@@ -33,6 +33,15 @@ object KotlinPrefkeeper {    //this class is used for saving data to shared pref
         set(assetUserId) = prefs!!.edit().putString(AppConstants.PrefsName.assetUserId, assetUserId)
             .apply()
 
+    var assetinfo: String?
+        get() = prefs!!.getString(AppConstants.PrefsName.token, "")
+        set(`asset-info`) = prefs!!.edit().putString(AppConstants.PrefsName.token, `asset-info`)
+            .apply()
+
+    var isauth: String?
+        get() = prefs!!.getString(AppConstants.PrefsName.auth, "")
+        set(`auth`) = prefs!!.edit().putString(AppConstants.PrefsName.auth, `auth`)
+            .apply()
 
     fun clear() = prefs?.edit()?.clear()?.apply()
 

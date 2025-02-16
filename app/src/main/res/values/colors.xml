@@ -103,6 +103,7 @@
  <color name="category_color">#606F8A</color>
  <color name="date_color">#3A3A3C</color>
  <color name="search">#6D6D6E</color>
+ <color name="astrick">#FF0E0E</color>
  <color name="label">#4D4D56</color>
  <color name="input_box">#FFFFFF</color>
  <color name="input_box_border">#A2A9C7</color>

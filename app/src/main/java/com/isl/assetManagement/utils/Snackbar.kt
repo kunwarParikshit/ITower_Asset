@@ -31,7 +31,7 @@ object SnackbarUtils {
         // Adjust layout parameters to include margins
         val layoutParams = snackbarLayout.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT // Full width
-        layoutParams.setMargins(200, 0, 200, 500) // Left, Top, Right, Bottom margins
+        layoutParams.setMargins(200, 0, 200, 650) // Left, Top, Right, Bottom margins
         snackbarLayout.layoutParams = layoutParams
 
         snackbarLayout.foregroundGravity = Gravity.CENTER

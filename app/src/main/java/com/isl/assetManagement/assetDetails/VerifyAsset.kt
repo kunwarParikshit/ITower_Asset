@@ -1,6 +1,6 @@
 package com.isl.assetManagement.assetDetails
-import UpdateScreen
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,10 +12,10 @@ import androidx.compose.runtime.*
 import androidx.fragment.app.DialogFragment
 import com.google.zxing.integration.android.IntentIntegrator
 import infozech.itower.R
-import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -31,23 +31,25 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import com.isl.assetManagement.dataViewModel.RemoteViewModel
 import com.isl.assetManagement.dataViewModel.RoomViewModel
 import com.isl.assetManagement.dataViewModel.SharedViewModel
 import com.isl.assetManagement.jetpackcompose.BottomBar
+import com.isl.assetManagement.jetpackcompose.LoadingDialog
 import com.isl.assetManagement.jetpackcompose.TopBar
 import com.isl.assetManagement.responses.AssetDetailsResponse
 import com.isl.assetManagement.responses.Assets
 import com.isl.assetManagement.room.repository.RemoteRepository
 import com.isl.assetManagement.room.repository.RoomRepository
-import com.isl.assetManagement.taskDetails.DetailsScreen
 import com.isl.assetManagement.utils.CustomToastMsg
 import com.isl.assetManagement.utils.DataViewModelFactory
 import com.isl.assetManagement.utils.HomeViewModelFactory
@@ -121,6 +123,7 @@ class VerifyAsset : DialogFragment() {
     @SuppressLint("NotConstructor")
     @Composable
     fun AddScreen() {
+        var isLoading by remember { mutableStateOf(false) } // Show progress initially
         var qrCode by remember { mutableStateOf("") }
         var assetId by remember { mutableStateOf("") }
         val coroutineScope = rememberCoroutineScope()
@@ -133,8 +136,12 @@ class VerifyAsset : DialogFragment() {
                     onSearchClicked = {
                         CustomToastMsg.showCustomToast(requireContext(), "Coming Soon")
                     },
+                    onAddClicked = {
+
+                    },
                     "Select Asset(s)",
                     "Scan QR code & select assets in movement",
+                    "",
                     0
                 )
             },
@@ -146,10 +153,15 @@ class VerifyAsset : DialogFragment() {
                     onUpdateClicked = {
                         if(qrCode.isNotEmpty() || assetId.isNotEmpty()){
                             coroutineScope.launch {
-                                getDetails(qrCode, assetId)
+
+                                getDetails(qrCode.uppercase(), assetId) { success ->
+                                    // Handle the completion status here
+                                    isLoading = false
+                                }
                             }
                         }else{
-                            CustomToastMsg.showCustomToast(requireActivity(), "Scan QR code or enter QR code or enter asset Id")
+                            CustomToastMsg.showCustomToast(requireActivity(),
+                                "Scan QR code or enter QR code or enter asset Id")
 
 
                         }
@@ -197,7 +209,13 @@ class VerifyAsset : DialogFragment() {
                             }
 
                             Text(
-                                text = "QR Code",
+                                text = buildAnnotatedString {
+                                    append("QR Code")
+                                    withStyle(style = SpanStyle(color = colorResource(R.color.search))) {
+                                        append(" *")  // Asterisk in red
+                                    }
+                                },
+                                //text = "QR Code",
                                 style = TextStyle(
                                     fontSize = 14.sp,
                                     fontWeight = FontWeight.Normal,
@@ -256,7 +274,13 @@ class VerifyAsset : DialogFragment() {
                             }
 
                             Text(
-                                text = "Asset Id",
+                                text = buildAnnotatedString {
+                                    append("Asset Id")
+                                    withStyle(style = SpanStyle(color = colorResource(R.color.search))) {
+                                        append(" *")  // Asterisk in red
+                                    }
+                                },
+                                //text = "Asset Id",
                                 style = TextStyle(
                                     fontSize = 14.sp,
                                     fontWeight = FontWeight.Normal,
@@ -310,21 +334,26 @@ class VerifyAsset : DialogFragment() {
         scannedResult.value?.let {
             VerifyAssetScreen(it)
         }
+
+        // Show the LoadingDialog when `isLoading` is true
+        if (isLoading) {
+            LoadingDialog { isLoading = false }
+        }
     }
 
+    // Register for activity result
+    private val qrScannerLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val scanResult = result.data?.getStringExtra("SCAN_RESULT")
 
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null) {
-            if (result.contents == null) {
+            if (scanResult.isNullOrEmpty()) {
                 CustomToastMsg.showCustomToast(requireContext(), "Scan Cancelled")
             } else {
                 scannedResult.value = null
                 Handler(Looper.getMainLooper()).postDelayed({
-                    scannedResult.value = result.contents
+                    scannedResult.value = scanResult
                 }, 100)
             }
         } else {
@@ -332,27 +361,36 @@ class VerifyAsset : DialogFragment() {
         }
     }
 
-    fun qrScanner(){
-        val qrScan = IntentIntegrator.forSupportFragment(this@VerifyAsset) // Use the fragment context to launch the scanner
-        qrScan.setOrientationLocked(false)  // Unlock the screen orientation
-        qrScan.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)  // Allow all barcode formats
-        qrScan.setPrompt("Scan a QR code")  // Set the prompt message for scanning
-        qrScan.initiateScan()
+    fun qrScanner() {
+        val intent = IntentIntegrator(requireActivity()).createScanIntent()
+        qrScannerLauncher.launch(intent)
     }
 
 
     @Composable
     fun VerifyAssetScreen(scanResult: String) {
+        var isLoading by remember { mutableStateOf(false) } // Show progress initially
         val coroutineScope = rememberCoroutineScope()
+
+
         coroutineScope.launch {
-            getDetails(scanResult, "")
+            //isLoading = true
+            getDetails(scanResult, "") { success ->
+                // Handle the completion status here
+                isLoading = false
+            }
+        }
+
+        // Show the LoadingDialog when `isLoading` is true
+        if (isLoading) {
+            LoadingDialog { isLoading = false }
         }
 
     }
 
 
-    suspend fun getDetails(scanResult: String,assetId: String) {
-        SnackbarUtils.showLoading(requireActivity(), "Loading data...")
+    suspend fun getDetails(scanResult: String,assetId: String,onComplete: (Boolean) -> Unit) {
+            onComplete(true)
             val token = roomRepository.fetchToken()
             if (token != null) {
                 remoteViewModel.getAssetDetails(
@@ -363,6 +401,7 @@ class VerifyAsset : DialogFragment() {
                     onDataInserted = {status ->}
                 ) { assets: List<AssetDetailsResponse>? ->
                     assets?.let {
+
                         val bundle = Bundle()
                         bundle.putParcelable("tranAssetDetails",tranAssetDetails)
                         bundle.putParcelableArrayList("formAssetDetails", ArrayList(it))
@@ -374,14 +413,16 @@ class VerifyAsset : DialogFragment() {
                         transaction.add(fragment, "AssetDetails")
                         transaction.commitAllowingStateLoss()
                     } ?: run {
+                        onComplete(false)
                         CustomToastMsg.showCustomToast(requireActivity(), "No assets found")
                     }
                 }
             } else {
+                onComplete(false)
                 CustomToastMsg.showCustomToast(requireActivity(),
                     "Token authentication failed. Try again.")
             }
-        SnackbarUtils.hideLoading()
+
     }
 }
 

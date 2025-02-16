@@ -185,12 +185,12 @@ return super.onOptionsItemSelected( item );
             tv_open_alarm = (TextView) view.findViewById(R.id.tv_open_alarm);
             tv_problematic = (TextView) view.findViewById(R.id.tv_problematic);
             tv_epa_capacity.setOnClickListener(arg0 -> {
-                Fragment newContent = new GeckoViewFragment(epaCapacity);
-                switchFragment(newContent, "TT Dashboard:");
+//                Fragment newContent = new GeckoViewFragment(epaCapacity);
+//                switchFragment(newContent, "TT Dashboard:");
             });
             tv_incident_management_analysis.setOnClickListener(arg0 -> {
-                Fragment newContent = new GeckoViewFragment(incidentManagementAnalysis);
-                switchFragment(newContent, "Live SLA Dashboard");
+//                Fragment newContent = new GeckoViewFragment(incidentManagementAnalysis);
+//                switchFragment(newContent, "Live SLA Dashboard");
             });
             tv_home.setOnClickListener(new View.OnClickListener() {
                 @Override

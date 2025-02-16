@@ -104,13 +104,11 @@ fun BottomBar(
                                 modifier = Modifier.size(18.dp) // Adjust size as needed
                             )
                         }
-
-
                     }
-
-
-
                 }
+
+
+
             }
         }
     }

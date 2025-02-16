@@ -11,46 +11,55 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
+
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberAsyncImagePainter
+
+import com.isl.assetManagement.responses.Documents
+import com.isl.assetManagement.utils.Util
 import infozech.itower.R
 
 @Composable
 fun ImageCardView(
-    imageRes: Int,
-    fileTag: String,
-    timeStamp: String,
-    lat: String,
-    long: String,
+    item: Documents,
+    mode: Int,
+    flag : Int,
     onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 20.dp, end = 20.dp, top = 4.dp, bottom = 4.dp)
+            .padding(start = 20.dp, end = 20.dp, top = 4.dp,
+                bottom = 4.dp) // Conditionally set bottom margin
             .clickable { onClick() }
     ) {
-        // Image Section - Placed OUTSIDE the Card to avoid rounding
-        Image(
-            painter = painterResource(id = imageRes),
-            contentDescription = "Image",
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .height(119.dp)
-                .width(89.dp)
-                .clip(RectangleShape) // Ensures no rounded corners
-                .background(Color.White)
-        )
+        val imagePainter = when {
+            item.url != null -> rememberAsyncImagePainter(item.url) //uri
+            else -> null
+        }
+        imagePainter?.let {
+            Image(
+                painter = it,
+                contentDescription = "Image",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .height(130.dp)
+                    .width(90.dp)
+                    .clip(RectangleShape) // Ensures no rounded corners
+                    .background(Color.White)
+            )
+        }
 
         // Card Section
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(119.dp), // Match Image Height
+                .height(130.dp), // Match Image Height
             shape = RoundedCornerShape(topEnd = 4.dp, bottomEnd = 4.dp, topStart = 0.dp, bottomStart = 0.dp), // Round only the right side
             border = BorderStroke(1.dp, colorResource(id = R.color.border_asset_card))
         ) {
@@ -58,13 +67,17 @@ fun ImageCardView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(colorResource(id = R.color.white))
-                    .padding(start = 8.dp, top = 8.dp, end = 10.dp, bottom = 8.dp),
+                    .padding(start = 8.dp, top = 8.dp, end = 8.dp, bottom = 8.dp),
                 verticalArrangement = Arrangement.Center
             ) {
-                DetailRow("Tag : ", fileTag)
-                DetailRow("Time : ", timeStamp)
-                DetailRow("Lat : ", lat)
-                DetailRow("Long : ", long)
+                DetailRow("Tag : ", item.tagName)
+
+                //DetailRow("Time : ", Util.convertDate(item.timeStamp,
+                //"dd-MMM-yyyy HH:mm"))
+                DetailRow("Time : ", item.timeStamp)
+                DetailRow("Lat : ", ""+item.latiude)
+                DetailRow("Long : ", ""+item.longitude)
+
             }
         }
     }
@@ -90,7 +103,7 @@ fun DetailRow(label: String, value: String) {
             text = value,
             fontSize = 12.sp,
             fontWeight = FontWeight.Normal,
-            modifier = Modifier.padding(end = 10.dp),
+            modifier = Modifier.padding(end = 5.dp),
             color = colorResource(id = R.color.color_48484A),
             maxLines = 1,  // Ensures only one line is displayed
             overflow = TextOverflow.Ellipsis,

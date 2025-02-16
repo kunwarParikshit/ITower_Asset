@@ -37,32 +37,32 @@ class RemoteViewModel (private val repository: RemoteRepository) : ViewModel() {
         qrCode: String?,
         onDataInserted: (Int) -> Unit,
         resultCallback: (List<AssetDetailsResponse>?) -> Unit
-    ) /*{
+    ) {
         viewModelScope.launch {
-            val assetDetails = repository.fetchAssetDetails(token, siteId, assetId, qrCode, onDataInserted)
+            val assetDetails = repository.fetchAssetDetails(
+                token,
+                siteId,
+                assetId,
+                qrCode,
+                onDataInserted)
             resultCallback(assetDetails)
         }
-    }*/
-    {
-        //viewModelScope.launch {
-            //val assetDetails = repository.fetchAssetDetails(token, siteId, assetId, qrCode, onDataInserted)
-            //resultCallback(assetDetails)
-        //}
+    }
+   /* {
+
         val hardcodedList = listOf(
             AssetDetailsResponse(
-                assetId = "TG-000010051",
+                assetId = "TG-000010076",
                 assetType = "Rectifier Module",
                 itemCode = "RM0001",
                 assetCriteria = "Non_Consumable",
                 siteId = "IZ100003",
                 siteAddress = "Site Address 111",
                 siteName = "Site Name 1111",
-                qrCode = "QWERT23"
+                qrCode = "THFJYT876"
             )
         )
             resultCallback(hardcodedList )
-
-
-    }
+      }*/
 
 }

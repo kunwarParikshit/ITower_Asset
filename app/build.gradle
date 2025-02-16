@@ -258,7 +258,9 @@ dependencies {
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
-    implementation 'org.mozilla.geckoview:geckoview:115.0.20230704235724'
+  //  implementation 'org.mozilla.geckoview:geckoview:115.0.20230704235724'
+    implementation("io.coil-kt:coil-compose:2.2.2") {    exclude group: "com.squareup.okhttp3", module: "okhttp"}
+
 
 }
 
