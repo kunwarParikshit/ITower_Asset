@@ -118,10 +118,21 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginPageTheme"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                        <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
+                            <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.isl.assetManagement.assetModuleMainPage.TestingActivity"
+            android:exported="true"
+            android:theme="@style/LightTheme"
+            >
+<!--            <intent-filter>-->
+            <!--                            <action android:name="android.intent.action.MAIN" />-->
+            <!--                            <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--                        </intent-filter>-->
         </activity>
         <activity
             android:name="com.isl.common.activities.MapActivity"

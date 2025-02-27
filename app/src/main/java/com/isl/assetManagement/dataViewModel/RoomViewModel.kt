@@ -1,4 +1,5 @@
 package  com.isl.assetManagement.dataViewModel
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,16 +9,23 @@ import com.isl.assetManagement.responses.Assets
 import com.isl.assetManagement.responses.DocUploadApiResponse
 import com.isl.assetManagement.responses.Documents
 import com.isl.assetManagement.responses.TaskAddUpdateApiRespose
-import com.isl.assetManagement.room.entity.*
+import com.isl.assetManagement.room.entity.AssetRequests
+import com.isl.assetManagement.room.entity.LevelDBEntity
+import com.isl.assetManagement.room.entity.ParamEntity
+import com.isl.assetManagement.room.entity.TaskDetailEntity
+import com.isl.assetManagement.room.entity.TaskSummaryEntity
 import com.isl.assetManagement.room.repository.RoomRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 
 class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
     private val _getiAssetLevel = MutableLiveData<List<LevelDBEntity>>()
     val getiAssetLevel: LiveData<List<LevelDBEntity>> = _getiAssetLevel
+
     // Fetch data using the dynamic 'key'
     fun getLevelData(key: String) {
         repository.getLevel(key).observeForever { levelList ->
@@ -28,6 +36,7 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
 
     private val _getiAssetParam = MutableLiveData<List<ParamEntity>>()
     val getiAssetParam: LiveData<List<ParamEntity>> = _getiAssetParam
+
     // Fetch data using the dynamic 'key'
     fun getParam(key: String) {
         repository.getParam(key).observeForever { levelList ->
@@ -48,6 +57,7 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
 
     private val _getiAssetRequest = MutableLiveData<List<AssetRequests>>()
     val iAssetRequest: LiveData<List<AssetRequests>> = _getiAssetRequest
+
     // Fetch data using the dynamic 'key'
     fun getiAssetRequest(key: String) {
         repository.getAssetRequestsByTabName(key).observeForever { levelList ->
@@ -67,7 +77,11 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
         }
     }
 
-    fun addUpdateAssetToExistingRequestDetails(requestId: String, newAsset: Assets, onComplete: (Boolean) -> Unit) {
+    fun addUpdateAssetToExistingRequestDetails(
+        requestId: String,
+        newAsset: Assets,
+        onComplete: (Boolean) -> Unit
+    ) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.addAssetToExistingRequestDetails(requestId, newAsset)
 
@@ -77,18 +91,19 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
         }
     }
 
-    fun addDocToExistingRequestDetails(status : Int, requestId: String, documents: Documents,
-                                       onComplete: (Boolean) -> Unit) {
+    fun addDocToExistingRequestDetails(
+        status: Int, requestId: String, documents: Documents,
+        onComplete: (Boolean) -> Unit
+    ) {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.addDocumentToExistingRequestDetails(status,requestId, documents)
+            val result =
+                repository.addDocumentToExistingRequestDetails(status, requestId, documents)
 
             withContext(Dispatchers.Main) {
                 onComplete(result) // Call the callback with the result
             }
         }
     }
-
-
 
 
     fun fetchLevelFromApi() {
@@ -115,8 +130,9 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
     ) {
         viewModelScope.launch {
             repository.fetchAndSaveTaskSummary(
-                token,requestId, requestStatus, fromLocation, toLocation,
-                fromDate, toDate,onDataInserted)
+                token, requestId, requestStatus, fromLocation, toLocation,
+                fromDate, toDate, onDataInserted
+            )
         }
     }
 
@@ -133,8 +149,9 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
     ) {
         viewModelScope.launch {
             repository.fetchAndSaveAssetRequests(
-                token,requestId,requestFlag, requestStatus, fromLocation, toLocation,
-                fromDate, toDate,onDataInserted)
+                token, requestId, requestFlag, requestStatus, fromLocation, toLocation,
+                fromDate, toDate, onDataInserted
+            )
         }
     }
 
@@ -145,7 +162,8 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
     ) {
         viewModelScope.launch {
             repository.fetchAndSaveTaskDetails(
-                token,requestId,onDataInserted)
+                token, requestId, onDataInserted
+            )
         }
     }
 
@@ -172,6 +190,18 @@ class RoomViewModel(private val repository: RoomRepository) : ViewModel() {
             onResult(response)
         }
     }
+
+    suspend fun getSites(siteName: String): List<String> = withContext(Dispatchers.IO) {
+        suspendCoroutine { continuation ->
+            viewModelScope.launch {
+                val response = repository.fetchSiteDetails(siteName) { data ->
+                    val siteNames = data?.mapNotNull { it.siteName } ?: emptyList()
+                    continuation.resume(siteNames) // Resume coroutine with siteNames list
+                }
+            }
+        }
+    }
+
 
 }
 

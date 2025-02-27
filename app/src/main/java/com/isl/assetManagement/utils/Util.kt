@@ -1,17 +1,33 @@
 package com.isl.assetManagement.utils
+
+import android.Manifest
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Environment
+import android.provider.MediaStore
 import android.provider.OpenableColumns
+import android.util.Base64
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.io.InputStream
+import java.text.SimpleDateFormat
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
-import android.util.Base64
-import java.time.LocalDate
+import java.util.Date
+import java.util.Locale
 
 
 class Util {
@@ -96,7 +112,8 @@ class Util {
         fun convertImageUriToBase64Optimized(context: Context, imageUri: Uri): String? {
             return try {
                 val inputStream: InputStream? = context.contentResolver.openInputStream(imageUri)
-                val bitmap = BitmapFactory.decodeStream(inputStream)?.let { resizeBitmap(it, 800, 800) } // Resize to 800x800
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                    ?.let { resizeBitmap(it, 800, 800) } // Resize to 800x800
 
                 val outputStream = ByteArrayOutputStream()
                 if (bitmap != null) {
@@ -125,6 +142,108 @@ class Util {
             }
 
             return Bitmap.createScaledBitmap(bitmap, width, height, true)
+        }
+
+        fun isFirstDateGreater(firstDate: String, secondDate: String): Boolean {
+            return try {
+                val formatter = DateTimeFormatter.ofPattern("d/M/yyyy")
+                val date1 = LocalDate.parse(firstDate, formatter)
+                val date2 = LocalDate.parse(secondDate, formatter)
+                date1.isAfter(date2)
+            } catch (e: Exception) {
+                false
+            }
+        }
+
+        object CameraUtils {
+
+            private var imageUri: Uri? = null
+            private const val CAMERA_PERMISSION = Manifest.permission.CAMERA
+            private const val REQUEST_CAMERA_PERMISSION = 1001
+            private const val REQUEST_IMAGE_CAPTURE = 1002
+
+            /**
+             * Handles the capture button click, checks for permissions, and opens the camera.
+             */
+            fun handleCaptureButtonClick(activity: Activity) {
+                if (ContextCompat.checkSelfPermission(
+                        activity,
+                        CAMERA_PERMISSION
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    openCamera(activity)
+                } else {
+                    ActivityCompat.requestPermissions(
+                        activity,
+                        arrayOf(CAMERA_PERMISSION),
+                        REQUEST_CAMERA_PERMISSION
+                    )
+                }
+            }
+
+            /**
+             * Opens the camera and saves the image.
+             */
+            private fun openCamera(activity: Activity) {
+                val photoFile = createImageFile(activity)
+                imageUri = FileProvider.getUriForFile(
+                    activity,
+                    "${activity.packageName}.provider",
+                    photoFile
+                )
+
+                val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
+                    putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
+                }
+
+                if (cameraIntent.resolveActivity(activity.packageManager) != null) {
+                    activity.startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE)
+                } else {
+                    Toast.makeText(activity, "No camera app found", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            /**
+             * Creates an image file for storing the captured image.
+             */
+            private fun createImageFile(context: Context): File {
+                val timeStamp =
+                    SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+                val storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+                return File.createTempFile("IMG_${timeStamp}_", ".jpg", storageDir)
+            }
+
+            /**
+             * Handles the result of the camera capture and sets the image.
+             */
+            fun handleActivityResult(requestCode: Int, resultCode: Int, imageView: ImageView) {
+                if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+                    imageUri?.let { uri ->
+                        imageView.setImageURI(uri)
+                    }
+                }
+            }
+
+            /**
+             * Handles permission result.
+             */
+            fun handlePermissionsResult(
+                requestCode: Int,
+                grantResults: IntArray,
+                activity: Activity
+            ) {
+                if (requestCode == REQUEST_CAMERA_PERMISSION) {
+                    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        openCamera(activity)
+                    } else {
+                        Toast.makeText(
+                            activity,
+                            "Camera permission is required!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
         }
 
     }

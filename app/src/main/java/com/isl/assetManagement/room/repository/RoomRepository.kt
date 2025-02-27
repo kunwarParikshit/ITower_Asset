@@ -1,23 +1,33 @@
 package  com.isl.assetManagement.room.repository
+
 import AuthDetails
 import android.util.Log
-import androidx.compose.ui.semantics.SemanticsProperties.Error
 import androidx.lifecycle.LiveData
 import com.google.gson.Gson
 import com.isl.assetManagement.api.ApiClient.api_asset
 import com.isl.assetManagement.api.ApiClient.api_onm
 import com.isl.assetManagement.api.ApiClient.authService
-import com.isl.assetManagement.constants.DefaultLevel
 import com.isl.assetManagement.requests.TaskUploadPayload
-import com.isl.assetManagement.responses.*
+import com.isl.assetManagement.responses.AssetRequestResponse
+import com.isl.assetManagement.responses.Assets
+import com.isl.assetManagement.responses.DocUploadApiResponse
+import com.isl.assetManagement.responses.Documents
+import com.isl.assetManagement.responses.ErrorDetail
+import com.isl.assetManagement.responses.ErrorResponse
+import com.isl.assetManagement.responses.LevelResponse
+import com.isl.assetManagement.responses.Location
+import com.isl.assetManagement.responses.ParamTypeResponse
+import com.isl.assetManagement.responses.SiteDetailResponse
+import com.isl.assetManagement.responses.TaskAddUpdateApiRespose
+import com.isl.assetManagement.responses.TaskDetailResponce
+import com.isl.assetManagement.responses.TaskSummaryResponse
 import com.isl.assetManagement.room.dao.DataDao
-import com.isl.assetManagement.room.entity.*
+import com.isl.assetManagement.room.entity.AssetRequests
+import com.isl.assetManagement.room.entity.LevelDBEntity
+import com.isl.assetManagement.room.entity.ParamEntity
+import com.isl.assetManagement.room.entity.TaskDetailEntity
+import com.isl.assetManagement.room.entity.TaskSummaryEntity
 import com.isl.assetManagement.sharedPref.KotlinPrefkeeper
-import io.reactivex.Observable
-import io.reactivex.Observer
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,7 +36,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.HttpException
 import retrofit2.Response
-import java.util.*
+import java.util.UUID
 
 class RoomRepository(private val dataDao: DataDao) {
 
@@ -49,7 +59,7 @@ class RoomRepository(private val dataDao: DataDao) {
     }
 
     fun getTaskDetail(requestId: String): LiveData<TaskDetailEntity> {
-    //fun getTaskDetail(requestId: String): LiveData<List<TaskDetailEntity>> {
+        //fun getTaskDetail(requestId: String): LiveData<List<TaskDetailEntity>> {
         return dataDao.getTaskDetailByRequestId(requestId)
     }
 
@@ -60,9 +70,9 @@ class RoomRepository(private val dataDao: DataDao) {
     }
 
     suspend fun fetchToken(): String? {
-        if(KotlinPrefkeeper.isauth.equals("1")) {
+        if (KotlinPrefkeeper.isauth.equals("1")) {
             val authDetails = parseJson()
-             return withContext(Dispatchers.IO) {
+            return withContext(Dispatchers.IO) {
                 val call = authService.getAuthToken(
                     clientId = authDetails.clientId,
                     clientSecret = authDetails.clientSecret,
@@ -86,7 +96,7 @@ class RoomRepository(private val dataDao: DataDao) {
                     return@withContext null
                 }
             }
-        }else{
+        } else {
             return UUID.randomUUID().toString()
         }
 
@@ -106,9 +116,10 @@ class RoomRepository(private val dataDao: DataDao) {
                             // Convert API response to Room entities
                             val dataEntities = data.map {
                                 LevelDBEntity(
-                                    key = it.key?: "",
-                                    desc = it.desc?: "",
-                                    value = it.value ?: ""  // Use a default value if `value` is null
+                                    key = it.key ?: "",
+                                    desc = it.desc ?: "",
+                                    value = it.value
+                                        ?: ""  // Use a default value if `value` is null
                                 )
                             }
 
@@ -180,14 +191,20 @@ class RoomRepository(private val dataDao: DataDao) {
                                 // Convert API response to Room entities
                                 val dataEntities = data.map {
                                     AssetRequests(
-                                        requestId = it.requestId?: "",  // Default value if null
-                                        fromLocation = it.fromLocation?: "",  // Default value if null
+                                        requestId = it.requestId ?: "",  // Default value if null
+                                        fromLocation = it.fromLocation
+                                            ?: "",  // Default value if null
                                         toLocation = it.toLocation ?: "",  // Default value if null
-                                        requestDate = it.requestDate?: "",  // Default value if null
-                                        reasonCategory = it.reasonCategory?: "",  // Default value if null
-                                        reasonSubCategory = it.reasonSubCategory?: "",  // Default value if null
-                                        requestStatus = it.requestStatus?: "",  // Default value if null
-                                        totalAssetCount = it.totalAssetCount?: 0,  // Default value if null
+                                        requestDate = it.requestDate
+                                            ?: "",  // Default value if null
+                                        reasonCategory = it.reasonCategory
+                                            ?: "",  // Default value if null
+                                        reasonSubCategory = it.reasonSubCategory
+                                            ?: "",  // Default value if null
+                                        requestStatus = it.requestStatus
+                                            ?: "",  // Default value if null
+                                        totalAssetCount = it.totalAssetCount
+                                            ?: 0,  // Default value if null
                                         tabName = requestFlag
                                     )
                                 }
@@ -201,8 +218,9 @@ class RoomRepository(private val dataDao: DataDao) {
                                         onDataInserted(1)
                                     } catch (e: Exception) {
                                         onDataInserted(0)
-                                        Log.e("DataRepository",
-                                            "Failed to insert data into DB",e
+                                        Log.e(
+                                            "DataRepository",
+                                            "Failed to insert data into DB", e
                                         )
                                     }
                                 }
@@ -255,7 +273,8 @@ class RoomRepository(private val dataDao: DataDao) {
                                     }
                                 }*/
 
-                            Log.e("DataRepository",
+                            Log.e(
+                                "DataRepository",
                                 "Error in API response: ${response.errorBody()?.string()}"
                             )
                         }
@@ -285,9 +304,11 @@ class RoomRepository(private val dataDao: DataDao) {
                         if (data != null) {
                             // Convert API response to Room entities
                             val dataEntities = data.map {
-                                ParamEntity(paramType = it.paramType,
+                                ParamEntity(
+                                    paramType = it.paramType,
                                     paramId = it.paramId, paramValue = it.paramValue,
-                                            localValue = it.localValue,parentId = it.parentId)
+                                    localValue = it.localValue, parentId = it.parentId
+                                )
                             }
 
                             // Insert into Room DB in a background thread
@@ -448,27 +469,31 @@ class RoomRepository(private val dataDao: DataDao) {
                                 assets.forEach { asset ->
 
                                     if (asset.approvedQty >= 1) {
-                                           //expandedAssets.add(asset.copy(status = 0,id =""))
-                                        expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
+                                        //expandedAssets.add(asset.copy(status = 0,id =""))
+                                        expandedAssets.add(
+                                            asset.copy(
+                                                status = 0,
+                                                id = UUID.randomUUID().toString()
+                                            )
+                                        )
 
                                     }/*else if (asset.approvedQty == 1) {
                                         expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
                                     }*/
 
-                                   /* if (asset.approvedQty > 1) {
-                                        repeat(asset.approvedQty){
-                                            expandedAssets.add(asset.copy(status = 0,approvedQty = 1,
-                                                id = UUID.randomUUID().toString()))
-                                        }
-                                    }else if (asset.approvedQty == 1) {
-                                            expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
-                                    }*/
+                                    /* if (asset.approvedQty > 1) {
+                                         repeat(asset.approvedQty){
+                                             expandedAssets.add(asset.copy(status = 0,approvedQty = 1,
+                                                 id = UUID.randomUUID().toString()))
+                                         }
+                                     }else if (asset.approvedQty == 1) {
+                                             expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
+                                     }*/
 
 
-
-                                   /* if (asset.approvedQty >= 1) {
-                                        expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
-                                    }*/
+                                    /* if (asset.approvedQty >= 1) {
+                                         expandedAssets.add(asset.copy(status = 0,id = UUID.randomUUID().toString()))
+                                     }*/
                                     //excluded 0 item
                                 }
                             }
@@ -493,7 +518,7 @@ class RoomRepository(private val dataDao: DataDao) {
                                         ?: defaultLocation(), // Provide a default value
                                     toLocation = data.toLocation
                                         ?: defaultLocation(),     // Provide a default value
-                                    assets = expandedAssets?: emptyList(),
+                                    assets = expandedAssets ?: emptyList(),
                                     //assets = data.assets?: emptyList(),
                                     documents = data.documents ?: emptyList(),
                                     timelines = data.timelines ?: emptyList()
@@ -592,30 +617,31 @@ class RoomRepository(private val dataDao: DataDao) {
             }
 
 
-            if (existingAssetIndex != -1 && newAsset.approvedQty==1) {
+            if (existingAssetIndex != -1 && newAsset.approvedQty == 1) {
                 // Update the existing asset's status
                 updatedAssets[existingAssetIndex] = updatedAssets[existingAssetIndex].copy(
                     status = 1,
                     assetId = newAsset.assetId,
-                    qrCode = newAsset.qrCode)
+                    qrCode = newAsset.qrCode
+                )
             } else {
 
                 val newAsset1 = Assets(
-                                assetType = newAsset.assetType,
-                                assetId = newAsset.assetId,
-                                itemCode = newAsset.itemCode,
-                                qrCode = newAsset.qrCode,
-                                availableQty = 0,
-                                requestedQty = 0,
-                                approvedQty = 0,
-                                status = 1,
-                                id = UUID.randomUUID().toString()
-                               )
+                    assetType = newAsset.assetType,
+                    assetId = newAsset.assetId,
+                    itemCode = newAsset.itemCode,
+                    qrCode = newAsset.qrCode,
+                    availableQty = 0,
+                    requestedQty = 0,
+                    approvedQty = 0,
+                    status = 1,
+                    id = UUID.randomUUID().toString()
+                )
 
                 // If the asset does not exist, update the ID if needed
-                  // Set or generate the ID as needed
-                    //newAsset.copy(id = UUID.randomUUID().toString(),
-                    //              approvedQty = 1) // Replace with logic to generate or default ID
+                // Set or generate the ID as needed
+                //newAsset.copy(id = UUID.randomUUID().toString(),
+                //              approvedQty = 1) // Replace with logic to generate or default ID
                 // Add the new asset to the list
                 updatedAssets.add(newAsset1)
                 //updatedAssets.add(newAsset.copy(status = 1))  // Ensure new asset gets status 1
@@ -634,7 +660,11 @@ class RoomRepository(private val dataDao: DataDao) {
     }
 
 
-    suspend fun addDocumentToExistingRequestDetails(status : Int , requestId: String, documents: Documents): Boolean {
+    suspend fun addDocumentToExistingRequestDetails(
+        status: Int,
+        requestId: String,
+        documents: Documents
+    ): Boolean {
         val existingData = dataDao.getTaskDetailByRequestIdSync(requestId)
 
         return if (existingData != null) {
@@ -653,7 +683,11 @@ class RoomRepository(private val dataDao: DataDao) {
         }
     }
 
-    suspend fun uploadDocument(token: String, requestId: String, body: Documents): DocUploadApiResponse {
+    suspend fun uploadDocument(
+        token: String,
+        requestId: String,
+        body: Documents
+    ): DocUploadApiResponse {
         val authHeader = "Bearer $token"
         return withContext(Dispatchers.IO) {  // Run on background thread
             try {
@@ -678,7 +712,10 @@ class RoomRepository(private val dataDao: DataDao) {
             } catch (e: Exception) {
                 // Handle unexpected exceptions
                 return@withContext DocUploadApiResponse.Error(
-                    ErrorResponse("1", listOf(ErrorDetail("UNKNOWN_ERROR", e.message ?: "Unknown error occurred")))
+                    ErrorResponse(
+                        "1",
+                        listOf(ErrorDetail("UNKNOWN_ERROR", e.message ?: "Unknown error occurred"))
+                    )
                 )
             }
         }
@@ -741,6 +778,28 @@ class RoomRepository(private val dataDao: DataDao) {
         }
     }
 
+    fun fetchSiteDetails(
+        siteId: String,
+        onResult: (SiteDetailResponse?) -> Unit // Callback to return data
+    ) {
+        api_asset.fetchSiteDetails(siteId).enqueue(object : Callback<SiteDetailResponse> {
+            override fun onResponse(
+                call: Call<SiteDetailResponse>,
+                response: Response<SiteDetailResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    onResult(data)
+                } else {
+                    onResult(null)
+                }
+            }
+
+            override fun onFailure(call: Call<SiteDetailResponse>, t: Throwable) {
+                onResult(null)
+            }
+        })
+    }
 
 }
 

@@ -1,6 +1,8 @@
 package com.isl.assetManagement.api
 
 import com.isl.assetManagement.constants.AppConstants
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -22,9 +24,20 @@ object ApiClient {
     //private const val ASSET_AUTH_TOKEN_URL = "https://idpdev-app.infozech.com:9014/"
 
     // Retrofit instance setup for Auth requests, with insecure HTTP client
+
+    private val logging = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY  // Log request & response body
+    }
+
+    // OkHttp client with logging
+    private val client = OkHttpClient.Builder()
+        .addInterceptor(logging)
+        .build()
     private val auth by lazy {
+
         Retrofit.Builder()
             .baseUrl(AppConstants.tokenUrl)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -41,6 +54,7 @@ object ApiClient {
     private val retrofitAsset by lazy {
         Retrofit.Builder()
             .baseUrl(AppConstants.baseUrl)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

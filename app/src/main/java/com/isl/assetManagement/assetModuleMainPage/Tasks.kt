@@ -1,15 +1,25 @@
 package com.isl.assetManagement.assetModuleMainPage
 
+import CallbackSearch
+import Search
+import SnackbarUtils
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.*
+import android.view.View
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.colorResource
@@ -29,7 +39,6 @@ import com.isl.assetManagement.jetpackcompose.TopBar
 import com.isl.assetManagement.requests.SearchTaskRequest
 import com.isl.assetManagement.room.entity.AssetRequests
 import com.isl.assetManagement.room.repository.RoomRepository
-import com.isl.assetManagement.taskDetails.AllDetailsScreen
 import com.isl.assetManagement.taskDetails.DetailsScreen
 import com.isl.assetManagement.utils.CustomToastMsg
 import com.isl.assetManagement.utils.CustomToastMsg.Companion.showCustomToast
@@ -41,12 +50,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class Tasks :  Fragment {
+class Tasks : Fragment {
     constructor() : super(R.layout.task_frag)
+
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private lateinit var roomRepository: RoomRepository
     private lateinit var viewModel: RoomViewModel
-    //private lateinit var progressBar: ProgressBar
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,46 +69,36 @@ class Tasks :  Fragment {
         })
 
         roomRepository = RoomRepository(MyApp.getAssetDatabase().dataDao())
-       // progressBar = view.findViewById(R.id.progressBar)
+
         // Initialize ViewModel
         viewModel = ViewModelProvider(
             this,
             DataViewModelFactory(roomRepository)
         ).get(RoomViewModel::class.java)
+
         init()
     }
 
 
-
-
     fun init() {
-        lifecycleScope.launch(Dispatchers.Main){
-        //viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-                   val searchRequest = SearchTaskRequest(
-                        requestId = "",
-                        requestStatus = "",
-                        fromLocation = "",
-                        toLocation = "",
-                        fromDate = "",
-                        toDate = ""
-                    )
-        taskSummary(searchRequest)
+        lifecycleScope.launch(Dispatchers.Main) {
+            //viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            val searchRequest = SearchTaskRequest(
+                requestId = "",
+                requestStatus = "",
+                fromLocation = "",
+                toLocation = "",
+                fromDate = "",
+                toDate = ""
+            )
+            taskSummary(searchRequest)
         }
     }
 
 
-
     private fun taskSummary(searchRequest: SearchTaskRequest) {
-        val searchRequest = SearchTaskRequest(
-            requestId = "",
-            requestStatus = "",
-            fromLocation = "",
-            toLocation = "",
-            fromDate = "",
-            toDate = ""
-        )
 
-        SnackbarUtils.showLoading(requireActivity(),"Please wait...")
+        SnackbarUtils.showLoading(requireActivity(), "Please wait...")
         var tabItems = mutableListOf<String>()
         // Use safe coroutine with lifecycleScope.launchWhenStarted
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
@@ -114,9 +114,11 @@ class Tasks :  Fragment {
                     fromDate = searchRequest.fromDate,
                     toDate = searchRequest.toDate,
                     onDataInserted = { result ->
-                        if(result==0){
-                            showCustomToast(requireActivity(),
-                                "Unable to fetch summary data from the server. Loading data from the local database.")
+                        if (result == 0) {
+                            showCustomToast(
+                                requireActivity(),
+                                "Unable to fetch summary data from the server. Loading data from the local database."
+                            )
                         }
                         viewModel.getTaskSummary()
                         viewModel.getTaskSummary.observe(viewLifecycleOwner, Observer { entity ->
@@ -138,7 +140,7 @@ class Tasks :  Fragment {
                             }
 
                             // Set the total task count safely
-                            var total : String = "Total : 0"
+                            var total: String = "Total : 0"
                             if (entity != null) {
                                 total = "Total : " + ((entity.assigned ?: 0) +
                                         (entity.raised ?: 0) +
@@ -147,14 +149,14 @@ class Tasks :  Fragment {
                             }
 
                             view?.findViewById<ComposeView>(R.id.compose_view)?.setContent {
-                                UIScreen(viewModel,tabItems,total)
+                                UIScreen(viewModel, tabItems, total, searchRequest)
                             }
                             //taskGrid(tabItems,"Assigned",0)
                         })
                     }
                 )
-            }else{
-                showCustomToast(requireActivity(),"Token authentication failed. Try again.")
+            } else {
+                showCustomToast(requireActivity(), "Token authentication failed. Try again.")
                 activity?.finish()
             }
         }
@@ -164,78 +166,75 @@ class Tasks :  Fragment {
     }
 
 
+    @SuppressLint("NotConstructor")
+    @Composable
+    fun UIScreen(
+        viewModel: RoomViewModel,
+        tabItems: List<String>,
+        countSummary: String,
+        searchRequest: SearchTaskRequest
+    ) {
+        var selectedTabIndex by remember { mutableStateOf(0) }
+        var filterCount by remember { mutableStateOf("") } // Initial filter count
 
-
-   @SuppressLint("NotConstructor")
-   @Composable
-   fun UIScreen(viewModel : RoomViewModel, tabItems: List<String>,countSummary: String) {
-    var selectedTabIndex by remember { mutableStateOf(0) }
-    Scaffold(
-        topBar = {
-            TopBar(
-                onBackClicked = {
-                    activity?.finish()
-                },
-                onSearchClicked = {
-                   /* val searchRequest = SearchTaskRequest(
-                        requestId = "",
-                        requestStatus = "",
-                        fromLocation = "",
-                        toLocation = "",
-                        fromDate = "",
-                        toDate = ""
-                    )
-                    taskSummary(searchRequest)*/
-                    CustomToastMsg.showCustomToast(requireContext(), "Coming Soon")
-                },
-                onAddClicked = {
-                    CustomToastMsg.showCustomToast(requireContext(), "Coming Soon")
-                    /*val bundle = Bundle()
-                    bundle.putString("requestId",UUID.randomUUID().toString())
-                    val fragment = UpdateScreen()
-                    fragment.arguments = bundle
-                    val transaction = childFragmentManager.beginTransaction()
-                    transaction.add(fragment, "UpdateScreen")
-                    transaction.commitAllowingStateLoss()*/
-                },
-                "Movement Requests",
-                countSummary,
-                "Request +",
-                1
-            )
-        },
-        content = {
-            Column(modifier = Modifier
-                .fillMaxSize()
-                .background(colorResource(id = R.color.color_background))
-                .padding(bottom = 60.dp)) {//remove margin from menu item(menuheight=55+margin=11)
-
-            AddUpdateTabs(
-                    tabItems = tabItems,
-                    selectedTabIndex = mutableStateOf(selectedTabIndex), // Pass the state directly
-                    onTabSelected = { index ->
-                        selectedTabIndex = index // Update the selected index properly
-                    }
+        Scaffold(
+            topBar = {
+                TopBar(
+                    onBackClicked = {
+                        activity?.finish()
+                    },
+                    onSearchClicked = {
+                        val bottomSheet = Search(object : CallbackSearch {
+                            override fun invoke(searchTaskRequest: SearchTaskRequest, count: Int) {
+                                taskSummary(searchTaskRequest)
+                                filterCount = "%02d".format(count)
+                            }
+                        })
+                        bottomSheet.show(childFragmentManager, "myBottomSheet")
+                    },
+                    onAddClicked = {
+                        CustomToastMsg.showCustomToast(requireContext(), "Coming Soon")
+                    },
+                    "Movement Requests",
+                    countSummary,
+                    "Request +",
+                    1,
+                    filterCount = filterCount // Use the dynamic filter count
                 )
+            },
+            content = {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(colorResource(id = R.color.color_background))
+                        .padding(bottom = 60.dp)
+                ) {
+                    AddUpdateTabs(
+                        tabItems = tabItems,
+                        selectedTabIndex = mutableStateOf(selectedTabIndex), // Pass the state directly
+                        onTabSelected = { index ->
+                            selectedTabIndex = index // Update the selected index properly
+                        }
+                    )
 
                     when (selectedTabIndex) {
-                        0 -> myData(viewModel,"Assigned")
-                        1 -> myData(viewModel,"Raised")
-                        2 -> myData(viewModel,"Rejected")
-                        3 -> myData(viewModel,"Completed")
+                        0 -> myData(viewModel, "Assigned", searchRequest = searchRequest)
+                        1 -> myData(viewModel, "Raised", searchRequest = searchRequest)
+                        2 -> myData(viewModel, "Rejected", searchRequest = searchRequest)
+                        3 -> myData(viewModel, "Completed", searchRequest = searchRequest)
                     }
+                }
+            }
+        )
+    }
 
-            }//close coloum
-        }
-    )
-}
 
-   @Composable
-   fun myData(viewModel: RoomViewModel, key: String) {
+    @Composable
+    fun myData(viewModel: RoomViewModel, key: String, searchRequest: SearchTaskRequest) {
         //showProgressBar()
         //SnackbarUtils.showLoading(requireActivity(),"Please wait...")
-       var isLoading by remember { mutableStateOf(false) }
-       // Use a state variable to track the results
+        var isLoading by remember { mutableStateOf(false) }
+        // Use a state variable to track the results
         var results by remember { mutableStateOf(10) }
         val assetRequests by viewModel.iAssetRequest.observeAsState(emptyList())
 
@@ -243,28 +242,30 @@ class Tasks :  Fragment {
         LaunchedEffect(Unit) {
             isLoading = true  // Show loading before API call
             val token = roomRepository.fetchToken()
-           if (token != null) {
+            if (token != null) {
                 viewModel.fetchAndSaveAssetRequestFromApi(
                     token,
                     key,
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
+                    requestId = searchRequest.requestId,
+                    requestStatus = searchRequest.requestStatus,
+                    fromLocation = searchRequest.fromLocation,
+                    toLocation = searchRequest.toLocation,
+                    fromDate = searchRequest.fromDate,
+                    toDate = searchRequest.toDate,
                     onDataInserted = { result ->
                         results = result // Update the state variable
                         if (result == 0) {
-                            showCustomToast(
-                                requireActivity(),
-                                "Unable to fetch movement request data from the server. Loading data from the local database."
-                            )
+                            activity?.let {
+                                showCustomToast(
+                                    it,
+                                    "Unable to fetch movement request data from the server. Loading data from the local database."
+                                )
+                            }
                         }
                     }
                 )
             } else {
-               isLoading = false
+                isLoading = false
                 showCustomToast(requireActivity(), "Token authentication failed. Try again.")
             }
         }
@@ -278,39 +279,40 @@ class Tasks :  Fragment {
             isLoading = false
         }
 
-       // Show the LoadingDialog when `isLoading` is true
-       if (isLoading) {
-           LoadingDialog { isLoading = false }
-       }
+        // Show the LoadingDialog when `isLoading` is true
+        if (isLoading) {
+            LoadingDialog { isLoading = false }
+        }
     }
 
 
-   @Composable
-   fun Grid(items: List<AssetRequests>) {
-       var selectedRequestId by remember { mutableStateOf<String?>(null) }
-       var isLoading by remember { mutableStateOf(false) }
+    @Composable
+    fun Grid(items: List<AssetRequests>) {
+        var selectedRequestId by remember { mutableStateOf<String?>(null) }
+        var isLoading by remember { mutableStateOf(false) }
 
-       // If requestId is selected, call taskDetails() in LaunchedEffect
-       LaunchedEffect(selectedRequestId) {
-           selectedRequestId?.let { requestId ->
-               isLoading = true
-               taskDetails(requestId)  // Call task details logic
-               isLoading = false
-           }
-       }
-    // Check if items list is not empty before rendering LazyColumn
-    var result: HashMap<String, String> = hashMapOf()
-    result = Util.stringToHashMap("" + DefaultLevel.msg()["assetStatus"])
-    if (items.isNotEmpty()) {
-        LazyColumn {
-            items(items) { item ->
-                RequestItemCardView(item,
-                    onClick = {
-                        //if(item.requestStatus == "Pending_for_Sender"
-                        //    || item.requestStatus == "Pending_for_Receiver"){
+        // If requestId is selected, call taskDetails() in LaunchedEffect
+        LaunchedEffect(selectedRequestId) {
+            selectedRequestId?.let { requestId ->
+                isLoading = true
+                taskDetails(requestId)  // Call task details logic
+                isLoading = false
+            }
+        }
+        // Check if items list is not empty before rendering LazyColumn
+        var result: HashMap<String, String> = hashMapOf()
+        result = Util.stringToHashMap("" + DefaultLevel.msg()["assetStatus"])
+        if (items.isNotEmpty()) {
+            LazyColumn {
+                items(items) { item ->
+                    RequestItemCardView(
+                        item,
+                        onClick = {
+                            //if(item.requestStatus == "Pending_for_Sender"
+                            //    || item.requestStatus == "Pending_for_Receiver"){
                             selectedRequestId = item.requestId  // Trigger LaunchedEffect
                             //taskDetails(item.requestId)
-                       // }/*else{
+                            // }/*else{
                             /*val bundle = Bundle()
                             bundle.putString("requestId",item.requestId)
                             bundle.putString("mode","AllDetails")
@@ -320,22 +322,23 @@ class Tasks :  Fragment {
                             transaction.add(fragment, "AddDetailsScreen")
                             transaction.commitAllowingStateLoss()*/
 
-                       // }*/
+                            // }*/
 
-                    }, result)
+                        }, result
+                    )
+                }
+            }
+            // Show the LoadingDialog when `isLoading` is true
+            if (isLoading) {
+                LoadingDialog { isLoading = false }
             }
         }
-        // Show the LoadingDialog when `isLoading` is true
-        if (isLoading) {
-            LoadingDialog { isLoading = false }
-        }
     }
-}
 
-    private fun taskDetails(requestId : String) {
+    private fun taskDetails(requestId: String) {
         if (isAdded && view != null) {
             lifecycleScope.launch(Dispatchers.Main) {
-            //lifecycleScope.launchWhenStarted{
+                //lifecycleScope.launchWhenStarted{
                 val token = roomRepository.fetchToken()
                 //val token = "dasdasdas"
                 if (token != null) {
@@ -352,7 +355,7 @@ class Tasks :  Fragment {
                                 }
 
                                 val bundle = Bundle()
-                                bundle.putString("requestId",requestId)
+                                bundle.putString("requestId", requestId)
                                 val fragment = DetailsScreen()
                                 fragment.arguments = bundle
                                 val transaction = childFragmentManager.beginTransaction()

@@ -105,6 +105,11 @@ interface IApiRequest {
         @Body body: TaskUploadPayload
     ): Response<TaskAddUpdateApiRespose>
 
+    @GET("rest-api/v1/site/1/sitedetail/list")
+    fun fetchSiteDetails(
+        @Query("siteId") siteId: String
+    ): Call<SiteDetailResponse>
+
 }
 
 

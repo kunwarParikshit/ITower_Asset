@@ -3,13 +3,14 @@ package com.isl.assetManagement.requests
 import android.os.Parcel
 import android.os.Parcelable
 
+
 data class SearchTaskRequest(
-    val requestId: String,
-    val requestStatus: String,
-    val fromLocation: String,
-    val toLocation: String,
-    val fromDate: String,
-    val toDate: String
+    val requestId: String, // user will enter manually
+    val requestStatus: String, //hardcoded strings for drop downs, no manual text
+    val fromLocation: String,  // auto search site api location can not be same, atleast 4 chars
+    val toLocation: String, // auto get only the one from api, not manual in search
+    val fromDate: String,  // date picker 17/02/2025
+    val toDate: String  // date picker from<=to
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         requestId = parcel.readString() ?: "",
