@@ -3,6 +3,7 @@ package com.isl.assetManagement.jetpackcompose
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -29,7 +30,9 @@ fun TopBar(onBackClicked: () -> Unit,
            title: String,
            subTitle: String,
            addButtonTitle : String,
-           mode : Int) {
+           mode : Int,
+           filterCount:String?=null
+           ) {
     TopAppBar(backgroundColor = colorResource(id = R.color.white),
         modifier = Modifier
             .fillMaxWidth()
@@ -63,6 +66,25 @@ fun TopBar(onBackClicked: () -> Unit,
                     tint = colorResource(id = R.color.search),
                     modifier = Modifier.clickable { onSearchClicked() }
                 )
+
+                if (filterCount != null) {
+                    if (filterCount.isNotEmpty()) {
+                        Box(
+                            modifier = Modifier
+                                .offset(x = -12.dp, y = (-10).dp) // Adjust position
+                                .size(18.dp) // Circle size
+                                .background(Color.Red, shape = CircleShape),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = filterCount.toString(),
+                                color = Color.White,
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
             }
 
             Row(
@@ -149,4 +171,5 @@ fun TopBar(onBackClicked: () -> Unit,
             }
         }
     }
+
 }

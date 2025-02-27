@@ -1,24 +1,42 @@
 @file:OptIn(ExperimentalMaterialApi::class)
-import android.annotation.SuppressLint
-import android.app.DatePickerDialog
+
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Divider
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -26,34 +44,28 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.isl.assetManagement.dataViewModel.RoomViewModel
+import com.isl.assetManagement.jetpackcompose.JetpackUIs.Common.ComposeDatePicker
+import com.isl.assetManagement.jetpackcompose.JetpackUIs.Common.ComposeSpinner
+import com.isl.assetManagement.jetpackcompose.JetpackUIs.Common.ComposeTextBox
+import com.isl.assetManagement.jetpackcompose.JetpackUIs.Common.DynamicComposeSpinner
 import com.isl.assetManagement.requests.SearchTaskRequest
+import com.isl.assetManagement.room.repository.RoomRepository
+import com.isl.assetManagement.utils.CustomToastMsg
+import com.isl.assetManagement.utils.DataViewModelFactory
+import com.isl.assetManagement.utils.Util.Companion.isFirstDateGreater
+import com.isl.itower.MyApp
 import infozech.itower.R
-import java.util.*
-import androidx.compose.foundation.*
-import androidx.compose.foundation.lazy.items
-import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.unit.Dp
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 
-class Search : BottomSheetDialogFragment() {
+private lateinit var viewModel: RoomViewModel
+private lateinit var roomRepository: RoomRepository
 
-    interface SearchListener {
-        fun onSearchRequest(searchRequest: SearchTaskRequest)
-    }
-
-    private var searchListener: SearchListener? = null
-
-    fun setSearchListener(listener: SearchListener) {
-        searchListener = listener
-    }
+class Search(private val callbackSearch: CallbackSearch) : BottomSheetDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = BottomSheetDialog(requireContext(), theme)
@@ -63,121 +75,119 @@ class Search : BottomSheetDialogFragment() {
                 bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
 
             bottomSheet?.apply {
-                setBackgroundColor(android.graphics.Color.TRANSPARENT) // Set transparent background
-
+                setBackgroundColor(android.graphics.Color.TRANSPARENT)
                 val behavior = BottomSheetBehavior.from(this)
-
-                // Set the height to 70% of the screen size
                 val seventyPercentHeight = (resources.displayMetrics.heightPixels * 0.85).toInt()
                 behavior.peekHeight = seventyPercentHeight
                 behavior.isFitToContents = false
                 behavior.state = BottomSheetBehavior.STATE_COLLAPSED
                 behavior.isDraggable = false
-                // Set the maximum height to 90% screen height
                 layoutParams.height = seventyPercentHeight
                 layoutParams = layoutParams
-
             }
         }
-        dialog.setContentView(
-            ComposeView(requireContext()).apply {
-                setContent {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clip(RoundedCornerShape(topStart = 16.dp,topEnd = 16.dp,
-                                bottomStart = 0.dp,bottomEnd = 0.dp))
-                            .background(Color.White) // Apply a background color
-                    ) {
-                        SearchScreen(
-                            onSearch = { searchRequest ->
-                                searchListener?.onSearchRequest(searchRequest)
-                                dismiss()
-                            },
-                            onReset = { dismiss() },
-                            onClose = { dismiss() }  // Handle close action
-
+        dialog.setContentView(ComposeView(requireContext()).apply {
+            setContent {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clip(
+                            RoundedCornerShape(
+                                topStart = 16.dp,
+                                topEnd = 16.dp,
+                                bottomStart = 0.dp,
+                                bottomEnd = 0.dp
+                            )
                         )
-                    }
+                        .background(Color.White)
+                ) {
+                    SearchScreen(
+                        onSearch = { searchRequest, count ->
+                            showResults(
+                                fragment = this@Search,
+                                searchRequest,
+                                callbackSearch,
+                                count
+                            )
+                            dismiss()
+                        },
+                        onReset = { dismiss() },
+                        onClose = { dismiss() }
+                    )
                 }
             }
-        )
+        })
+        roomRepository = RoomRepository(MyApp.getAssetDatabase().dataDao())
+
+        viewModel = ViewModelProvider(
+            this, DataViewModelFactory(roomRepository)
+        ).get(RoomViewModel::class.java)
+
         return dialog
     }
-
-
 }
 
-@OptIn(ExperimentalMaterialApi::class)
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun SearchScreen(
-    onSearch: (SearchTaskRequest) -> Unit,
+    onSearch: (SearchTaskRequest, Int) -> Unit,
     onReset: () -> Unit,
     onClose: () -> Unit
 ) {
-
+    var fromLocation by remember { mutableStateOf("") }
+    var toLocation by remember { mutableStateOf("") }
     var requestId by remember { mutableStateOf("") }
+    var requestStatus by remember { mutableStateOf("") }
+    var fromDate by remember { mutableStateOf("") }
+    var toDate by remember { mutableStateOf("") }
 
-
-    // State to manage dropdown expanded status
-    var expanded by remember { mutableStateOf(false) }
-
-    // State to hold the selected value
-    var selectedOption by remember { mutableStateOf("Select") }
-
-    // List of options
-    val options = listOf("Option 1", "Option 2", "Option 3","Option 1", "Option 2", "Option 3",
-        "Option 1", "Option 2", "Option 3","Option 1", "Option 2", "Option 3","Option 1", "Option 2", "Option 3")
-    // Define common suggestions list
+    val options = listOf("Option 1", "Option 2", "Option 3")
     val allSuggestions = listOf(
-        "Apple", "Banana", "Orange", "Peach", "Pineapple",
-        "Strawberry", "Grapes", "Mango", "Watermelon", "Blueberry",
-        "Apple1", "Apple2", "Apple3", "Apple4", "Apple5", "Apple6", "Apple7"
+        "Apple", "Banana", "Orange", "Peach", "Pineapple", "Strawberry",
+        "Grapes", "Mango", "Watermelon", "Blueberry", "Apple1", "Apple2",
+        "Apple3", "Apple4", "Apple5", "Apple6", "Apple7"
     )
-
-    // Separate state for 'From' and 'To' location queries
     var fromLocationQuery by remember { mutableStateOf("") }
     var toLocationQuery by remember { mutableStateOf("") }
-
-    // State for filtered suggestions (can be shared)
     var fromLocationFilteredSuggestions by remember { mutableStateOf<List<String>>(emptyList()) }
     var toLocationFilteredSuggestions by remember { mutableStateOf<List<String>>(emptyList()) }
 
-    // Filter suggestions for 'From Location'
     LaunchedEffect(fromLocationQuery) {
         fromLocationFilteredSuggestions = if (fromLocationQuery.length >= 3) {
             allSuggestions.filter { it.contains(fromLocationQuery, ignoreCase = true) }
         } else {
-            emptyList() // Clear suggestions if input is less than 3 characters
+            emptyList()
         }
     }
 
-    // Filter suggestions for 'To Location'
     LaunchedEffect(toLocationQuery) {
         toLocationFilteredSuggestions = if (toLocationQuery.length >= 3) {
             allSuggestions.filter { it.contains(toLocationQuery, ignoreCase = true) }
         } else {
-            emptyList() // Clear suggestions if input is less than 3 characters
+            emptyList()
         }
     }
+
+    val selectedCount = listOf(
+        fromLocation,
+        toLocation,
+        requestStatus,
+        requestId,
+        fromDate,
+        toDate
+    ).count { it.isNotEmpty() }
 
     Scaffold(
         topBar = {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(
-                        RoundedCornerShape(
-                            topStart = 16.dp
-                        )
-                    ) // Rounded corners for the header
+                    .clip(RoundedCornerShape(topStart = 16.dp))
                     .background(colorResource(id = R.color.white))
                     .padding(start = 20.dp, end = 12.dp, top = 17.dp)
                     .shadow(
-                        elevation = 32.dp, // Adjust elevation for blur intensity (equivalent to blur effect)
+                        elevation = 32.dp,
                         shape = RoundedCornerShape(topEnd = 16.dp),
-                        ambientColor = Color.Black.copy(alpha = 0.15f), // Custom shadow color
+                        ambientColor = Color.Black.copy(alpha = 0.15f),
                         spotColor = Color.Black.copy(alpha = 0.15f)
                     )
                     .height(50.dp),
@@ -206,23 +216,21 @@ fun SearchScreen(
                     tint = colorResource(id = R.color.from_to_color),
                     modifier = Modifier
                         .align(Alignment.CenterEnd)
-                        .clickable { onClose() } // Invoke close action when clicked
-
+                        .clickable { onClose() }
                 )
             }
             Divider(
-                color = Color.Gray.copy(alpha = 0.1f), // Subtle shadow line effect
+                color = Color.Gray.copy(alpha = 0.1f),
                 thickness = 1.dp
             )
         },
         bottomBar = {
-
             Surface(
-                elevation = 4.dp, // Adds elevation for shadow effect
+                elevation = 4.dp,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Divider(
-                    color = Color.Gray.copy(alpha = 0.1f), // Subtle shadow line effect
+                    color = Color.Gray.copy(alpha = 0.1f),
                     thickness = 1.dp
                 )
                 Box(
@@ -230,12 +238,11 @@ fun SearchScreen(
                         .fillMaxWidth()
                         .background(colorResource(id = R.color.white))
                         .height(90.dp)
-                        .padding(horizontal = 0.dp) // Padding around the buttons
-
+                        .padding(horizontal = 0.dp)
                         .shadow(
-                            elevation = 32.dp, // Adjust elevation for blur intensity (equivalent to blur effect)
+                            elevation = 32.dp,
                             shape = RoundedCornerShape(topEnd = 16.dp),
-                            ambientColor = Color.Black.copy(alpha = 0.15f), // Custom shadow color
+                            ambientColor = Color.Black.copy(alpha = 0.15f),
                             spotColor = Color.Black.copy(alpha = 0.15f)
                         )
                 ) {
@@ -243,65 +250,54 @@ fun SearchScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .align(Alignment.BottomCenter)
-                            .padding(
-                                start = 20.dp, // Left margin
-                                end = 20.dp, // Right margin
-                                top = 10.dp, // Top margin
-                                bottom = 25.dp // Bottom margin
-                            )// Fixed at the bottom
-//                        .horizontalArrangement(Arrangement.SpaceBetween)
+                            .padding(start = 20.dp, end = 20.dp, top = 10.dp, bottom = 25.dp)
                     ) {
-//                    Button(
-//                        onClick = { onReset() },
-//                        modifier = Modifier.weight(1f) // Make "Reject" button take equal width
-//                    ) {
-//                        Text("Reject")
-//                    }
                         OutlinedButton(
                             onClick = { onReset() },
-                            modifier = Modifier.weight(1f).height(42.dp),
+                            modifier = Modifier
+                                .weight(1f)
+                                .height(42.dp),
                             colors = ButtonDefaults.outlinedButtonColors(
-                                contentColor = colorResource(id = R.color.btn) // Text color for the outlined button
+                                contentColor = colorResource(id = R.color.btn)
                             ),
-                            border = BorderStroke(
-                                1.dp,
-                                colorResource(id = R.color.btn)
-                            ) // Outline color for the button
+                            border = BorderStroke(1.dp, colorResource(id = R.color.btn))
                         ) {
                             Text("Reset", color = colorResource(id = R.color.btn))
                         }
-
-                        Spacer(modifier = Modifier.width(24.dp)) // Space between buttons
+                        Spacer(modifier = Modifier.width(24.dp))
                         Button(
                             onClick = {
                                 val searchRequest = SearchTaskRequest(
-                                    requestId = "requestId",
-                                    fromLocation = "fromLocation",
-                                    toLocation = "toLocation",
-                                    requestStatus = "requestStatus",
-                                    fromDate = "",
-                                    toDate = ""
+                                    requestId = requestId,
+                                    fromLocation = fromLocation,
+                                    toLocation = toLocation,
+                                    requestStatus = requestStatus,
+                                    fromDate = fromDate,
+                                    toDate = toDate
                                 )
-                                onSearch(searchRequest)
+                                onSearch(searchRequest, selectedCount)
                             },
-                            modifier = Modifier.weight(1f).height(42.dp),
+                            modifier = Modifier
+                                .weight(1f)
+                                .height(42.dp),
                             colors = ButtonDefaults.buttonColors(
-                                backgroundColor = colorResource(id = R.color.btn), // Button background color
-                                contentColor = Color.White // Text color for the button
-                            )// Make "Submit" button take equal width
+                                backgroundColor = colorResource(id = R.color.btn),
+                                contentColor = Color.White
+                            )
                         ) {
-                            Text("Update")
+                            Text(
+                                text = if (selectedCount > 0) "Show Result ($selectedCount)" else "Show Results"
+                            )
                         }
                     }
                 }
-
             }
         },
-        content = { paddingValues -> // Respect bottom bar height
+        content = { paddingValues ->
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues) // Apply scaffold padding to prevent overlap
+                    .padding(paddingValues)
             ) {
                 LazyColumn(
                     modifier = Modifier
@@ -309,546 +305,89 @@ fun SearchScreen(
                         .padding(start = 20.dp, end = 20.dp, top = 23.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-
-                    item () {
-                        SearchDDL(
-                            caption = "From Location",
-                            query = fromLocationQuery,
-                            onQueryChange = { newQuery -> fromLocationQuery = newQuery }, // Update the query
-                            filteredSuggestions = fromLocationFilteredSuggestions,
-                            onSuggestionSelected = { selectedSuggestion ->
-                            fromLocationQuery = selectedSuggestion // Set the query to the selected suggestion
-
-                            }
+                    item {
+                        DynamicComposeSpinner(
+                            labelName = "From Location",
+                            selectedOption = fromLocation,
+                            onOptionSelected = { newSelection -> fromLocation = newSelection },
+                            onTextChanged = { fromLocation = "" },
+                            fetchOptions = { query -> viewModel.getSites(query) },
+                            dynamicDataAfter = 3
                         )
                     }
-
-                    item () {
-                        SearchDDL(
-                            caption = "To Location",
-                            query = toLocationQuery,
-                            onQueryChange = { newQuery -> toLocationQuery = newQuery }, // Update the query
-                            filteredSuggestions = toLocationFilteredSuggestions,
-                            onSuggestionSelected = { selectedSuggestion ->
-                            toLocationQuery = selectedSuggestion // Set the query to the selected suggestion
-
-                            }
+                    item {
+                        DynamicComposeSpinner(
+                            labelName = "To Location",
+                            selectedOption = toLocation,
+                            onOptionSelected = { newSelection -> toLocation = newSelection },
+                            onTextChanged = { toLocation = "" },
+                            fetchOptions = { query -> viewModel.getSites(query) },
+                            dynamicDataAfter = 3
                         )
                     }
-
-                    item () {
-                        // Input Fields
-                        Text(
-                            text = "Request Id",
-                            style = TextStyle(
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Normal,
-                                color = colorResource(id = R.color.label)
-                            ),
-                            modifier = Modifier.padding(top = 10.dp, bottom = 2.dp)
+                    item {
+                        ComposeTextBox(
+                            labelName = "Request Id",
+                            text = null,
+                            onTextChange = { newText -> requestId = newText },
+                            isEditable = true
                         )
-
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(47.dp) // Set fixed height
-                                .background(
-                                    color = colorResource(id = R.color.input_box),
-                                    shape = RoundedCornerShape(4.dp)
-                                )
-                                .border(
-                                    width = 1.dp,
-                                    color = colorResource(id = R.color.input_box_border),
-                                    shape = RoundedCornerShape(4.dp)
-                                )
-
-                        ) {
-                            BasicTextField(
-                                value = requestId,
-                                onValueChange = { requestId = it },
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 12.dp, start = 12.dp),
-                                textStyle = TextStyle(
-                                    color = colorResource(id = R.color.input_box_text_color),
-                                    fontSize = 14.sp,
-                                    fontWeight = FontWeight.Normal
-                                ),
-                                singleLine = true, // Ensure single-line input*/
-                                cursorBrush = SolidColor(colorResource(id = R.color.input_box_text_color)) // Sets the cursor color
-                            )
-                        }
                     }
-
-                    item () {
-                        Text(
-                            text = "Request Status",
-                            style = TextStyle(
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Normal,
-                                color = colorResource(id = R.color.label)
-                            ),
-                            modifier = Modifier.padding(top = 10.dp, bottom = 2.dp)
+                    item {
+                        ComposeSpinner(
+                            labelName = "Request Status",
+                            options = options,
+                            selectedOption = requestStatus,
+                            onOptionSelected = { newSelection -> requestStatus = newSelection },
+                            isEditable = false
                         )
-
-
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(47.dp) // Set fixed height
-                                .background(
-                                    color = colorResource(id = R.color.input_box),
-                                    shape = RoundedCornerShape(4.dp)
-                                )
-                                .border(
-                                    width = 1.dp,
-                                    color = colorResource(id = R.color.input_box_border),
-                                    shape = RoundedCornerShape(4.dp)
-                                )
-
-                        ) {
-                            // Spinner (Dropdown)
-                            ExposedDropdownMenuBox(
-                                expanded = expanded,
-                                onExpandedChange = { expanded = it },
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(47.dp) // Set fixed height
-                                    .background(
-                                        color = colorResource(id = R.color.input_box), // Background color
-                                        shape = RoundedCornerShape(4.dp) // Rounded corners
-                                    )
-                                    .border(
-                                        width = 1.dp,
-                                        color = colorResource(id = R.color.input_box_border),
-                                        shape = RoundedCornerShape(4.dp) // Border with rounded corners
-                                    )
-                                    .padding(0.dp) // Remove padding inside the box
-
-                            ) {
-                                // Text showing the selected value
-                                BasicTextField(
-                                    value = selectedOption,
-                                    onValueChange = { selectedOption = it },
-                                    readOnly = true, // Make the TextField read-only to show the selected item
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(top = 12.dp, start = 12.dp),
-
-                                    textStyle = TextStyle(
-                                        color = colorResource(id = R.color.input_box_text_color),
-                                        fontSize = 14.sp,
-                                        fontWeight = FontWeight.Normal
-                                    )
-                                )
-
-                                // ExposedDropdownMenu to display the list of options with Radio Buttons
-                                ExposedDropdownMenu(
-                                    expanded = expanded,
-                                    onDismissRequest = { expanded = false }
-                                ) {
-                                    options.forEach { option ->
-                                        DropdownMenuItem(
-                                            onClick = {
-                                                selectedOption = option // Update selected value
-                                                expanded =
-                                                    false // Close the dropdown after selection
-                                            },
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .padding(top = 0.dp), // Ensures the item spans full width
-                                            contentPadding = PaddingValues(0.dp) // Removes default padding
-                                        ) {
-                                            Row(
-                                                verticalAlignment = Alignment.CenterVertically,
-                                                modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .padding(start = 12.dp)
-                                            ) {
-                                                CustomRadioButton(
-                                                    selected = option == selectedOption,
-                                                    onClick = {
-                                                        selectedOption = option
-                                                        expanded = false
-                                                    },
-                                                    selectedColor = colorResource(id = R.color.input_box_text_color), // Customize color
-                                                    unselectedColor = colorResource(id = R.color.input_box_border),
-                                                    size = 20.dp // Customize size
-                                                )
-                                                Spacer(modifier = Modifier.width(0.dp))
-                                                BasicText(
-                                                    text = option,
-                                                    /*modifier = Modifier.fillMaxWidth()
-                                                    .padding(top=12.dp, start = 12.dp)
-                                                    .height(47.dp),*/
-                                                    modifier = Modifier
-                                                        .align(Alignment.CenterVertically)
-                                                        .padding(start = 12.dp),
-                                                    style = TextStyle(
-                                                        color = colorResource(id = R.color.input_box_text_color),
-                                                        fontSize = 14.sp,
-                                                        fontWeight = FontWeight.Normal
-                                                    )
-                                                )
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            // Drop-down Icon
-                            Icon(
-                                painter = painterResource(id = R.drawable.keyboard_arrow_down), // Replace with your drawable resource
-                                contentDescription = "Drop-down",
-                                tint = colorResource(id = R.color.tint_ddl), // Optional tint
-                                modifier = Modifier
-                                    .align(Alignment.CenterEnd) // Align to the right side
-                                    .padding(end = 8.dp) // Adjust padding as needed
-                                    .size(24.dp) // Adjust icon size
-                            )
-                        }
                     }
-
-                    item () {
-                        // Input Fields
-                        Text(
-                            text = "From Date",
-                            style = TextStyle(
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Normal,
-                                color = colorResource(id = R.color.label)
-                            ),
-                            modifier = Modifier.padding(top = 10.dp, bottom = 2.dp)
+                    item {
+                        ComposeDatePicker(
+                            labelName = "From Date",
+                            selectedDate = fromDate,
+                            onDateSelected = { newDate -> fromDate = newDate }
                         )
-                        FromDatePicker()
-
                     }
-
-                    item () {
-                        // Input Fields
-                        Text(
-                            text = "To Date",
-                            style = TextStyle(
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Normal,
-                                color = colorResource(id = R.color.label)
-                            ),
-                            modifier = Modifier.padding(top = 10.dp, bottom = 2.dp)
+                    item {
+                        ComposeDatePicker(
+                            labelName = "To Date",
+                            selectedDate = toDate,
+                            onDateSelected = { newDate -> toDate = newDate }
                         )
-                        ToDatePicker()
                     }
-
-                }//end of main column
-            }//end of box first
-        } //end of Scaffold
-    ) //end of Scaffold
-} //end of function
-
-@Composable
-fun CustomRadioButton(
-    selected: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    selectedColor: Color = MaterialTheme.colors.primary,
-    unselectedColor: Color = Color.Gray,
-    size: Dp = 20.dp,
-    innerCircleSizeFraction: Float = 0.6f
-)
-{
-    Box(
-        modifier = modifier
-            .size(size)
-            .clickable(onClick = onClick),
-        contentAlignment = Alignment.Center
-    ) {
-        // Outer circle
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            drawCircle(
-                color = if (selected) selectedColor else unselectedColor,
-                style = Stroke(width = size.toPx() / 10)
-            )
-        }
-
-        // Inner circle (only visible when selected)
-        if (selected) {
-            Canvas(modifier = Modifier.fillMaxSize()) {
-                drawCircle(
-                    color = selectedColor,
-                    radius = (size.toPx() * innerCircleSizeFraction) / 2
-                )
+                }
             }
         }
-    }
+    )
 }
 
-
-@OptIn(ExperimentalComposeUiApi::class)
-@Composable
-fun SearchDDL(
-    caption: String,
-    query: String,
-    onQueryChange: (String) -> Unit,
-    filteredSuggestions: List<String>,
-    onSuggestionSelected: (String) -> Unit
+private fun showResults(
+    fragment: Fragment,
+    searchRequest: SearchTaskRequest,
+    callbackSearch: CallbackSearch,
+    filterCount: Int
 ) {
-    val focusManager = LocalFocusManager.current
-    val keyboardController = LocalSoftwareKeyboardController.current
-    var isFocused by remember { mutableStateOf(false) }
-    var showSuggestions by remember { mutableStateOf(false) }
+    val context = fragment.context ?: return
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-    ) {
-        Text(
-            text = caption,
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Normal,
-                color = colorResource(id = R.color.label),
-            ),
-            modifier = Modifier.padding(top = 10.dp,bottom = 8.dp)
+    when {
+        searchRequest.fromLocation.isNotEmpty() && searchRequest.fromLocation == searchRequest.toLocation -> CustomToastMsg.showCustomToast(
+            context, "From Location and To Location cannot be the same!"
         )
 
+        isFirstDateGreater(
+            searchRequest.fromDate,
+            searchRequest.toDate
+        ) -> CustomToastMsg.showCustomToast(context, "From Date cannot be greater than To Date!")
 
-        // Input Box with Suggestions
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Column {
-
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(47.dp) // Set fixed height
-                        .background(
-                            color = colorResource(id = R.color.input_box),
-                            shape = RoundedCornerShape(4.dp)
-                        )
-                        .border(
-                            width = 1.dp,
-                            color = colorResource(id = R.color.input_box_border),
-                            shape = RoundedCornerShape(4.dp)
-                        )
-
-                ) {
-
-                    // Input Field
-                    BasicTextField(
-                        value = query,
-                        onValueChange = { newValue ->
-                            onQueryChange(newValue)
-                            showSuggestions = newValue.length >= 3 // Show suggestions for 3+ chars
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 12.dp, start = 12.dp)
-                            .onFocusChanged { focusState ->
-                                isFocused = focusState.isFocused
-                                showSuggestions = focusState.isFocused && query.length >= 4
-                            },
-                        textStyle = TextStyle(
-                            color = colorResource(id = R.color.input_box_text_color),
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.Normal
-                        ),
-                        singleLine = true,
-                        cursorBrush = SolidColor(colorResource(id = R.color.input_box_text_color))
-                    )
-
-                    // Drop-down Icon
-                    Icon(
-                        painter = painterResource(id = R.drawable.keyboard_arrow_down), // Replace with your drawable resource
-                        contentDescription = "Drop-down",
-                        tint = colorResource(id = R.color.tint_ddl), // Optional tint
-                        modifier = Modifier
-                            .align(Alignment.CenterEnd) // Align to the right side
-                            .padding(end = 8.dp) // Adjust padding as needed
-                            .size(24.dp) // Adjust icon size
-                    )
-                }
-
-                // Suggestions List
-                if (showSuggestions && filteredSuggestions.isNotEmpty()) {
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(
-                                color = colorResource(id = R.color.white),
-                                shape = RoundedCornerShape(4.dp)
-                            )
-                            .border(
-                                width = 1.dp,
-                                color = colorResource(id = R.color.input_box_border),
-                                shape = RoundedCornerShape(4.dp)
-                            )
-                            .heightIn(max = 180.dp) // Limit the height of the dropdown
-                    ) {
-                        items(filteredSuggestions) { suggestion ->
-                            Text(
-                                text = suggestion,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        onSuggestionSelected(suggestion)
-                                        focusManager.clearFocus()
-                                        keyboardController?.hide()
-                                        showSuggestions = false
-                                    }
-                                    .padding(12.dp),
-                                style = TextStyle(
-                                    color = colorResource(id = R.color.input_box_text_color),
-                                    fontSize = 14.sp
-                                )
-                            )
-                        }
-                    }
-                }
-            }
+        else -> {
+            callbackSearch(searchRequest, filterCount)
+            (fragment as? BottomSheetDialogFragment)?.dismiss()
         }
     }
 }
 
-@Composable
-fun FromDatePicker() {
-    // State to hold the selected date
-    val context = LocalContext.current
-    val calendar = Calendar.getInstance()
-    val year = calendar.get(Calendar.YEAR)
-    val month = calendar.get(Calendar.MONTH)
-    val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-    var selectedDate by remember { mutableStateOf("") }
-
-    // Show DatePickerDialog with custom theme
-    val datePickerDialog = DatePickerDialog(
-        context,
-        R.style.DatePickerDialogTheme, // Optional custom theme for better visibility
-        { _, selectedYear, selectedMonth, selectedDayOfMonth ->
-            selectedDate = "$selectedDayOfMonth/${selectedMonth + 1}/$selectedYear"
-        },
-        year,
-        month,
-        day
-    )
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(47.dp) // Set fixed height
-            .background(
-                color = colorResource(id = R.color.input_box),
-                shape = RoundedCornerShape(4.dp)
-            )
-            .border(
-                width = 1.dp,
-                color = colorResource(id = R.color.input_box_border),
-                shape = RoundedCornerShape(4.dp)
-            )
-
-    ) {
-        Text(
-            text = if (selectedDate.isEmpty()) "" else selectedDate,
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Normal,
-                color =  colorResource(id = R.color.input_box_text_color),
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(47.dp)
-                .padding(top = 12.dp, start = 12.dp)
-                .clickable { datePickerDialog.show() }
-        )
-
-        // calender Icon
-        Icon(
-            painter = painterResource(id = R.drawable.icon_calender), // Replace with your drawable resource
-            contentDescription = "Drop-down",
-            tint = colorResource(id = R.color.tint_calender), // Optional tint
-            modifier = Modifier
-                .align(Alignment.CenterEnd) // Align to the right side
-                .padding(end = 8.dp) // Adjust padding as needed
-                .size(16.dp) // Adjust icon size
-        )
-
-    }
-
-
-}
-
-@Composable
-fun ToDatePicker() {
-    // State to hold the selected date
-    val context = LocalContext.current
-    val calendar = Calendar.getInstance()
-    val year = calendar.get(Calendar.YEAR)
-    val month = calendar.get(Calendar.MONTH)
-    val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-    var selectedDate by remember { mutableStateOf("") }
-
-    // Show DatePickerDialog with custom theme
-    val datePickerDialog = DatePickerDialog(
-        context,
-        R.style.DatePickerDialogTheme, // Optional custom theme for better visibility
-        { _, selectedYear, selectedMonth, selectedDayOfMonth ->
-            selectedDate = "$selectedDayOfMonth/${selectedMonth + 1}/$selectedYear"
-        },
-        year,
-        month,
-        day
-    )
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(47.dp) // Set fixed height
-            .background(
-                color = colorResource(id = R.color.input_box),
-                shape = RoundedCornerShape(4.dp)
-            )
-            .border(
-                width = 1.dp,
-                color = colorResource(id = R.color.input_box_border),
-                shape = RoundedCornerShape(4.dp)
-            )
-
-    ) {
-        Text(
-            text = if (selectedDate.isEmpty()) "" else selectedDate,
-            style = TextStyle(
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Normal,
-                color =  colorResource(id = R.color.input_box_text_color),
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(47.dp)
-                .padding(top = 12.dp, start = 12.dp)
-                .clickable { datePickerDialog.show() }
-        )
-
-        // calender Icon
-        Icon(
-            painter = painterResource(id = R.drawable.icon_calender), // Replace with your drawable resource
-            contentDescription = "Drop-down",
-            tint = colorResource(id = R.color.tint_calender), // Optional tint
-            modifier = Modifier
-                .align(Alignment.CenterEnd) // Align to the right side
-                .padding(end = 8.dp) // Adjust padding as needed
-                .size(16.dp) // Adjust icon size
-        )
-
-    }
-}
-
-
-
-
-
-
+typealias CallbackSearch = (SearchTaskRequest, Int) -> Unit
 
 
 
